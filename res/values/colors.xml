@@ -4,5 +4,8 @@
     <color name="heading_text_color">#FFFFFF</color>
     <color name="hint_text_color">#BBFFFF</color>
     <color name="blue_background_color">#0095CD</color>
+    <color name="white_background_color">#FFFFFF</color>
+    <color name="signup_text_color">#00AEEC</color>
+    <color name="signup_hint_color">#778899</color>
     
 </resources>

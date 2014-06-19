@@ -5,7 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="items_horizontal_margin">8dp</dimen>
     <dimen name="items_vertical_margin">8dp</dimen>
-    <dimen name="items_vertical_padding">16dp</dimen>
-    <dimen name="items_horizontal_padding">16dp</dimen>
+    <dimen name="items_vertical_padding">8dp</dimen>
+    <dimen name="items_horizontal_padding">8dp</dimen>
 
 </resources>
