@@ -462,6 +462,7 @@ int id showTitle 0x7f050006
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
+int id textView1 0x7f050048
 int id textview_createaccount 0x7f050041
 int id textview_version 0x7f050047
 int id title 0x7f05002b

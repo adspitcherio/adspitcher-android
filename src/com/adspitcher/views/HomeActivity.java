@@ -1,17 +1,15 @@
 package com.adspitcher.views;
 
-import com.adspitcher.R;
-import com.adspitcher.adapters.TabsPagerAdapter;
-
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
+import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.Menu;
+
+import com.adspitcher.R;
+import com.adspitcher.adapters.TabsPagerAdapter;
 
 public class HomeActivity extends FragmentActivity  implements ActionBar.TabListener{
 	

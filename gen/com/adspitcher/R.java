@@ -1220,6 +1220,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
+        public static final int textView1=0x7f050048;
         public static final int textview_createaccount=0x7f050041;
         public static final int textview_version=0x7f050047;
         public static final int title=0x7f05002b;
