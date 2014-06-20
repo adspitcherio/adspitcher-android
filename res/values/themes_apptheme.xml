@@ -42,6 +42,9 @@
     <item name="android:listViewWhiteStyle">@style/ListViewAppTheme.White</item>
 
     <item name="android:spinnerItemStyle">@style/SpinnerItemAppTheme</item>
+    
+    <!-- Support library compatibility -->
+    <item name="actionBarStyle">@style/Theme.Adp</item>
 
   </style>
 
