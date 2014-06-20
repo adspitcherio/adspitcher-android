@@ -1252,7 +1252,8 @@ containing a value of this type.
         public static final int ActionBar_Solid_Ab=0x7f0b0086;
         public static final int ActionBar_Transparent_Ab=0x7f0b0087;
         public static final int ActionBarTabStyle_Ab=0x7f0b008a;
-        public static final int ActionButton_CloseMode_Ab=0x7f0b008d;
+        public static final int ActionBarTabTextStyle_Ab=0x7f0b008b;
+        public static final int ActionButton_CloseMode_Ab=0x7f0b008e;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -1280,9 +1281,10 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f0b0084;
         public static final int DropDownListView_Ab=0x7f0b0089;
-        public static final int DropDownNav_Ab=0x7f0b008b;
+        public static final int DropDownNav_Ab=0x7f0b008c;
+        public static final int OverFlow=0x7f0b0090;
         public static final int PopupMenu_Ab=0x7f0b0088;
-        public static final int ProgressBar_Ab=0x7f0b008c;
+        public static final int ProgressBar_Ab=0x7f0b008d;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;
@@ -1337,7 +1339,7 @@ containing a value of this type.
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Ab_Widget=0x7f0b008e;
+        public static final int Theme_Ab_Widget=0x7f0b008f;
         /**  Themes in the "Theme.AppCompat" family will contain an action bar by default.
          If Holo themes are available on the current platform version they will be used.
          A limited Holo-styled action bar will be provided on platform versions older

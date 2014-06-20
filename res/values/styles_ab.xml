@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- File created by the Android Action Bar Style Generator
+<!--
+     File created by the Android Action Bar Style Generator
 
      Copyright (C) 2011 The Android Open Source Project
      Copyright (C) 2012 readyState Software Ltd
@@ -17,7 +18,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.Ab" parent="@style/Theme.AppCompat.Light">
         <item name="actionBarItemBackground">@drawable/selectable_background_ab</item>
@@ -29,8 +30,8 @@
         <item name="actionModeBackground">@drawable/cab_background_top_ab</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_ab</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Ab</item>
-
-        
+        <item name="homeAsUpIndicator">@drawable/ic_action_navigation_previous_item</item>
+        <item name="actionBarTabTextStyle">@style/ActionBarTabTextStyle.Ab</item>
     </style>
 
     <style name="ActionBar.Solid.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
@@ -44,11 +45,11 @@
         <item name="background">@drawable/ab_transparent_ab</item>
         <item name="progressBarStyle">@style/ProgressBar.Ab</item>
     </style>
-	
-    <style name="PopupMenu.Ab" parent="@style/Widget.AppCompat.Light.PopupMenu">	
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_ab</item>	
+
+    <style name="PopupMenu.Ab" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_ab</item>
     </style>
-	
+
     <style name="DropDownListView.Ab" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_ab</item>
     </style>
@@ -56,21 +57,25 @@
     <style name="ActionBarTabStyle.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_ab</item>
     </style>
-	
+    
+    <style name="ActionBarTabTextStyle.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.TabText">
+        <item name="android:textColor">@color/heading_text_color</item>
+    </style>
+
     <style name="DropDownNav.Ab" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
         <item name="android:background">@drawable/spinner_background_ab_ab</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_ab</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_ab</item>
     </style>
-    
+
     <style name="ProgressBar.Ab" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_ab</item>
     </style>
-    
+
     <style name="ActionButton.CloseMode.Ab" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_ab</item>
     </style>
-    
+
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Ab.Widget" parent="@style/Theme.AppCompat">
         <item name="popupMenuStyle">@style/PopupMenu.Ab</item>

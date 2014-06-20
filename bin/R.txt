@@ -435,13 +435,15 @@ int string text_version 0x7f0a0010
 int style ActionBar_Solid_Ab 0x7f0b0086
 int style ActionBar_Transparent_Ab 0x7f0b0087
 int style ActionBarTabStyle_Ab 0x7f0b008a
-int style ActionButton_CloseMode_Ab 0x7f0b008d
+int style ActionBarTabTextStyle_Ab 0x7f0b008b
+int style ActionButton_CloseMode_Ab 0x7f0b008e
 int style AppBaseTheme 0x7f0b0083
 int style AppTheme 0x7f0b0084
 int style DropDownListView_Ab 0x7f0b0089
-int style DropDownNav_Ab 0x7f0b008b
+int style DropDownNav_Ab 0x7f0b008c
+int style OverFlow 0x7f0b0090
 int style PopupMenu_Ab 0x7f0b0088
-int style ProgressBar_Ab 0x7f0b008c
+int style ProgressBar_Ab 0x7f0b008d
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063
 int style TextAppearance_AppCompat_Base_SearchResult 0x7f0b006d
 int style TextAppearance_AppCompat_Base_SearchResult_Subtitle 0x7f0b006f
@@ -484,7 +486,7 @@ int style TextAppearance_AppCompat_Widget_PopupMenu_Small 0x7f0b002f
 int style TextAppearance_Widget_AppCompat_Base_ExpandedMenu_Item 0x7f0b0062
 int style TextAppearance_Widget_AppCompat_ExpandedMenu_Item 0x7f0b0028
 int style Theme_Ab 0x7f0b0085
-int style Theme_Ab_Widget 0x7f0b008e
+int style Theme_Ab_Widget 0x7f0b008f
 int style Theme_AppCompat 0x7f0b0077
 int style Theme_AppCompat_Base_CompactMenu 0x7f0b0081
 int style Theme_AppCompat_Base_CompactMenu_Dialog 0x7f0b0082
