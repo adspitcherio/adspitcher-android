@@ -9,11 +9,13 @@ public class OffersItem {
 	private int offer_views;
 	private int offer_reviews;
 	private String offer_brandorstore;
+	private String location;
 	private int votesup, votesdown;
 	
-	public OffersItem(String text, String brandorstore, int views, int reviews, int ups, int downs){
+	public OffersItem(String text, String brandorstore, String location, int views, int reviews, int ups, int downs){
 		this.offer_text = text;
 		this.offer_brandorstore = brandorstore;
+		this.location = location;
 		this.offer_views = views;
 		this.offer_reviews = reviews;
 		this.votesup = ups;
@@ -63,6 +65,14 @@ public class OffersItem {
 
 	public void setOffer_brandorstore(String offer_brandorstore) {
 		this.offer_brandorstore = offer_brandorstore;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 	

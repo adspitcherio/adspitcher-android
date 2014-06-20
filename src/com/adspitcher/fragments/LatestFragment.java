@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.adspitcher.R;
-import com.adspitcher.adapters.LatestOffersFragmentAdapter;
+import com.adspitcher.adapters.OffersFragmentAdapter;
 import com.adspitcher.dataobjects.OffersItem;
 
 public class LatestFragment extends Fragment{
@@ -23,10 +23,10 @@ public class LatestFragment extends Fragment{
 		
 		OffersItem[] offersDataItems = new OffersItem[10];
 		for (int i = 0; i < 10; i++) {
-			offersDataItems[i] = new OffersItem("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "Pantaloons", 10, 10, 10, 10);
+			offersDataItems[i] = new OffersItem("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "Pantaloons", "Gurgaon | Mumbai", 10, 10, 10, 10);
 		}
 		
-		LatestOffersFragmentAdapter adapter = new LatestOffersFragmentAdapter(view.getContext(), R.layout.fragment_latest, offersDataItems);
+		OffersFragmentAdapter adapter = new OffersFragmentAdapter(view.getContext(), R.layout.fragment_latest, offersDataItems);
 		listView_latest_offers_items.setAdapter(adapter);
 		return view;
 	}

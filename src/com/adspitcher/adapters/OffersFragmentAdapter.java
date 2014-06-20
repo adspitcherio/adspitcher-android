@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.adspitcher.R;
 import com.adspitcher.dataobjects.OffersItem;
 
-public class LatestOffersFragmentAdapter extends ArrayAdapter<OffersItem> {
+public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 
 	Context context;
 	int layoutResourceId;
 	OffersItem[] offersItem = null;
 
-	public LatestOffersFragmentAdapter(Context context, int layoutResourceId,
+	public OffersFragmentAdapter(Context context, int layoutResourceId,
 			OffersItem[] objects) {
 		super(context, layoutResourceId, objects);
 		this.context = context;
@@ -36,14 +36,15 @@ public class LatestOffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 			holder.dataCell_text = (TextView) convertView
 					.findViewById(R.id.textview_offertext);
 			holder.dataCell_brandorstore = (TextView) convertView.findViewById(R.id.textview_brandstore);
+			holder.dataCell_location = (TextView) convertView.findViewById(R.id.textview_locations);
 			holder.dataCell_views = (TextView) convertView
 					.findViewById(R.id.textview_views);
 			holder.dataCell_reviews = (TextView) convertView
 					.findViewById(R.id.textview_reviews);
 			holder.dataCell_ups = (TextView) convertView
-					.findViewById(R.id.textview_ups);
+					.findViewById(R.id.textview_votesup);
 			holder.dataCell_downs = (TextView) convertView
-					.findViewById(R.id.textview_downs);
+					.findViewById(R.id.textview_votesdown);
 
 			convertView.setTag(holder);
 		} else {
@@ -52,23 +53,17 @@ public class LatestOffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 			holder.dataCell_views.setText(R.string.text_views);
 			holder.dataCell_reviews.setText("");
 			holder.dataCell_reviews.setText(R.string.text_reviews);
-			holder.dataCell_ups.setText("");
-			holder.dataCell_ups.setText(R.string.text_up);
-			holder.dataCell_downs.setText("");
-			holder.dataCell_downs.setText(R.string.text_down);
 			
 		}
 
 		OffersItem item = offersItem[position];
 		holder.dataCell_text.setText(item.getOffer_text());
 		holder.dataCell_brandorstore.setText(item.getOffer_brandorstore());
-		holder.dataCell_views.setText(holder.dataCell_views.getText() + "" + item.getOffer_views());
-		holder.dataCell_reviews.setText(holder.dataCell_reviews.getText() + "" + item.getOffer_reviews());
-		holder.dataCell_ups.setText(holder.dataCell_ups.getText() + "" + item.getVotesup());
-		holder.dataCell_downs.setText(holder.dataCell_downs.getText() + "" + item.getVotesdown());
-		// BitmapDrawable icon = new BitmapDrawable(convertView.getResources(),
-		// item.getItem_icon());
-		// holder.dataCell_text.setCompoundDrawables(icon, null, null, null);
+		holder.dataCell_location.setText(item.getLocation());
+		holder.dataCell_views.setText(holder.dataCell_views.getText() + " " + item.getOffer_views());
+		holder.dataCell_reviews.setText(holder.dataCell_reviews.getText() + " " + item.getOffer_reviews());
+		holder.dataCell_ups.setText("" + item.getVotesup());
+		holder.dataCell_downs.setText("" + item.getVotesdown());
 
 		return convertView;
 	}
@@ -79,6 +74,7 @@ public class LatestOffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 	static class ViewHolder {
 		private TextView dataCell_text;
 		private TextView dataCell_brandorstore;
+		private TextView dataCell_location;
 		private TextView dataCell_views;
 		private TextView dataCell_reviews;
 		private TextView dataCell_ups;
