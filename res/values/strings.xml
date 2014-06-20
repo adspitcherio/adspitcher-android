@@ -20,5 +20,14 @@
     <string name="text_email">email</string>
     <string name="text_phonenumber">phone number</string>
     <string name="text_dob">date of birth</string>
+    
+    <string-array name="tabs_array">
+    	<item>Latest</item>
+  		<item>Nearby</item>
+  		<item>Fav</item>
+  		<item>New Range</item>
+  		<item>Feeds</item>
+  		<item>Profile</item>
+  	</string-array>
 
 </resources>
