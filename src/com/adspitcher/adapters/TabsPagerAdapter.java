@@ -8,7 +8,6 @@ import com.adspitcher.fragments.FeedsFragment;
 import com.adspitcher.fragments.LatestFragment;
 import com.adspitcher.fragments.NearbyFragment;
 import com.adspitcher.fragments.NewRangeFragment;
-import com.adspitcher.fragments.ProfileFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter{
 
@@ -30,8 +29,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter{
         	return new NewRangeFragment();
         case 4:
         	return new FeedsFragment();
-        case 5:
-        	return new ProfileFragment();
         }
  
         return null;
@@ -39,7 +36,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter{
 
 	@Override
 	public int getCount() {
-		return 6;
+		return 5;
 	}
 
 }

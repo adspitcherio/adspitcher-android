@@ -11,7 +11,7 @@
     <string name="text_name"><i>name</i></string>
     <string name="text_password"><i>password</i></string>
     <string name="text_create_account">New user? Create an account</string>
-    <string name="text_register_later">Register later</string>
+    <string name="text_register">Register</string>
     <string name="text_signin">Sign In</string>
     <string name="text_submit">Submit</string>
     <string name="text_taptoaddpic">Tap to add a profile picture</string>
@@ -21,13 +21,16 @@
     <string name="text_phonenumber">phone number</string>
     <string name="text_dob">date of birth</string>
     
+    <string name="action_search">Search</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_notifications">Notifications</string>
+    
     <string-array name="tabs_array">
     	<item>Latest</item>
   		<item>Nearby</item>
   		<item>Fav</item>
   		<item>New Range</item>
   		<item>Feeds</item>
-  		<item>Profile</item>
   	</string-array>
 
 </resources>

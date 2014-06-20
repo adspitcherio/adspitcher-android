@@ -3,10 +3,14 @@ package com.adspitcher.views;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.adspitcher.R;
 import com.adspitcher.adapters.TabsPagerAdapter;
@@ -79,6 +83,32 @@ public class HomeActivity extends FragmentActivity  implements ActionBar.TabList
 	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.activity_home_menu, menu);
+	    return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_search:
+	            return true;
+	        case R.id.action_profile:{
+	        	Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(HomeActivity.this,
+						ProfileActivity.class);
+				HomeActivity.this.startActivity(screenChangeIntent);
+	            return true;
+	        }
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 
