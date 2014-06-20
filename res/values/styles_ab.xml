@@ -60,6 +60,7 @@
     
     <style name="ActionBarTabTextStyle.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.TabText">
         <item name="android:textColor">@color/heading_text_color</item>
+        <item name="textAllCaps">false</item>
     </style>
 
     <style name="DropDownNav.Ab" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">

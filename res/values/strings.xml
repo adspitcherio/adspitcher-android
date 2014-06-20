@@ -5,6 +5,9 @@
     
     <string name="cd_img_splash">splash</string>
     <string name="cd_img_addpic">addpic</string>
+    <string name="cd_img_logo">logo</string>
+    <string name="cd_img_thumbsup">thumbsup</string>
+    <string name="cd_img_thumbsdown">thumbsdown</string>
     
     <string name="text_version">Version 1.0.0</string>
     <string name="text_username"><i>username</i></string>
@@ -20,6 +23,11 @@
     <string name="text_email">email</string>
     <string name="text_phonenumber">phone number</string>
     <string name="text_dob">date of birth</string>
+    <string name="text_offertext">Offer text</string>
+    <string name="text_views">Views: </string>
+    <string name="text_reviews">Reviews: </string>
+    <string name="text_up">Up: </string>
+    <string name="text_down">Down: </string>
     
     <string name="action_search">Search</string>
     <string name="action_profile">Profile</string>

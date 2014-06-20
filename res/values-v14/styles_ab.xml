@@ -49,6 +49,7 @@
     
     <style name="ActionBarTabTextStyle.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.TabText">
         <item name="android:textColor">@color/heading_text_color</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
