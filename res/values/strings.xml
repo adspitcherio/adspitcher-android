@@ -2,13 +2,11 @@
 <resources>
 
     <string name="app_name">AdsPitcher</string>
-    
     <string name="cd_img_splash">splash</string>
     <string name="cd_img_addpic">addpic</string>
     <string name="cd_img_logo">logo</string>
     <string name="cd_img_thumbsup">thumbsup</string>
     <string name="cd_img_thumbsdown">thumbsdown</string>
-    
     <string name="text_version">Version 1.0.0</string>
     <string name="text_username"><i>username</i></string>
     <string name="text_name"><i>name</i></string>
@@ -28,17 +26,21 @@
     <string name="text_reviews">Reviews: </string>
     <string name="text_up">Up: </string>
     <string name="text_down">Down: </string>
-    
     <string name="action_search">Search</string>
     <string name="action_profile">Profile</string>
     <string name="action_notifications">Notifications</string>
-    
+    <string name="error_network_problem">Por favor, revise las conexiones de red disponibles.</string>
+    <string name="error_reading_data_from_server">Problema al leer los datos del servidor. Por favor inténtelo de nuevo más tarde.</string>
+    <string name="text_error">Error</string>
+    <string name="text_valid_credentials">Sírvanse proporcionar credenciales válidas.</string>
+    <string name="OK">OK</string>
+
     <string-array name="tabs_array">
-    	<item>Latest</item>
-  		<item>Nearby</item>
-  		<item>Fav</item>
-  		<item>New Range</item>
-  		<item>Feeds</item>
-  	</string-array>
+        <item>Latest</item>
+        <item>Nearby</item>
+        <item>Fav</item>
+        <item>New Range</item>
+        <item>Feeds</item>
+    </string-array>
 
 </resources>

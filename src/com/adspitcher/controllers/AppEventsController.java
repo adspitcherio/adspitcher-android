@@ -1,9 +1,12 @@
 package com.adspitcher.controllers;
 
+import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.models.ModelFacade;
+import com.adspitcher.net.NetworkResponseHandler;
 import com.adspitcher.views.UpdateListener;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class AppEventsController {
@@ -79,6 +82,16 @@ public class AppEventsController {
 	 */
 	private void fireEvents(int eventId, Bundle eventData, View view) {
 		switch (eventId) {
+		case NetworkEvents.EVENT_ID_AUTHENTICATE_USER: {
+			Log.d(TAG, "Creating Bundle");
+			try {
+				modelFacade.getRemoteModel().authenticateUser(eventData,
+						NetworkResponseHandler.AUTHENTICATEUSER_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+			break;
 		}
 	}
 

@@ -14,9 +14,9 @@ import android.util.Log;
 public class NetworkResponseHandler {
 	public static final String TAG = "Network Response Handler";
 	
-	public static final Handler LOGIN_HANDLER = loginHandler();
+	public static final Handler AUTHENTICATEUSER_HANDLER = authenticateUserHandler();
 
-	private static Handler loginHandler() {
+	private static Handler authenticateUserHandler() {
 		return new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -27,7 +27,7 @@ public class NetworkResponseHandler {
 					try {
 						String response = ((JSONObject) msg.obj).getString(Constants.TEXT_RESPONSE);
 						if(response.equalsIgnoreCase(Constants.TEXT_SUCCESS)){
-							model.setConnectionStatus(ConnectionModel.PLACE_ORDER);
+							model.setConnectionStatus(ConnectionModel.LOGGED_IN);
 						}
 						else if(response.equalsIgnoreCase(Constants.TEXT_ERROR)){
 							model.setConnectionStatus(ConnectionModel.GOT_ERROR);

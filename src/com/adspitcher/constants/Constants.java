@@ -3,8 +3,9 @@ package com.adspitcher.constants;
 public class Constants {
 
 	// Required URLs
-	public static final String BASE_URL = "http://localhost:8080/menuserver/menuservice_launch.php/";
-	public static final String LOGIN_REQUEST_URL = "authenticate";
+	public static final String BASE_URL = "http://www.adspitcher.com/service/launch.php/";
+	public static final String URL_AUTHENTICATEUSER_REQUEST = "authenticateuser";
+	public static final String URL_REGISTERUSER_REQUEST = "registeruser";
 	// ----------------------------------------------------------------------------------
 
 	// Response Handling Constants
@@ -23,4 +24,7 @@ public class Constants {
 	public static final String TEXT_SUCCESS = "success";
 	public static final String TEXT_RESPONSE = "response";
 	// ----------------------------------------------------------------------------------
+	
+	public static final String TEXT_USERNAME = "username";
+	public static final String TEXT_PASSWORD = "password";
 }

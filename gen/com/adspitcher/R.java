@@ -1210,6 +1210,7 @@ containing a value of this type.
         public static final int activity_home_menu=0x7f0d0000;
     }
     public static final class string {
+        public static final int OK=0x7f0a002d;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1259,10 +1260,13 @@ containing a value of this type.
         public static final int cd_img_splash=0x7f0a000e;
         public static final int cd_img_thumbsdown=0x7f0a0012;
         public static final int cd_img_thumbsup=0x7f0a0011;
+        public static final int error_network_problem=0x7f0a0029;
+        public static final int error_reading_data_from_server=0x7f0a002a;
         public static final int text_create_account=0x7f0a0017;
         public static final int text_dob=0x7f0a0020;
         public static final int text_down=0x7f0a0025;
         public static final int text_email=0x7f0a001e;
+        public static final int text_error=0x7f0a002b;
         public static final int text_fullname=0x7f0a001c;
         public static final int text_name=0x7f0a0015;
         public static final int text_offertext=0x7f0a0021;
@@ -1276,6 +1280,7 @@ containing a value of this type.
         public static final int text_taptoaddpic=0x7f0a001b;
         public static final int text_up=0x7f0a0024;
         public static final int text_username=0x7f0a0014;
+        public static final int text_valid_credentials=0x7f0a002c;
         public static final int text_version=0x7f0a0013;
         public static final int text_views=0x7f0a0022;
     }

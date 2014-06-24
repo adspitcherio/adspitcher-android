@@ -8,10 +8,10 @@ public class ConnectionModel extends BaseModel {
 	private String connectionErrorMessage;
 	private ConnListener listener;
 
-	public static final int START_CONN = 0;
-	public static final int PLACE_ORDER = 1;
-	public static final int SYNC_DB = 2;
 	public static final int GOT_ERROR = -1;
+	public static final int START_CONN = 0;
+	public static final int LOGGED_IN = 1;
+	public static final int GOT_LATEST_FEEDS = 2;
 	
 	public ConnectionModel() {
 
