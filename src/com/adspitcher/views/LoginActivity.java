@@ -1,22 +1,21 @@
 package com.adspitcher.views;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.adspitcher.R;
 import com.adspitcher.constants.Constants;
@@ -25,7 +24,7 @@ import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
-public class LoginActivity extends Activity implements ConnListener {
+public class LoginActivity extends ActionBarActivity implements ConnListener {
 
 	private Button btn_signin;
 	private String username, password;
@@ -37,11 +36,10 @@ public class LoginActivity extends Activity implements ConnListener {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 		setContentView(R.layout.activity_login);
+		
+		ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 
 		EditText password = (EditText) findViewById(R.id.edittext_password);
 		password.setTypeface(Typeface.SERIF);
@@ -66,19 +64,6 @@ public class LoginActivity extends Activity implements ConnListener {
 			@Override
 			public void onClick(View view) {
 				requestConnection(view);
-			}
-		});
-
-		// Action on click of Create An Account Button
-		TextView textview_createaccount = (TextView) findViewById(R.id.textview_createaccount);
-		textview_createaccount.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				Intent screenChangeIntent = null;
-				screenChangeIntent = new Intent(LoginActivity.this,
-						SignupActivity.class);
-				LoginActivity.this.startActivity(screenChangeIntent);
 			}
 		});
 	}
@@ -156,23 +141,23 @@ public class LoginActivity extends Activity implements ConnListener {
 	public void onConnection() {
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.LOGGED_IN: {
+			Log.d("LoginActivity", "Inside onConnection");
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(LoginActivity.this,
 					HomeActivity.class);
 			LoginActivity.this.startActivity(screenChangeIntent);
 			LoginActivity.this.finish();
-			/*if (keepMeLoggedInBool) {
-				SharedPreferences sharedPref = getSharedPreferences(
-						Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
-				SharedPreferences.Editor editor = sharedPref.edit();
-				editor.putString(Constants.TEXT_USERNAME, username);
-				editor.putString(Constants.TEXT_PASSWORD, password);
-				editor.commit();
-			}
-			// Hit to fetch families data
-			AppEventsController.getInstance()
-					.handleEvent(NetworkEvents.EVENT_ID_GET_LATEST_OFFERS, null,
-							this.btn_signin);*/
+			/*
+			 * if (keepMeLoggedInBool) { SharedPreferences sharedPref =
+			 * getSharedPreferences( Constants.DATABASE_PREF_NAME,
+			 * MODE_PRIVATE); SharedPreferences.Editor editor =
+			 * sharedPref.edit(); editor.putString(Constants.TEXT_USERNAME,
+			 * username); editor.putString(Constants.TEXT_PASSWORD, password);
+			 * editor.commit(); } // Hit to fetch families data
+			 * AppEventsController.getInstance()
+			 * .handleEvent(NetworkEvents.EVENT_ID_GET_LATEST_OFFERS, null,
+			 * this.btn_signin);
+			 */
 		}
 			break;
 		case ConnectionModel.GOT_ERROR: {

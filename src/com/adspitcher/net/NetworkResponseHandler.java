@@ -26,6 +26,7 @@ public class NetworkResponseHandler {
 							.getModelFacade().getConnModel();
 					try {
 						String response = ((JSONObject) msg.obj).getString(Constants.TEXT_RESPONSE);
+						Log.d("response==", response);
 						if(response.equalsIgnoreCase(Constants.TEXT_SUCCESS)){
 							model.setConnectionStatus(ConnectionModel.LOGGED_IN);
 						}

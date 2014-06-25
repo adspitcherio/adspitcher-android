@@ -33,7 +33,7 @@ public class SplashActivity extends Activity {
 			public void run() {
 				Intent screenChangeIntent = null;
 				screenChangeIntent = new Intent(SplashActivity.this,
-						LoginActivity.class);
+						LaunchActivity.class);
 				SplashActivity.this.startActivity(screenChangeIntent);
 				SplashActivity.this.finish();
 			}

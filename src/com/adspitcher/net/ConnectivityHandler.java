@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 
 import com.adspitcher.constants.Constants;
 import com.adspitcher.exceptions.ServerException;
@@ -106,6 +107,13 @@ public class ConnectivityHandler {
 		URL url;
 		try {
 			url = new URL(finalUrl);
+			
+			String proxy = "proxy.tcs.com",
+				   port = "8080";
+			
+			Properties systemProperties = System.getProperties();
+			systemProperties.setProperty("http.proxyHost",proxy);
+			systemProperties.setProperty("http.proxyPort",port);
 
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setReadTimeout(10000 /* milliseconds */);

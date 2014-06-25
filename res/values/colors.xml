@@ -6,6 +6,9 @@
     <color name="blue_background_color">#0095CD</color>
     <color name="white_background_color">#FFFFFF</color>
     <color name="signup_text_color">#00AEEC</color>
+    <color name="light_grey_border_color">#FFFBFF</color>
+    <color name="black_color">#000000</color>
+    
     <color name="signup_hint_color">#778899</color>
     <color name="light_blue_color">#83D2EF</color>
     <color name="offer_text_color">#FFBA31</color>

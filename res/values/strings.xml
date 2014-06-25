@@ -26,6 +26,14 @@
     <string name="text_reviews">Reviews: </string>
     <string name="text_up">Up: </string>
     <string name="text_down">Down: </string>
+    <string name="text_fname"><i>first name</i></string>
+    <string name="text_lname"><i>last name</i></string>
+    <string name="text_location"><i>location</i></string>
+    <string name="text_profile_dob"><i>dob</i></string>
+    <string name="text_profile_heading_photo"><i>Add Photo</i></string>
+    <string name="text_profile_heading_pref"><i>Preferences</i></string>
+    <string name="text_profile_heading_pd"><i>Personal Details</i></string>
+    <string name="text_profile_photo_desc">Tap here to add photo</string>
     <string name="action_search">Search</string>
     <string name="action_profile">Profile</string>
     <string name="action_notifications">Notifications</string>
@@ -42,5 +50,41 @@
         <item>New Range</item>
         <item>Feeds</item>
     </string-array>
+    <string-array name="tabs_category">
+        <item>Select Clothing</item>
+        <item>Clothing</item>
+        <item>Shoes</item>
+        <item>Bags</item>
+        <item>Watches</item>
+        <item>Accessories</item>
+    </string-array>
+    <string-array name="tabs_location">
+        <item>Select Location</item>
+        <item>Delhi</item>
+        <item>Gurgaon</item>
+        <item>Jaipur</item>
+        <item>Mumbai</item>
+        <item>Kolkata</item>
+        <item>Kanpur</item>
+    </string-array>
+    <string-array name="tabs_brands">
+        <item>Select Brands</item>
+        <item>Casio</item>
+        <item>UCB</item>
+        <item>Arrow</item>
+        <item>Baggit</item>
+        <item>W</item>
+    </string-array>
+
+    <string name="text_signup_benefits"><u>Sign up and see what more you can get out of the pitcher.</u></string>
+
+    <string-array name="benefits_array">
+        <item>Get notified by your favorite brands for their latest offers and collections.</item>
+        <item>Earn rewards when you dive-in the pitcher, sharing your reviews and rating various brands.</item>
+        <item>Follow others to see what they are pitching for.</item>
+    </string-array>
+    
+    <string name="text_existinguser_signin">Existing user? Sign In</string>
+    
 
 </resources>

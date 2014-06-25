@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adspitcher.R;
@@ -16,6 +17,7 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 	Context context;
 	int layoutResourceId;
 	OffersItem[] offersItem = null;
+	ViewHolder holder = null;
 
 	public OffersFragmentAdapter(Context context, int layoutResourceId,
 			OffersItem[] objects) {
@@ -26,7 +28,7 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		ViewHolder holder = null;
+		//ViewHolder holder = null;
 
 		if (convertView == null) {
 			holder = new ViewHolder();
@@ -45,6 +47,8 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 					.findViewById(R.id.textview_votesup);
 			holder.dataCell_downs = (TextView) convertView
 					.findViewById(R.id.textview_votesdown);
+			holder.dataCell_iv_downs = (ImageView) convertView.findViewById(R.id.imageview_votedown); 
+	        holder.dataCell_iv_ups = (ImageView) convertView.findViewById(R.id.imageview_voteup);
 
 			convertView.setTag(holder);
 		} else {
@@ -64,6 +68,27 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 		holder.dataCell_reviews.setText(holder.dataCell_reviews.getText() + " " + item.getOffer_reviews());
 		holder.dataCell_ups.setText("" + item.getVotesup());
 		holder.dataCell_downs.setText("" + item.getVotesdown());
+		
+		holder.dataCell_iv_downs.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				offersItem[position].setVotesdown(offersItem[position].getVotesdown() + 1);
+				holder.dataCell_downs.setText(String.valueOf(offersItem[position].getVotesdown()));
+				OffersFragmentAdapter.this.notifyDataSetChanged();
+			}
+		});
+		
+			holder.dataCell_iv_ups.setOnClickListener(new View.OnClickListener() {
+				
+			@Override
+			public void onClick(View v) {
+				offersItem[position].setVotesup(offersItem[position].getVotesup() - 1);
+				holder.dataCell_ups.setText(String.valueOf(offersItem[position].getVotesup()));
+				OffersFragmentAdapter.this.notifyDataSetChanged();
+			}
+		});
+			
 
 		return convertView;
 	}
@@ -79,6 +104,8 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 		private TextView dataCell_reviews;
 		private TextView dataCell_ups;
 		private TextView dataCell_downs;
+		private ImageView dataCell_iv_downs;
+		private ImageView dataCell_iv_ups;
 	}
 
 }
