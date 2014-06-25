@@ -1,13 +1,13 @@
 package com.adspitcher.views;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import com.adspitcher.R;
 import com.adspitcher.adapters.TabsPagerAdapter;
 
-public class HomeActivity extends FragmentActivity  implements ActionBar.TabListener{
+public class HomeActivity extends ActionBarActivity  implements ActionBar.TabListener{
 	
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
@@ -28,7 +28,8 @@ public class HomeActivity extends FragmentActivity  implements ActionBar.TabList
 
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
-		actionBar = getActionBar();
+		actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
 		viewPager.setAdapter(mAdapter);
@@ -65,25 +66,6 @@ public class HomeActivity extends FragmentActivity  implements ActionBar.TabList
 			}
 		});
 	}
-
-	@Override
-	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction arg1) {
-		// on tab selected
-        // show respected fragment view
-        viewPager.setCurrentItem(tab.getPosition());
-	}
-
-	@Override
-	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-
-	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,6 +91,29 @@ public class HomeActivity extends FragmentActivity  implements ActionBar.TabList
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	}
+
+	@Override
+	public void onTabReselected(Tab tab,
+			FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabSelected(Tab tab,
+			FragmentTransaction arg1) {
+		// on tab selected
+        // show respected fragment view
+        viewPager.setCurrentItem(tab.getPosition());
+		
+	}
+
+	@Override
+	public void onTabUnselected(Tab tab,
+			FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
