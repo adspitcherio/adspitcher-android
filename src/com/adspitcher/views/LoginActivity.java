@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.adspitcher.R;
 import com.adspitcher.constants.Constants;
@@ -26,7 +27,7 @@ import com.adspitcher.models.ConnectionModel;
 
 public class LoginActivity extends ActionBarActivity implements ConnListener {
 
-	private Button btn_signin;
+	private TextView btn_signin;
 	private String username, password;
 	private boolean keepMeLoggedInBool;
 	private ConnectionModel connModel;
@@ -58,7 +59,7 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 		Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM = getResources()
 				.getString(R.string.error_reading_data_from_server);
 
-		btn_signin = (Button) findViewById(R.id.btn_login);
+		btn_signin = (TextView) findViewById(R.id.btn_login);
 		btn_signin.setOnClickListener(new OnClickListener() {
 
 			@Override

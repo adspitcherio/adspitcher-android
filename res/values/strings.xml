@@ -85,6 +85,8 @@
     </string-array>
     
     <string name="text_existinguser_signin">Existing user? Sign In</string>
+    <string name="text_rememberme">Remember me</string>
+    <string name="text_forgotpwd">Forgot Password</string>
     
 
 </resources>

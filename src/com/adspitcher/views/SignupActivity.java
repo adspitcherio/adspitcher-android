@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.adspitcher.R;
 
@@ -25,7 +26,7 @@ public class SignupActivity extends ActionBarActivity{
 		ActionBar actionBar = getSupportActionBar();
 	    actionBar.setDisplayHomeAsUpEnabled(true);
 		
-		Button btn_submit = (Button) findViewById(R.id.btn_submit);
+		TextView btn_submit = (TextView) findViewById(R.id.btn_submit);
 		btn_submit.setOnClickListener(new OnClickListener() {
 			
 			@Override
