@@ -27,4 +27,5 @@ public class Constants {
 	
 	public static final String TEXT_USERNAME = "username";
 	public static final String TEXT_PASSWORD = "password";
+	public static final String TEXT_EMAIL = "email";
 }

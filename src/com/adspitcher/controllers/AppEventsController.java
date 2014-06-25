@@ -92,6 +92,18 @@ public class AppEventsController {
 			}
 		}
 			break;
+			
+		case NetworkEvents.EVENT_ID_REGISTER_USER:{
+			try
+			{				
+				modelFacade.getRemoteModel().registerUser(eventData, NetworkResponseHandler.AUTHENTICATEUSER_HANDLER, view);				
+			}catch(Exception ex)
+			{
+				Log.d("Application Exception:", ex.getMessage());
+			}			
+		}
+		
+		break;
 		}
 	}
 
