@@ -73,7 +73,7 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 			
 			@Override
 			public void onClick(View v) {
-				offersItem[position].setVotesdown(offersItem[position].getVotesdown() + 1);
+				offersItem[position].setVotesdown(offersItem[position].getVotesdown() - 1);
 				holder.dataCell_downs.setText(String.valueOf(offersItem[position].getVotesdown()));
 				OffersFragmentAdapter.this.notifyDataSetChanged();
 			}
@@ -83,7 +83,7 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 				
 			@Override
 			public void onClick(View v) {
-				offersItem[position].setVotesup(offersItem[position].getVotesup() - 1);
+				offersItem[position].setVotesup(offersItem[position].getVotesup() + 1);
 				holder.dataCell_ups.setText(String.valueOf(offersItem[position].getVotesup()));
 				OffersFragmentAdapter.this.notifyDataSetChanged();
 			}

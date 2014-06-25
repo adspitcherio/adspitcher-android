@@ -39,7 +39,12 @@
             android:value=".views.LaunchActivity" />
         </activity>
         <activity android:name=".views.HomeActivity"
-            android:label=""></activity>
+            android:label=""
+            android:parentActivityName=".views.LaunchActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".views.LaunchActivity" />
+        </activity>
         <activity android:name=".views.ProfileActivity"
             android:parentActivityName=".views.HomeActivity">
             <meta-data

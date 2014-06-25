@@ -1,17 +1,15 @@
 package com.adspitcher.views;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -19,7 +17,7 @@ import android.widget.TextView;
 
 import com.adspitcher.R;
 
-public class LaunchActivity extends Activity {
+public class LaunchActivity extends ActionBarActivity {
 
 	// Time in Milliseconds
 	private int BENEFITS_TIMER = 2000;
@@ -38,10 +36,6 @@ public class LaunchActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_launch);
 
@@ -93,7 +87,7 @@ public class LaunchActivity extends Activity {
 				LaunchActivity.this.startActivity(screenChangeIntent);
 			}
 		});
-		
+
 		// Action on click of Create An Account Button
 		TextView textview_login = (TextView) findViewById(R.id.textview_login);
 		textview_login.setOnClickListener(new OnClickListener() {
@@ -106,8 +100,21 @@ public class LaunchActivity extends Activity {
 				LaunchActivity.this.startActivity(screenChangeIntent);
 			}
 		});
+
+		// Action on click of Search Button
+		TextView textview_search = (TextView) findViewById(R.id.textview_search);
+		textview_search.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(LaunchActivity.this,
+						HomeActivity.class);
+				LaunchActivity.this.startActivity(screenChangeIntent);
+			}
+		});
 	}
-	
+
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		View view = getCurrentFocus();
