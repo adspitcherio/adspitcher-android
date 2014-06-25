@@ -1037,18 +1037,18 @@ containing a value of this type.
         public static final int ic_action_navigation_previous_item=0x7f02006f;
         public static final int ic_action_navigation_refresh=0x7f020070;
         public static final int ic_action_profile=0x7f020071;
-        public static final int ic_action_rating_bad=0x7f020072;
-        public static final int ic_action_rating_good=0x7f020073;
-        public static final int ic_action_rating_important=0x7f020074;
-        public static final int ic_action_rating_not_important=0x7f020075;
-        public static final int ic_action_search_white=0x7f020076;
-        public static final int ic_adspitcher_logo=0x7f020077;
-        public static final int ic_content_email=0x7f020078;
-        public static final int ic_device_access_accounts=0x7f020079;
-        public static final int ic_follow_white=0x7f02007a;
-        public static final int ic_launcher=0x7f02007b;
-        public static final int ic_navigation_next_item_white=0x7f02007c;
-        public static final int ic_notification_white=0x7f02007d;
+        public static final int ic_action_search_white=0x7f020072;
+        public static final int ic_adspitcher_logo=0x7f020073;
+        public static final int ic_cart=0x7f020074;
+        public static final int ic_content_email=0x7f020075;
+        public static final int ic_device_access_accounts=0x7f020076;
+        public static final int ic_follow_white=0x7f020077;
+        public static final int ic_launcher=0x7f020078;
+        public static final int ic_location_place=0x7f020079;
+        public static final int ic_navigation_next_item_white=0x7f02007a;
+        public static final int ic_notification_white=0x7f02007b;
+        public static final int ic_rating_bad=0x7f02007c;
+        public static final int ic_rating_good=0x7f02007d;
         public static final int ic_rewards_icon=0x7f02007e;
         public static final int ic_social_person=0x7f02007f;
         public static final int list_focused_ab=0x7f020080;
@@ -1346,8 +1346,7 @@ containing a value of this type.
         public static final int ActionBar_Solid_Ab=0x7f0b0086;
         public static final int ActionBar_Transparent_Ab=0x7f0b0087;
         public static final int ActionBarTabStyle_Ab=0x7f0b008a;
-        public static final int ActionBarTabTextStyle_Ab=0x7f0b008b;
-        public static final int ActionButton_CloseMode_Ab=0x7f0b008e;
+        public static final int ActionButton_CloseMode_Ab=0x7f0b008d;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -1375,10 +1374,9 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f0b0084;
         public static final int DropDownListView_Ab=0x7f0b0089;
-        public static final int DropDownNav_Ab=0x7f0b008c;
-        public static final int OverFlow=0x7f0b0090;
+        public static final int DropDownNav_Ab=0x7f0b008b;
         public static final int PopupMenu_Ab=0x7f0b0088;
-        public static final int ProgressBar_Ab=0x7f0b008d;
+        public static final int ProgressBar_Ab=0x7f0b008c;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;
@@ -1432,8 +1430,9 @@ containing a value of this type.
         public static final int Theme_Ab=0x7f0b0085;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
+ this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Ab_Widget=0x7f0b008f;
+        public static final int Theme_Ab_Widget=0x7f0b008e;
         /**  Themes in the "Theme.AppCompat" family will contain an action bar by default.
          If Holo themes are available on the current platform version they will be used.
          A limited Holo-styled action bar will be provided on platform versions older

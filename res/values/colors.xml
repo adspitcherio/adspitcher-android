@@ -12,7 +12,7 @@
     <color name="signup_hint_color">#778899</color>
     <color name="light_blue_color">#83D2EF</color>
     <color name="offer_text_color">#FFBA31</color>
-    <color name="brandstore_text_color">#496267</color>
+    <color name="brandstore_text_color">#FFFFFF</color>
     <color name="offer_item_background_color">#FFFFFF</color>
     
 </resources>

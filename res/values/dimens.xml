@@ -11,7 +11,7 @@
     <dimen name="text_border_vertical_padding">4dp</dimen>
     <dimen name="text_border_horizontal_padding">4dp</dimen>
     <dimen name="details_text_font_size">12sp</dimen>
-    <dimen name="offers_text_font_size">16sp</dimen>
+    <dimen name="offers_text_font_size">12sp</dimen>
     <dimen name="brandstore_text_font_size">12sp</dimen>
 
 </resources>
