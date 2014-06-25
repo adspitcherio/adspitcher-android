@@ -27,6 +27,22 @@
 
         <requestFocus />
     </EditText>
+    
+    <TextView
+            android:id="@+id/textview_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_background_color"
+            android:drawableRight="@drawable/ic_navigation_next_item_white"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/text_border_vertical_padding"
+            android:paddingLeft="@dimen/text_border_horizontal_padding"
+            android:paddingRight="@dimen/text_border_horizontal_padding"
+            android:paddingTop="@dimen/text_border_vertical_padding"
+            android:text="@string/action_search"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/heading_text_color"
+            android:typeface="serif" />
 
     <TextView
         android:id="@+id/textview_signup_benefits"
