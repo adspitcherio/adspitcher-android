@@ -1228,20 +1228,21 @@ containing a value of this type.
         public static final int abc_popup_menu_item_layout=0x7f030014;
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
-        public static final int activity_home=0x7f030017;
-        public static final int activity_latest=0x7f030018;
-        public static final int activity_launch=0x7f030019;
-        public static final int activity_login=0x7f03001a;
-        public static final int activity_profile=0x7f03001b;
-        public static final int activity_signup=0x7f03001c;
-        public static final int activity_splash=0x7f03001d;
-        public static final int fragment_fav=0x7f03001e;
-        public static final int fragment_feeds=0x7f03001f;
-        public static final int fragment_latest=0x7f030020;
-        public static final int fragment_nearby=0x7f030021;
-        public static final int fragment_newrange=0x7f030022;
-        public static final int item_offer=0x7f030023;
-        public static final int support_simple_spinner_dropdown_item=0x7f030024;
+        public static final int activity_forgotpwd=0x7f030017;
+        public static final int activity_home=0x7f030018;
+        public static final int activity_latest=0x7f030019;
+        public static final int activity_launch=0x7f03001a;
+        public static final int activity_login=0x7f03001b;
+        public static final int activity_profile=0x7f03001c;
+        public static final int activity_signup=0x7f03001d;
+        public static final int activity_splash=0x7f03001e;
+        public static final int fragment_fav=0x7f03001f;
+        public static final int fragment_feeds=0x7f030020;
+        public static final int fragment_latest=0x7f030021;
+        public static final int fragment_nearby=0x7f030022;
+        public static final int fragment_newrange=0x7f030023;
+        public static final int item_offer=0x7f030024;
+        public static final int support_simple_spinner_dropdown_item=0x7f030025;
     }
     public static final class menu {
         public static final int activity_home_menu=0x7f0d0000;
