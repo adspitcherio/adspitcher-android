@@ -38,9 +38,9 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_login);
-		
+
 		ActionBar actionBar = getSupportActionBar();
-	    actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		EditText password = (EditText) findViewById(R.id.edittext_password);
 		password.setTypeface(Typeface.SERIF);
@@ -65,6 +65,19 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 			@Override
 			public void onClick(View view) {
 				requestConnection(view);
+			}
+		});
+
+		// Action on click of Forgot Password Button
+		TextView textview_forgotpwd = (TextView) findViewById(R.id.btn_forgotpassword);
+		textview_forgotpwd.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(LoginActivity.this,
+						ForgotPwdActivity.class);
+				LoginActivity.this.startActivity(screenChangeIntent);
 			}
 		});
 	}
