@@ -109,6 +109,36 @@ public class RemoteModel {
 			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION, Constants.ERROR_NETWORK_PROBLEM));
 		}		
 	}
+	
+	public void getFilteredOffers(Bundle params,Handler listener,View view) throws Exception
+	{
+		ConnectivityHandler connHandler = new ConnectivityHandler(view.getContext());
+		if(connHandler.isOnline())
+		{
+			HttpParams httpParams = new HttpParams();
+			httpParams.setRequestURL(Constants.BASE_URL + Constants.URL_OFFERS_REQUEST);
+			httpParams.setRequestMethod(HttpParams.HTTP_POST);
+			
+			JSONObject jsonObj = new JSONObject();
+			Set<String> keySet = params.keySet();
+			Iterator<String> keyIterator = keySet.iterator();
+			String keyVal = null;
+			while(keyIterator.hasNext())
+			{
+				keyVal = keyIterator.next();
+				jsonObj.put(keyVal, params.get(keyVal));
+			}
+			httpParams.setRequestData(jsonObj.toString());
+			Log.v(TAG, "Request Data for registerUser=====>" + jsonObj.toString());
+			
+			NetworkAsyncTask asyncTask = new NetworkAsyncTask(view.getContext(), "Connecting", listener);
+			asyncTask.execute(httpParams);			
+		}
+		else
+		{
+			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION, Constants.ERROR_NETWORK_PROBLEM));
+		}		
+	}
 	/*public void syncDB(Bundle params, Handler listener, View view)
 			throws Exception {
 		ConnectivityHandler connHandler = new ConnectivityHandler(

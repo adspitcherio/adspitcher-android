@@ -18,6 +18,8 @@ public class NetworkResponseHandler {
 
 	public static final Handler AUTHENTICATEUSER_HANDLER = authenticateUserHandler();
 	public static final Handler REGISTERUSER_HANDLER = registerUserHandler();
+	public static final Handler FILTERED_OFFERS_HANDLER = filteredOffersHandler();
+	public static final Handler LATEST_OFFERS_HANDLER = latestOffersHandler();
 
 	private static Handler authenticateUserHandler() {
 		return new Handler() {
@@ -70,6 +72,16 @@ public class NetworkResponseHandler {
 			}
 
 		};
+	}
+
+	private static Handler latestOffersHandler() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private static Handler filteredOffersHandler() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private static Handler registerUserHandler() {

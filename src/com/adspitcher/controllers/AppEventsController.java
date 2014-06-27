@@ -113,6 +113,16 @@ public class AppEventsController {
 		}
 
 			break;
+		case NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS: {
+			try {
+				modelFacade.getRemoteModel().getFilteredOffers(eventData,
+						NetworkResponseHandler.FILTERED_OFFERS_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+
+			break;
 		}
 	}
 

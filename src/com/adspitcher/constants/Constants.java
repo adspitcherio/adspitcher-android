@@ -13,6 +13,7 @@ public class Constants {
 	public static final String TYPE_LATEST_OFFERS = "-1";
 	public static final String TYPE_NEARBY_OFFERS = "0";
 	public static final String TYPE_FAV_OFFERS = "1";
+	public static final String TYPE_FILTERED_OFFERS = "2";
 	// ----------------------------------------------------------------------------------
 
 	// Response Handling Constants

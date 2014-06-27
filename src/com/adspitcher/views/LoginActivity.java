@@ -31,7 +31,7 @@ import com.adspitcher.models.ConnectionModel;
 public class LoginActivity extends ActionBarActivity implements ConnListener {
 
 	private TextView btn_signin;
-	private String username, password, accessToken;
+	private String username, password;
 	private boolean keepMeLoggedInBool;
 	private ConnectionModel connModel;
 
