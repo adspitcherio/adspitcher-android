@@ -47,8 +47,8 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 					.findViewById(R.id.textview_votesup);
 			holder.dataCell_downs = (TextView) convertView
 					.findViewById(R.id.textview_votesdown);
-			holder.dataCell_iv_downs = (ImageView) convertView.findViewById(R.id.imageview_votedown); 
-	        holder.dataCell_iv_ups = (ImageView) convertView.findViewById(R.id.imageview_voteup);
+			holder.dataCell_iv_downs = (TextView) convertView.findViewById(R.id.textview_votesdown); 
+	        holder.dataCell_iv_ups = (TextView) convertView.findViewById(R.id.textview_votesup);
 
 			convertView.setTag(holder);
 		} else {
@@ -104,8 +104,8 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 		private TextView dataCell_reviews;
 		private TextView dataCell_ups;
 		private TextView dataCell_downs;
-		private ImageView dataCell_iv_downs;
-		private ImageView dataCell_iv_ups;
+		private TextView dataCell_iv_downs;
+		private TextView dataCell_iv_ups;
 	}
 
 }

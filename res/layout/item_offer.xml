@@ -6,51 +6,52 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="@color/background_color"
+        android:gravity="center_vertical" >
 
         <TextView
             android:id="@+id/textview_offertext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
-            android:layout_weight="1"
+            android:layout_weight="10"
             android:maxLines="2"
             android:text="@string/text_offertext"
             android:textColor="@color/heading_text_color"
             android:textSize="@dimen/offers_text_font_size"
             android:typeface="serif"/>
-
-        <ImageView
-            android:id="@+id/imageview_voteup"
+        
+        <TextView
+            android:id="@+id/textview_votesup"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
-            android:contentDescription="@string/cd_img_thumbsup"
-            android:paddingRight="@dimen/items_horizontal_padding"
-            android:src="@drawable/ic_rating_good" />
-
-        <ImageView
-            android:id="@+id/imageview_votedown"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_rating_good"
+            android:gravity="center_horizontal"
+            android:text="1"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/details_text_font_size"
+            android:typeface="serif" />
+        
+        <TextView
+            android:id="@+id/textview_votesdown"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
-            android:contentDescription="@string/cd_img_thumbsdown"
-            android:src="@drawable/ic_rating_bad" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_rating_bad"
+            android:gravity="center_horizontal"
+            android:text="1"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/details_text_font_size"
+            android:typeface="serif" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-        
-        <TextView
+    <TextView
             android:id="@+id/textview_brandstore"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/items_vertical_margin"
             android:layout_weight="5"
             android:drawableLeft="@drawable/ic_cart"
@@ -60,32 +61,6 @@
             android:textColor="@color/brandstore_text_color"
             android:textSize="@dimen/brandstore_text_font_size"
             android:typeface="serif" />
-
-        <TextView
-            android:id="@+id/textview_votesup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/items_vertical_margin"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="1"
-            android:textSize="@dimen/details_text_font_size"
-            android:textColor="@color/heading_text_color"
-            android:typeface="serif" />
-        
-        <TextView
-            android:id="@+id/textview_votesdown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/items_vertical_margin"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="1"
-            android:textSize="@dimen/details_text_font_size"
-            android:textColor="@color/heading_text_color" 
-            android:typeface="serif"/>
-        
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
