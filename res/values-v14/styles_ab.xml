@@ -29,6 +29,7 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_ab</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_ab</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Ab</item>
+        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
         
                 <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Ab.Widget</item>
@@ -52,5 +53,10 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Ab</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Ab</item>
     </style>
+    
+    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_core_overflow</item>
+    </style>
+    
 
 </resources>

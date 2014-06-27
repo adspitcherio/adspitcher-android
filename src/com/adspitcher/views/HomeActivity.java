@@ -29,7 +29,6 @@ public class HomeActivity extends ActionBarActivity  implements ActionBar.TabLis
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getSupportActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
 		viewPager.setAdapter(mAdapter);
@@ -79,12 +78,24 @@ public class HomeActivity extends ActionBarActivity  implements ActionBar.TabLis
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle presses on the action bar items
 	    switch (item.getItemId()) {
-	        case R.id.action_search:
+	        case R.id.action_search:{
+	        	Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(HomeActivity.this,
+						SearchActivity.class);
+				HomeActivity.this.startActivity(screenChangeIntent);
 	            return true;
+	        }
 	        case R.id.action_profile:{
 	        	Intent screenChangeIntent = null;
 				screenChangeIntent = new Intent(HomeActivity.this,
 						ProfileActivity.class);
+				HomeActivity.this.startActivity(screenChangeIntent);
+	            return true;
+	        }
+	        case R.id.action_filter:{
+	        	Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(HomeActivity.this,
+						FiltersActivity.class);
 				HomeActivity.this.startActivity(screenChangeIntent);
 	            return true;
 	        }

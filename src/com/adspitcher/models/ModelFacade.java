@@ -7,6 +7,7 @@ public class ModelFacade {
 	 */
 	private RemoteModel remoteModel;
 	private ConnectionModel connModel;
+	private UserModel userModel;
 
 	// ---------------------------------------------------------------------------------
 
@@ -17,6 +18,7 @@ public class ModelFacade {
 		// Initializing Remote Model
 		remoteModel = new RemoteModel();
 		connModel = new ConnectionModel();
+		userModel = new UserModel();
 	}
 
 	// ---------------------------------------------------------------------------------
@@ -33,6 +35,12 @@ public class ModelFacade {
 	public ConnectionModel getConnModel() {
 		return connModel;
 	}
+
+	public UserModel getUserModel() {
+		return userModel;
+	}
+	
+	
 
 	// ---------------------------------------------------------------------------------
 

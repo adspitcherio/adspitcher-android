@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -12,7 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,36 +23,39 @@ import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
-public class SignupActivity extends ActionBarActivity implements ConnListener{
-	
-	private String name,email,password;
+public class SignupActivity extends ActionBarActivity implements ConnListener {
+
+	private String username, email, password;
 	private ConnectionModel connModel;
+	private TextView btn_submit;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signup);
-		
+
+		connModel = AppEventsController.getInstance().getModelFacade()
+				.getConnModel();
+		connModel.setConnectionStatus(ConnectionModel.START_CONN);
+		connModel.setListener(this);
+		connModel.registerView(AppEventsController.getInstance()
+				.getActivityUpdateListener());
+
 		ActionBar actionBar = getSupportActionBar();
-	    actionBar.setDisplayHomeAsUpEnabled(true);
-		
-		TextView btn_submit = (TextView) findViewById(R.id.btn_submit);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+
+		btn_submit = (TextView) findViewById(R.id.btn_submit);
 		btn_submit.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View view) {
 				requestConnection(view);
-				/*Intent screenChangeIntent = null;
-				screenChangeIntent = new Intent(SignupActivity.this,
-						HomeActivity.class);
-				SignupActivity.this.startActivity(screenChangeIntent);
-				SignupActivity.this.finish();*/
 			}
 		});
-		
+
 	}
-	
+
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		View view = getCurrentFocus();
@@ -75,32 +78,31 @@ public class SignupActivity extends ActionBarActivity implements ConnListener{
 		}
 		return ret;
 	}
-	
-	private void requestConnection(View view)
-	{
-		name = ((EditText) findViewById(R.id.edittext_name)).getText()
+
+	private void requestConnection(View view) {
+		username = ((EditText) findViewById(R.id.edittext_name)).getText()
 				.toString();
-		password = ((EditText) findViewById(R.id.edittext_signup_password)).getText()
-				.toString();
+		password = ((EditText) findViewById(R.id.edittext_signup_password))
+				.getText().toString();
 		email = ((EditText) findViewById(R.id.edittext_email)).getText()
 				.toString();
-		
-		if(validateEnteredData(name, password, email))
-		{
+
+		if (validateEnteredData(username, password, email)) {
 			Bundle eventData = new Bundle();
-			eventData.putString(Constants.TEXT_USERNAME, name);
+			eventData.putString(Constants.TEXT_USERNAME, username);
 			eventData.putString(Constants.TEXT_PASSWORD, password);
 			eventData.putString(Constants.TEXT_EMAIL, email);
-			
-			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_REGISTER_USER, eventData, view);
+
+			AppEventsController.getInstance().handleEvent(
+					NetworkEvents.EVENT_ID_REGISTER_USER, eventData, view);
 		}
 	}
-	
-	
-	private boolean validateEnteredData(String name, String pwd,String email) {
+
+	private boolean validateEnteredData(String name, String pwd, String email) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		if ((name == null || name.equals(""))
-				|| (pwd == null || pwd.equals("")) || (email == null || email.equals(""))) {
+				|| (pwd == null || pwd.equals(""))
+				|| (email == null || email.equals(""))) {
 			builder.setTitle(R.string.text_error);
 			builder.setMessage(R.string.text_valid_credentials);
 			builder.setCancelable(false);
@@ -124,22 +126,18 @@ public class SignupActivity extends ActionBarActivity implements ConnListener{
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.LOGGED_IN: {
 			Log.d("SignupActivity", "Inside onConnection");
+			SharedPreferences sharedPref = getSharedPreferences(
+					Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
+			SharedPreferences.Editor editor = sharedPref.edit();
+			editor.putString(Constants.TEXT_ACCESSTOKEN, AppEventsController
+					.getInstance().getModelFacade().getUserModel()
+					.getAccessToken());
+			editor.commit();
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(SignupActivity.this,
-					LoginActivity.class);
+					HomeActivity.class);
 			SignupActivity.this.startActivity(screenChangeIntent);
 			SignupActivity.this.finish();
-			/*
-			 * if (keepMeLoggedInBool) { SharedPreferences sharedPref =
-			 * getSharedPreferences( Constants.DATABASE_PREF_NAME,
-			 * MODE_PRIVATE); SharedPreferences.Editor editor =
-			 * sharedPref.edit(); editor.putString(Constants.TEXT_USERNAME,
-			 * username); editor.putString(Constants.TEXT_PASSWORD, password);
-			 * editor.commit(); } // Hit to fetch families data
-			 * AppEventsController.getInstance()
-			 * .handleEvent(NetworkEvents.EVENT_ID_GET_LATEST_OFFERS, null,
-			 * this.btn_signin);
-			 */
 		}
 			break;
 		case ConnectionModel.GOT_ERROR: {

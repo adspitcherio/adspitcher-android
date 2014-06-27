@@ -40,11 +40,7 @@
             android:value=".views.LaunchActivity" />
         </activity>
         <activity android:name=".views.HomeActivity"
-            android:label=""
-            android:parentActivityName=".views.LaunchActivity">
-            <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".views.LaunchActivity" />
+            android:label="">
         </activity>
         <activity android:name=".views.ProfileActivity"
             android:parentActivityName=".views.HomeActivity">
@@ -61,6 +57,18 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.LoginActivity" />
         </activity>
+        <activity android:name=".views.FiltersActivity"
+            android:label="@string/action_filter"
+            android:parentActivityName=".views.HomeActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".views.HomeActivity" /></activity>
+        <activity android:name=".views.SearchActivity"
+            android:label="@string/action_search"
+            android:parentActivityName=".views.HomeActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".views.HomeActivity" /></activity>
     </application>
 
 </manifest>

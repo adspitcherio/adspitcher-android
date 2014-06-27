@@ -92,18 +92,27 @@ public class AppEventsController {
 			}
 		}
 			break;
-			
-		case NetworkEvents.EVENT_ID_REGISTER_USER:{
-			try
-			{				
-				modelFacade.getRemoteModel().registerUser(eventData, NetworkResponseHandler.AUTHENTICATEUSER_HANDLER, view);				
-			}catch(Exception ex)
-			{
+
+		case NetworkEvents.EVENT_ID_REGISTER_USER: {
+			try {
+				modelFacade.getRemoteModel().registerUser(eventData,
+						NetworkResponseHandler.REGISTERUSER_HANDLER, view);
+			} catch (Exception ex) {
 				Log.d("Application Exception:", ex.getMessage());
-			}			
+			}
 		}
-		
-		break;
+
+			break;
+		case NetworkEvents.EVENT_ID_GET_LATEST_OFFERS: {
+			try {
+				modelFacade.getRemoteModel().registerUser(eventData,
+						NetworkResponseHandler.REGISTERUSER_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+
+			break;
 		}
 	}
 

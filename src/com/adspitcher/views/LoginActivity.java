@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -14,7 +15,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -28,7 +31,7 @@ import com.adspitcher.models.ConnectionModel;
 public class LoginActivity extends ActionBarActivity implements ConnListener {
 
 	private TextView btn_signin;
-	private String username, password;
+	private String username, password, accessToken;
 	private boolean keepMeLoggedInBool;
 	private ConnectionModel connModel;
 
@@ -42,9 +45,10 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
-		EditText password = (EditText) findViewById(R.id.edittext_password);
-		password.setTypeface(Typeface.SERIF);
-		password.setTransformationMethod(new PasswordTransformationMethod());
+		EditText editText_password = (EditText) findViewById(R.id.edittext_password);
+		editText_password.setTypeface(Typeface.SERIF);
+		editText_password
+				.setTransformationMethod(new PasswordTransformationMethod());
 
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
@@ -67,6 +71,17 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 				requestConnection(view);
 			}
 		});
+
+		CheckBox keepMeLoggedIn = (CheckBox) findViewById(R.id.checkbox_rememberme);
+		keepMeLoggedIn
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView,
+							boolean isChecked) {
+						keepMeLoggedInBool = isChecked;
+					}
+				});
 
 		// Action on click of Forgot Password Button
 		TextView textview_forgotpwd = (TextView) findViewById(R.id.btn_forgotpassword);
@@ -156,22 +171,21 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.LOGGED_IN: {
 			Log.d("LoginActivity", "Inside onConnection");
+
+			if (keepMeLoggedInBool) {
+				SharedPreferences sharedPref = getSharedPreferences(
+						Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
+				SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString(Constants.TEXT_ACCESSTOKEN, AppEventsController
+						.getInstance().getModelFacade().getUserModel()
+						.getAccessToken());
+				editor.commit();
+			}
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(LoginActivity.this,
 					HomeActivity.class);
 			LoginActivity.this.startActivity(screenChangeIntent);
 			LoginActivity.this.finish();
-			/*
-			 * if (keepMeLoggedInBool) { SharedPreferences sharedPref =
-			 * getSharedPreferences( Constants.DATABASE_PREF_NAME,
-			 * MODE_PRIVATE); SharedPreferences.Editor editor =
-			 * sharedPref.edit(); editor.putString(Constants.TEXT_USERNAME,
-			 * username); editor.putString(Constants.TEXT_PASSWORD, password);
-			 * editor.commit(); } // Hit to fetch families data
-			 * AppEventsController.getInstance()
-			 * .handleEvent(NetworkEvents.EVENT_ID_GET_LATEST_OFFERS, null,
-			 * this.btn_signin);
-			 */
 		}
 			break;
 		case ConnectionModel.GOT_ERROR: {

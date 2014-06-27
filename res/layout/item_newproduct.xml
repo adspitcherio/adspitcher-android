@@ -7,20 +7,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/offer_item_background_color"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/textview_newcollectiontext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/items_vertical_margin"
             android:layout_marginLeft="@dimen/items_horizontal_margin"
             android:layout_marginTop="@dimen/items_vertical_margin"
             android:layout_weight="1"
             android:maxLines="2"
             android:text="@string/text_offertext"
-            android:textColor="@color/offer_text_color"
+            android:textColor="@color/heading_text_color"
             android:textSize="@dimen/offers_text_font_size"
             android:typeface="serif" />
 
@@ -28,10 +26,11 @@
             android:id="@+id/textview_newcollectionbrandstore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/items_vertical_margin"
             android:layout_marginLeft="@dimen/items_horizontal_margin"
             android:layout_marginTop="@dimen/items_vertical_margin"
             android:layout_weight="5"
+            android:drawableLeft="@drawable/ic_cart"
+            android:gravity="center_vertical"
             android:text="@string/text_offertext"
             android:textAllCaps="true"
             android:textColor="@color/brandstore_text_color"
@@ -42,9 +41,10 @@
             android:id="@+id/textview_newcollectionlocations"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/items_vertical_margin"
             android:layout_marginLeft="@dimen/items_horizontal_margin"
             android:layout_marginTop="@dimen/items_vertical_margin"
+            android:drawableLeft="@drawable/ic_location_place"
+            android:gravity="center_vertical"
             android:text="@string/text_offertext"
             android:textAllCaps="true"
             android:textColor="@color/brandstore_text_color"
@@ -65,7 +65,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/light_blue_color" >
+        android:background="@color/white_background_color" >
 
         <TextView
             android:id="@+id/textview_newcollectionviews"
@@ -76,9 +76,9 @@
             android:paddingBottom="@dimen/text_border_vertical_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/text_views"
-            android:textColor="@color/heading_text_color"
             android:textSize="@dimen/details_text_font_size"
-            android:typeface="serif" />
+            android:textColor="@color/background_color"
+            android:typeface="serif"/>
 
         <TextView
             android:id="@+id/textview_newcollectionreviews"
@@ -89,9 +89,9 @@
             android:paddingBottom="@dimen/text_border_vertical_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/text_reviews"
-            android:textColor="@color/heading_text_color"
             android:textSize="@dimen/details_text_font_size"
-            android:typeface="serif" />
+            android:textColor="@color/background_color"
+            android:typeface="serif"/>
     </LinearLayout>
 
 </LinearLayout>

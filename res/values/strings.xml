@@ -87,6 +87,10 @@
     <string name="text_existinguser_signin">Existing user? Sign In</string>
     <string name="text_rememberme">Remember me</string>
     <string name="text_forgotpwd">Forgot Password</string>
-    
-
+    <string name="text_forgotpwd_details">An email with instructions to reset password has been sent to your registered email address. Please follow the instructions in email to reset your password.</string>
+	<string name="action_filter">Filter</string>
+	<string name="action_Apply">Apply</string>
+	<string name="text_brands">Brands</string>
+	<string name="text_categories">Categories</string>
+	<string name="text_locations">Locations</string>
 </resources>
