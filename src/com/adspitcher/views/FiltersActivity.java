@@ -4,16 +4,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -22,12 +24,15 @@ import com.adspitcher.adapters.FiltersAdapter;
 import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
+import com.adspitcher.listeners.ConnListener;
+import com.adspitcher.models.ConnectionModel;
 
-public class FiltersActivity extends ActionBarActivity {
+public class FiltersActivity extends ActionBarActivity implements ConnListener {
 
 	private ListView listView_location_filters, listView_brands_filters,
 			listView_categories_filters;
 	private FiltersAdapter adapter, brands_adapter, categories_adapter;
+	private ConnectionModel connModel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,13 @@ public class FiltersActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_filter);
+		
+		connModel = AppEventsController.getInstance().getModelFacade()
+				.getConnModel();
+		connModel.setConnectionStatus(ConnectionModel.START_CONN);
+		connModel.setListener(this);
+		connModel.registerView(AppEventsController.getInstance()
+				.getActivityUpdateListener());
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
 			// get the parent view of home (app icon) imageview
@@ -172,6 +184,34 @@ public class FiltersActivity extends ActionBarActivity {
 		}
 		default:
 			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	@Override
+	public void onConnection() {
+		switch (connModel.getConnectionStatus()) {
+		case ConnectionModel.GOT_FILTERED_OFFERS: {
+			FiltersActivity.this.finish();
+		}
+			break;
+		case ConnectionModel.GOT_ERROR: {
+			AlertDialog.Builder builder = new AlertDialog.Builder(
+					FiltersActivity.this);
+			builder.setTitle(getResources().getString(R.string.text_error));
+			builder.setMessage(connModel.getConnectionErrorMessage());
+			builder.setCancelable(false);
+			builder.setPositiveButton(getResources().getString(R.string.OK),
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.cancel();
+						}
+					});
+			AlertDialog alertDialog = builder.create();
+			alertDialog.show();
+		}
+			break;
 		}
 	}
 }
