@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_color">#0095CD</color>
+    <color name="background_color">#002C39</color>
     <color name="heading_text_color">#FFFFFF</color>
     <color name="hint_text_color">#BBFFFF</color>
-    <color name="blue_background_color">#002C39</color>
+    <color name="blue_background_color">#0095CD</color>
     <color name="white_background_color">#FFFFFF</color>
     <color name="signup_text_color">#00AEEC</color>
     <color name="light_grey_border_color">#FFFBFF</color>
@@ -14,5 +14,4 @@
     <color name="offer_text_color">#FFBA31</color>
     <color name="brandstore_text_color">#FFFFFF</color>
     <color name="offer_item_background_color">#FFFFFF</color>
-    
 </resources>

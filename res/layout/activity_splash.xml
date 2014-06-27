@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/cd_img_splash"
-            android:src="@drawable/splash" />
+            android:src="@drawable/ic_adspitcher_logo" />
 
         <TextView
             android:id="@+id/textview_version"
