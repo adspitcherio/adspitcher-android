@@ -70,6 +70,7 @@
     </style>
     
     <style name="ActionButton.CloseMode.Ab" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
+        <!--  <item name="homeAsUpIndicator">@drawable/ic_action_navigation_previous_item</item> -->
         <item name="android:background">@drawable/btn_cab_done_ab</item>
     </style>
     

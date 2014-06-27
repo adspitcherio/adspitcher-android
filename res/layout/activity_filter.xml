@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_background_color"
     android:orientation="vertical" >
-    <LinearLayout 
-        android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textview_locations"
@@ -27,7 +23,9 @@
     <ListView
         android:id="@+id/listView_filters_locations"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
     </ListView>
     
     <TextView
@@ -48,7 +46,9 @@
     <ListView
         android:id="@+id/listView_filters_brands"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
     </ListView>
     
     <TextView
@@ -69,8 +69,9 @@
     <ListView
         android:id="@+id/listView_filters_categories"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
 
-</ScrollView>
+    </ListView>
+
+</LinearLayout>
