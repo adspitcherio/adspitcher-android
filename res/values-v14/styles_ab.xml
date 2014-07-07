@@ -19,31 +19,28 @@
 
 <resources>
 
-    <style name="Theme.Ab" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Ab" parent="@style/Theme.AppCompat.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_ab</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Ab</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Ab</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Ab</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Ab</item>
-        <item name="android:actionBarStyle">@style/ActionBar.Solid.Ab</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Transparent.Ab</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_ab</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_ab</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Ab</item>
         <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
         
-                <!-- Light.DarkActionBar specific -->
-        <item name="android:actionBarWidgetTheme">@style/Theme.Ab.Widget</item>
-
     </style>
 
-    <style name="ActionBar.Solid.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/ab_solid_ab</item>
+    <style name="ActionBar.Solid.Ab" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_background_textured_ab</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_ab</item>
-        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_ab</item>
+        <item name="android:backgroundSplit">@drawable/ab_background_textured_ab</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Ab</item>
     </style>
 
-    <style name="ActionBar.Transparent.Ab" parent="@style/Widget.AppCompat.ActionBar">
+    <style name="ActionBar.Transparent.Ab" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_ab</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Ab</item>
     </style>

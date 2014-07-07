@@ -17,7 +17,6 @@
         android:hint="@string/text_name"
         android:inputType="none"
         android:textColor="@color/heading_text_color"
-        android:textColorHint="@color/hint_text_color"
         android:typeface="serif" >
 
     <requestFocus />
@@ -35,7 +34,6 @@
         android:hint="@string/text_email"
         android:inputType="textEmailAddress"
         android:textColor="@color/heading_text_color"
-        android:textColorHint="@color/hint_text_color"
         android:typeface="serif" >
 
     </EditText>
@@ -52,25 +50,24 @@
         android:hint="@string/text_password"
         android:inputType="textPassword"
         android:textColor="@color/heading_text_color"
-        android:textColorHint="@color/hint_text_color"
         android:typeface="serif" >
 
     </EditText>
     
     <TextView
-            android:id="@+id/btn_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_custom"
-            android:drawableRight="@drawable/ic_navigation_next_item_white"
-            android:gravity="center_vertical"
-            android:paddingBottom="@dimen/text_border_vertical_padding"
-            android:paddingLeft="@dimen/text_border_horizontal_padding"
-            android:paddingRight="@dimen/text_border_horizontal_padding"
-            android:paddingTop="@dimen/text_border_vertical_padding"
-            android:text="@string/text_submit"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/heading_text_color"
-            android:typeface="serif" />
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_custom"
+        android:drawableRight="@drawable/ic_navigation_next_item_white"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/text_border_vertical_padding"
+        android:paddingLeft="@dimen/text_border_horizontal_padding"
+        android:paddingRight="@dimen/text_border_horizontal_padding"
+        android:paddingTop="@dimen/text_border_vertical_padding"
+        android:text="@string/text_submit"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/offer_item_background_color"
+        android:typeface="serif" />
 
 </LinearLayout>

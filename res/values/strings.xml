@@ -93,4 +93,11 @@
 	<string name="text_brands">Brands</string>
 	<string name="text_categories">Categories</string>
 	<string name="text_locations">Locations</string>
+	
+	<string-array name="navigation_drawer_array">
+        <item>Logout</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

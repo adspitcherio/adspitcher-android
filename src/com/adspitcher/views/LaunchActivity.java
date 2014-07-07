@@ -25,8 +25,8 @@ public class LaunchActivity extends ActionBarActivity {
 	private TextView txtView_benefits;
 	private String[] benefits;
 	private int[] benefitsDrawableList = new int[] {
-			R.drawable.ic_notification_white, R.drawable.ic_rewards_icon,
-			R.drawable.ic_follow_white };
+			R.drawable.ic_notification, R.drawable.ic_rewards_icon,
+			R.drawable.ic_social_group };
 	private Resources res;
 	private Runnable benefitsRunnable;
 	private long mStartTime;

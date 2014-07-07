@@ -107,13 +107,6 @@ public class ConnectivityHandler {
 		URL url;
 		try {
 			url = new URL(finalUrl);
-			
-			String proxy = "proxy.tcs.com",
-				   port = "8080";
-			
-			Properties systemProperties = System.getProperties();
-			systemProperties.setProperty("http.proxyHost",proxy);
-			systemProperties.setProperty("http.proxyPort",port);
 
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setReadTimeout(10000 /* milliseconds */);

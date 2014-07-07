@@ -10,6 +10,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:orientation="vertical" >
+        
+        <TextView
+            android:id="@+id/textview_appname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/heading_text_color"
+            android:typeface="serif" />
 
         <ImageView
             android:id="@+id/imageview_splash"
@@ -17,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/cd_img_splash"
-            android:src="@drawable/ic_adspitcher_logo" />
+            android:src="@drawable/ic_adspitcher_logo" />       
 
         <TextView
             android:id="@+id/textview_version"
