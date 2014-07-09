@@ -9,16 +9,15 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Properties;
-
-import com.adspitcher.constants.Constants;
-import com.adspitcher.exceptions.ServerException;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.adspitcher.constants.Constants;
+import com.adspitcher.exceptions.ServerException;
 
 public class ConnectivityHandler {
 

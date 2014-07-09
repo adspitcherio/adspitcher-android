@@ -150,7 +150,7 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 			String[] tempData = new String[locations.size()];
 			int i = 0;
 			Set<String> keys = locations.keySet();
-			for (Iterator iterator = keys.iterator(); iterator.hasNext();) {
+			for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
 				tempData[i] = (String) iterator.next();
 				i++;
 			}
@@ -159,7 +159,7 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 			tempData = new String[businesses.size()];
 			i = 0;
 			keys = businesses.keySet();
-			for (Iterator iterator = keys.iterator(); iterator.hasNext();) {
+			for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
 				tempData[i] = (String) iterator.next();
 				i++;
 			}
@@ -168,7 +168,7 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 			tempData = new String[categories.size()];
 			i = 0;
 			keys = businesses.keySet();
-			for (Iterator iterator = keys.iterator(); iterator.hasNext();) {
+			for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
 				tempData[i] = (String) iterator.next();
 				i++;
 			}
