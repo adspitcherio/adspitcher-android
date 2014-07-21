@@ -1,17 +1,17 @@
 package com.adspitcher.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.adspitcher.R;
 import com.adspitcher.constants.Constants;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends FragmentActivity{
 
 	// Time in Milliseconds
 	private int SPLASH_TIMER = 2000;
@@ -27,14 +27,12 @@ public class SplashActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_splash);
-		
+
 		SharedPreferences sharedPref = getSharedPreferences(
 				Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
 		accessToken = sharedPref.getString(Constants.TEXT_ACCESSTOKEN,
 				Constants.TEXT_DATABASE_ACCESS_VALUE_DEFAULT);
-
-		// New Handler to start new Activity and close this Splash after few
-		// seconds
+		
 		new Handler().postDelayed(new Runnable() {
 
 			@Override
@@ -54,6 +52,6 @@ public class SplashActivity extends Activity {
 				}
 			}
 		}, SPLASH_TIMER);
-	}
 
+	}
 }

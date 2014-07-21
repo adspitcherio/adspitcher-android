@@ -3,11 +3,12 @@ package com.adspitcher.constants;
 public class Constants {
 
 	// Required URLs
-	public static final String BASE_URL = "http://www.adspitcher.com/service/launch.php/";
+	public static final String BASE_URL = "http://api.adspitcher.com/v1/";
 	public static final String URL_AUTHENTICATEUSER_REQUEST = "authenticateuser";
 	public static final String URL_REGISTERUSER_REQUEST = "registeruser";
 	public static final String URL_OFFERS_REQUEST = "offers";
 	public static final String URL_USERPROFILE_REQUEST = "userprofile";
+	public static final String URL_GET_CITIES_REQUEST = "locations.json";
 	// ----------------------------------------------------------------------------------
 	
 	public static final String TYPE_LATEST_OFFERS = "-1";
@@ -39,6 +40,7 @@ public class Constants {
 	public static final String TEXT_SUCCESS = "success";
 	public static final String TEXT_RESPONSE = "response";
 	public static final String TEXT_DATA = "data";
+	public static final String TEXT_LOCATION_CITYNAME = "cityname";
 	// ----------------------------------------------------------------------------------
 	
 	public static final String TEXT_USERNAME = "username";

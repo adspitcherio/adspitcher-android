@@ -14,6 +14,10 @@ public class ConnectionModel extends BaseModel {
 	public static final int GOT_LATEST_FEEDS = 2;
 	public static final int GOT_FILTERED_OFFERS = 3;
 	
+	public static final int ERROR = -1;
+	public static final int SUCCESS = 0;
+	public static final int EXCEPTION = 1;
+	
 	public ConnectionModel() {
 
 	}

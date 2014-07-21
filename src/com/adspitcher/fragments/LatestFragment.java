@@ -1,15 +1,22 @@
 package com.adspitcher.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.adspitcher.R;
 import com.adspitcher.adapters.OffersFragmentAdapter;
+import com.adspitcher.constants.Constants;
 import com.adspitcher.dataobjects.OffersItem;
+import com.adspitcher.views.LaunchActivity;
+import com.adspitcher.views.OffersDetailsActivity;
+import com.adspitcher.views.SplashActivity;
 
 public class LatestFragment extends Fragment{
 
@@ -28,6 +35,19 @@ public class LatestFragment extends Fragment{
 		
 		OffersFragmentAdapter adapter = new OffersFragmentAdapter(view.getContext(), R.layout.fragment_latest, offersDataItems);
 		listView_latest_offers_items.setAdapter(adapter);
+		
+		listView_latest_offers_items.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(getActivity(),
+						OffersDetailsActivity.class);
+				startActivity(screenChangeIntent);
+			}
+		});
+		
 		return view;
 	}
 

@@ -1,6 +1,7 @@
 package com.adspitcher.adapters;
 
 import com.adspitcher.fragments.PreferencesFragment;
+import com.adspitcher.fragments.ProfileInfoFragment;
 import com.adspitcher.fragments.ReviewsFragment;
 
 import android.support.v4.app.Fragment;
@@ -17,8 +18,10 @@ public class ProfilePagerAdapter extends FragmentPagerAdapter{
 	public Fragment getItem(int index) {
 		switch (index) {
         case 0:
-            return new ReviewsFragment();
+            return new ProfileInfoFragment();
         case 1:
+        	return new ReviewsFragment();
+        case 2:
         	return new PreferencesFragment();
         }
  
@@ -27,7 +30,7 @@ public class ProfilePagerAdapter extends FragmentPagerAdapter{
 
 	@Override
 	public int getCount() {
-		return 2;
+		return 3;
 	}
 
 }

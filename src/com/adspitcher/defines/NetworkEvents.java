@@ -15,4 +15,5 @@ public class NetworkEvents {
 	public static final int EVENT_ID_GET_USER_PROFILE = 8;
 	public static final int EVENT_ID_GET_FILTERED_OFFERS = 9;
 	public static final int EVENT_ID_GET_SEARCHED_OFFERS = 10;
+	public static final int EVENT_ID_GET_CITIES = 11;
 }
