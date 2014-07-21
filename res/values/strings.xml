@@ -36,6 +36,7 @@
     <string name="text_profile_photo_desc">Tap here to add photo</string>
     <string name="action_search">Search</string>
     <string name="action_profile">Profile</string>
+    <string name="action_fav">Fav</string>
     <string name="action_notifications">Notifications</string>
     <string name="error_network_problem">Por favor, revise las conexiones de red disponibles.</string>
     <string name="error_reading_data_from_server">Problema al leer los datos del servidor. Por favor inténtelo de nuevo más tarde.</string>
@@ -71,6 +72,7 @@
     <string name="text_forgotpwd_details">An email with instructions to reset password has been sent to your registered email address. Please follow the instructions in email to reset your password.</string>
 	<string name="action_filter">Filter</string>
 	<string name="action_apply">Apply</string>
+	<string name="action_logout">Logout</string>
 	<string name="text_brands">Brands</string>
 	<string name="text_categories">Categories</string>
 	<string name="text_locations">Locations</string>
