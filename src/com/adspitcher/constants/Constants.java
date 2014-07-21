@@ -4,6 +4,7 @@ public class Constants {
 
 	// Required URLs
 	public static final String BASE_URL = "http://api.adspitcher.com/v1/";
+	//public static final String BASE_URL = "http://54.243.74.12/v1/";
 	public static final String URL_AUTHENTICATEUSER_REQUEST = "authenticateuser";
 	public static final String URL_REGISTERUSER_REQUEST = "registeruser";
 	public static final String URL_OFFERS_REQUEST = "offers";

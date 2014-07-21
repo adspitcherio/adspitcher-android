@@ -1,28 +1,16 @@
 package com.adspitcher.views;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.adspitcher.R;
@@ -30,21 +18,14 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
-import com.adspitcher.utils.LocationUtils;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.LocationClient;
 
 public class LaunchActivity extends ActionBarActivity implements
-		GooglePlayServicesClient.ConnectionCallbacks,
-		GooglePlayServicesClient.OnConnectionFailedListener,
 		ConnListener{
 
-	private String cityName;
+	//private String cityName;
 
 	// Stores the current instantiation of the location client in this object
-	private LocationClient mLocationClient;
+	//private LocationClient mLocationClient;
 	
 	private ConnectionModel connModel;
 	private TextView textview_search;
@@ -66,7 +47,7 @@ public class LaunchActivity extends ActionBarActivity implements
 		 * Create a new location client, using the enclosing class to handle
 		 * callbacks.
 		 */
-		mLocationClient = new LocationClient(this, this, this);
+		//mLocationClient = new LocationClient(this, this, this);
 
 		// Action on click of Create An Account Button
 		TextView textview_createaccount = (TextView) findViewById(R.id.textview_createaccount);
@@ -106,6 +87,9 @@ public class LaunchActivity extends ActionBarActivity implements
 				LaunchActivity.this.startActivity(screenChangeIntent);
 			}
 		});
+		
+		AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
+				 null, textview_search);
 	}
 
 	@Override
@@ -130,6 +114,32 @@ public class LaunchActivity extends ActionBarActivity implements
 		}
 		return ret;
 	}
+	
+	@Override
+	public void onConnection() {
+		switch(connModel.getConnectionStatus()){
+		case ConnectionModel.SUCCESS:{
+			Spinner citiesSpinner = (Spinner)findViewById(R.id.spinner_cities);
+			ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
+			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			citiesSpinner.setAdapter(spinnerAdapter);
+			String[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getCitiesName();
+			for(int i = 0; i < cities.length; i++){
+				spinnerAdapter.add(cities[i]);
+			}
+			spinnerAdapter.notifyDataSetChanged();
+		}
+		break;
+		}
+		/*if (servicesConnected()) {
+
+            // Get the current location
+            Location currentLocation = mLocationClient.getLastLocation();
+
+            // Start the background task
+            (new LaunchActivity.GetAddressTask(this)).execute(currentLocation);
+        }*/
+	}
 
 	/*
 	 * Handle results returned to this Activity by other Activities started with
@@ -139,7 +149,7 @@ public class LaunchActivity extends ActionBarActivity implements
 	 * services problems. The result of this call returns here, to
 	 * onActivityResult.
 	 */
-	@Override
+/*	@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 
@@ -173,14 +183,14 @@ public class LaunchActivity extends ActionBarActivity implements
 							requestCode));
 			break;
 		}
-	}
+	}*/
 
 	/**
 	 * Verify that Google Play services is available before making a request.
 	 * 
 	 * @return true if Google Play services is available, otherwise false
 	 */
-	private boolean servicesConnected() {
+	/*private boolean servicesConnected() {
 
 		// Check that Google Play services is available
 		int resultCode = GooglePlayServicesUtil
@@ -207,48 +217,48 @@ public class LaunchActivity extends ActionBarActivity implements
 			}
 			return false;
 		}
-	}
+	}*/
 
 	/*
 	 * Called when the Activity is no longer visible at all. Stop updates and
 	 * disconnect.
 	 */
-	@Override
+	/*@Override
 	public void onStop() {
 
 		// After disconnect() is called, the client is considered "dead".
 		mLocationClient.disconnect();
 
 		super.onStop();
-	}
+	}*/
 
 	/*
 	 * Called when the Activity is restarted, even before it becomes visible.
 	 */
-	@Override
+	/*@Override
 	public void onStart() {
 
 		super.onStart();
 
-		/*
+		
 		 * Connect the client. Don't re-start any requests here; instead, wait
 		 * for onResume()
-		 */
+		 
 		mLocationClient.connect();
 
-	}
+	}*/
 
 	/*
 	 * Called by Location Services if the attempt to Location Services fails.
 	 */
-	@Override
+	/*@Override
 	public void onConnectionFailed(ConnectionResult connectionResult) {
 
-		/*
+		
 		 * Google Play services can resolve some errors it detects. If the error
 		 * has a resolution, try sending an Intent to start a Google Play
 		 * services activity that can resolve error.
-		 */
+		 
 		if (connectionResult.hasResolution()) {
 			try {
 
@@ -256,10 +266,10 @@ public class LaunchActivity extends ActionBarActivity implements
 				connectionResult.startResolutionForResult(this,
 						LocationUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST);
 
-				/*
+				
 				 * Thrown if Google Play services canceled the original
 				 * PendingIntent
-				 */
+				 
 
 			} catch (IntentSender.SendIntentException e) {
 
@@ -272,7 +282,7 @@ public class LaunchActivity extends ActionBarActivity implements
 			// the error.
 			showErrorDialog(connectionResult.getErrorCode());
 		}
-	}
+	}*/
 
 	/**
 	 * Show a dialog returned by Google Play services for the connection error
@@ -281,7 +291,7 @@ public class LaunchActivity extends ActionBarActivity implements
 	 * @param errorCode
 	 *            An error code returned from onConnectionFailed
 	 */
-	private void showErrorDialog(int errorCode) {
+	/*private void showErrorDialog(int errorCode) {
 
 		// Get the error dialog from Google Play services
 		Dialog errorDialog = GooglePlayServicesUtil.getErrorDialog(errorCode,
@@ -300,53 +310,51 @@ public class LaunchActivity extends ActionBarActivity implements
 			errorFragment.show(getSupportFragmentManager(),
 					LocationUtils.APPTAG);
 		}
-	}
+	}*/
 
 	/**
 	 * Define a DialogFragment to display the error dialog generated in
 	 * showErrorDialog.
 	 */
-	public static class ErrorDialogFragment extends DialogFragment {
+/*	public static class ErrorDialogFragment extends DialogFragment {
 
 		// Global field to contain the error dialog
 		private Dialog mDialog;
 
-		/**
+		*//**
 		 * Default constructor. Sets the dialog field to null
-		 */
+		 *//*
 		public ErrorDialogFragment() {
 			super();
 			mDialog = null;
 		}
 
-		/**
+		*//**
 		 * Set the dialog to display
 		 * 
 		 * @param dialog
 		 *            An error dialog
-		 */
+		 *//*
 		public void setDialog(Dialog dialog) {
 			mDialog = dialog;
 		}
 
-		/*
+		
 		 * This method must return a Dialog to the DialogFragment.
-		 */
+		 
 		@Override
 		public Dialog onCreateDialog(Bundle savedInstanceState) {
 			return mDialog;
 		}
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void onConnected(Bundle arg0) {
-		AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
-				 null, textview_search);
 	}
 
 	@Override
 	public void onDisconnected() {
-	}
+	}*/
 
 	/**
      * An AsyncTask that calls getFromLocation() in the background.
@@ -356,7 +364,7 @@ public class LaunchActivity extends ActionBarActivity implements
      * Void     - indicates that progress units are not used by this subclass
      * String   - An address passed to onPostExecute()
      */
-    protected class GetAddressTask extends AsyncTask<Location, Void, String> {
+  /*  protected class GetAddressTask extends AsyncTask<Location, Void, String> {
 
         // Store the context passed to the AsyncTask when the system instantiates it.
         Context localContext;
@@ -371,17 +379,17 @@ public class LaunchActivity extends ActionBarActivity implements
             localContext = context;
         }
 
-        /**
+        *//**
          * Get a geocoding service instance, pass latitude and longitude to it, format the returned
          * address, and return the address to the UI thread.
-         */
+         *//*
         @Override
         protected String doInBackground(Location... params) {
-            /*
+            
              * Get a new geocoding service instance, set for localized addresses. This example uses
              * android.location.Geocoder, but other geocoders that conform to address standards
              * can also be used.
-             */
+             
             Geocoder geocoder = new Geocoder(localContext, Locale.getDefault());
 
             // Get the current location from the input parameter list
@@ -393,10 +401,10 @@ public class LaunchActivity extends ActionBarActivity implements
             // Try to get an address for the current location. Catch IO or network problems.
             try {
 
-                /*
+                
                  * Call the synchronous getFromLocation() method with the latitude and
                  * longitude of the current location. Return at most 1 address.
-                 */
+                 
                 addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1
                 );
@@ -436,7 +444,7 @@ public class LaunchActivity extends ActionBarActivity implements
                     Address address = addresses.get(0);
 
                     // Format the first line of address
-                    /*String addressText = getString(R.string.address_output_string,
+                    String addressText = getString(R.string.address_output_string,
 
                             // If there's a street address, add it
                             address.getMaxAddressLineIndex() > 0 ?
@@ -447,7 +455,7 @@ public class LaunchActivity extends ActionBarActivity implements
 
                             // The country of the address
                             address.getCountryName()
-                    );*/
+                    );
 
                     // Return the text
                     return address.getLocality();
@@ -457,27 +465,15 @@ public class LaunchActivity extends ActionBarActivity implements
                   return getString(R.string.no_address_found);
                 }
         	}
-        /**
+        *//**
          * A method that's called once doInBackground() completes. Set the text of the
          * UI element that displays the address. This method runs on the UI thread.
-         */
+         *//*
         @Override
         protected void onPostExecute(String address) {
 
             // Set the address in the UI
             setTitle(address);
         }
-    }
-
-	@Override
-	public void onConnection() {
-		if (servicesConnected()) {
-
-            // Get the current location
-            Location currentLocation = mLocationClient.getLastLocation();
-
-            // Start the background task
-            (new LaunchActivity.GetAddressTask(this)).execute(currentLocation);
-        }
-	}
+    }*/
 }

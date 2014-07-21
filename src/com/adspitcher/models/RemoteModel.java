@@ -3,6 +3,7 @@ package com.adspitcher.models;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.os.Bundle;
@@ -139,6 +140,49 @@ public class RemoteModel {
 			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION, Constants.ERROR_NETWORK_PROBLEM));
 		}		
 	}
+	
+	public void getCities(Bundle params, Handler listener, View view)
+			throws Exception {
+		ConnectivityHandler connHandler = new ConnectivityHandler(
+				view.getContext());
+		if (connHandler.isOnline()) {
+			JSONObject obj = new JSONObject();
+			JSONArray resArr = new JSONArray();
+			
+			obj.put("id", 1);
+			obj.put("name", "Nagpur");
+			obj.put("type", "City");
+			obj.put("parent_id", 12);
+			obj.put("created_at", "2014-07-15T06:05:29.456Z");
+			obj.put("updated_at", "2014-07-15T06:05:29.456Z");
+			resArr.put(obj);
+			
+			obj = null;
+			obj = new JSONObject();
+			obj.put("id", 1);
+			obj.put("name", "Gurgaon");
+			obj.put("type", "City");
+			obj.put("parent_id", 12);
+			obj.put("created_at", "2014-07-15T06:05:29.456Z");
+			obj.put("updated_at", "2014-07-15T06:05:29.456Z");
+			resArr.put(obj);
+			
+			listener.sendMessage(listener.obtainMessage(
+					Constants.SUCCESSFUL_RESPONSE, resArr));
+			/*HttpParams httpParams = new HttpParams();
+			httpParams.setRequestURL(Constants.BASE_URL
+					+ Constants.URL_GET_CITIES_REQUEST);
+			httpParams.setRequestMethod(HttpParams.HTTP_GET);
+
+			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
+					view.getContext(), "Connecting...", listener);
+			asyncTask.execute(httpParams);*/
+		} else {
+			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
+					Constants.ERROR_NETWORK_PROBLEM));
+		}
+	}
+	
 	/*public void syncDB(Bundle params, Handler listener, View view)
 			throws Exception {
 		ConnectivityHandler connHandler = new ConnectivityHandler(

@@ -28,7 +28,7 @@
     <string name="text_down">Down: </string>
     <string name="text_fname"><i>first name</i></string>
     <string name="text_lname"><i>last name</i></string>
-    <string name="text_location"><i>location</i></string>
+    <string name="text_location"><i>Location</i></string>
     <string name="text_profile_dob"><i>dob</i></string>
     <string name="text_profile_heading_photo"><i>Add Photo</i></string>
     <string name="text_profile_heading_pref"><i>Preferences</i></string>

@@ -123,6 +123,16 @@ public class AppEventsController {
 		}
 
 			break;
+		case NetworkEvents.EVENT_ID_GET_CITIES: {
+			try {
+				modelFacade.getRemoteModel().getCities(eventData,
+						NetworkResponseHandler.CITIES_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+
+			break;
 		}
 	}
 
