@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:text="@string/action_filter"
         android:textSize="@dimen/offers_text_font_size"
-        android:typeface="sans" />
+        android:typeface="serif" />
 
 </LinearLayout>
