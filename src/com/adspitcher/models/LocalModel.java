@@ -8,6 +8,7 @@ import com.adspitcher.exceptions.ApplicationException;
 
 public class LocalModel {
 	private String[] citiesName;
+	private boolean receivedCitiesName = false;
 	
 	public LocalModel(){
 		
@@ -30,5 +31,13 @@ public class LocalModel {
 
 	public String[] getCitiesName() {
 		return citiesName;
+	}
+
+	public boolean isReceivedCitiesName() {
+		return receivedCitiesName;
+	}
+
+	public void setReceivedCitiesName(boolean receivedCitiesName) {
+		this.receivedCitiesName = receivedCitiesName;
 	}
 }

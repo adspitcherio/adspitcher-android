@@ -20,10 +20,11 @@ import com.adspitcher.R;
 import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
+import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
-public class SignupActivity extends ActionBarActivity implements ConnListener {
+public class SignupActivity extends ActionBarActivity implements ActivityUpdateListener {
 
 	private String username, email, password;
 	private ConnectionModel connModel;
@@ -36,9 +37,9 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setListener(this);
-		connModel.registerView(AppEventsController.getInstance()
-				.getActivityUpdateListener());
+		//connModel.setListener(this);
+		//connModel.registerView(AppEventsController.getInstance().getActivityUpdateListener());
+		connModel.registerView(this);
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
@@ -118,9 +119,23 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 		}
 		return true;
 	}
+	
+	@Override
+	protected void onPause() {
+		Log.d("SignupActivity", "Inside onDestroy");
+		connModel.unregisterView(this);
+		super.onPause();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		Log.d("SignupActivity", "Inside onDestroy");
+		connModel.unregisterView(this);
+		super.onDestroy();
+	}
 
 	@Override
-	public void onConnection() {
+	public void updateActivity() {
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.SUCCESS: {
 			Log.d("SignupActivity", "Inside onConnection");

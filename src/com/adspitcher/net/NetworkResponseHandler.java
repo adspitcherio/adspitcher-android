@@ -91,6 +91,7 @@ public class NetworkResponseHandler {
 									.getInstance().getModelFacade()
 									.getLocalModel();
 							localModel.setCitiesName(response);
+							localModel.setReceivedCitiesName(true);
 						}else{
 							connmodel.setConnectionStatus(ConnectionModel.ERROR);
 							connmodel.setConnectionErrorMessage("No Data Found.");

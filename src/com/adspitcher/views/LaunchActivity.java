@@ -20,12 +20,13 @@ import android.widget.TextView;
 import com.adspitcher.R;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
+import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.models.UserModel;
 
 public class LaunchActivity extends ActionBarActivity implements
-		ConnListener{
+		ActivityUpdateListener{
 
 	//private String cityName;
 
@@ -37,15 +38,16 @@ public class LaunchActivity extends ActionBarActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Log.d("Launch Activity==", "I am inside onCreate");
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_launch);
 		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setListener(this);
-		connModel.registerView(AppEventsController.getInstance()
-				.getActivityUpdateListener());
+		//connModel.setListener(this);
+		//connModel.registerView(AppEventsController.getInstance().getActivityUpdateListener());
+		connModel.registerView(this);
 
 		/*
 		 * Create a new location client, using the enclosing class to handle
@@ -92,8 +94,20 @@ public class LaunchActivity extends ActionBarActivity implements
 			}
 		});
 		
-		AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
+		if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isReceivedCitiesName() ){
+			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
 				 null, textview_search);
+		}else{
+			Spinner citiesSpinner = (Spinner)findViewById(R.id.spinner_cities);
+			ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
+			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			citiesSpinner.setAdapter(spinnerAdapter);
+			String[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getCitiesName();
+			for(int i = 0; i < cities.length; i++){
+				spinnerAdapter.add(cities[i]);
+			}
+			spinnerAdapter.notifyDataSetChanged();
+		}
 	}
 
 	@Override
@@ -120,7 +134,48 @@ public class LaunchActivity extends ActionBarActivity implements
 	}
 	
 	@Override
-	public void onConnection() {
+	protected void onResume() {
+		Log.d("Launch Activity==", "I am inside onResume");
+		connModel.registerView(this);
+		super.onResume();
+	}
+	
+	@Override
+	protected void onPause() {
+		Log.d("Launch Activity==", "I am inside onPause");
+		connModel.unregisterView(this);
+		super.onPause();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		Log.d("Launch Activity==", "I am inside onDestroy");
+		connModel.unregisterView(this);
+		super.onDestroy();
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_launch_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		Log.d("Launch Activity==", "Preparing menu");
+		UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
+		MenuItem item = menu.findItem(R.id.action_profile);
+		item.setVisible(userModel.isUserLoggedIn());
+		item = menu.findItem(R.id.action_fav);
+		item.setVisible(userModel.isUserLoggedIn());
+		item = menu.findItem(R.id.action_logout);
+		item.setVisible(userModel.isUserLoggedIn());
+		return super.onPrepareOptionsMenu(menu);
+	}
+
+	@Override
+	public void updateActivity() {
 		switch(connModel.getConnectionStatus()){
 		case ConnectionModel.SUCCESS:{
 			Spinner citiesSpinner = (Spinner)findViewById(R.id.spinner_cities);
@@ -143,37 +198,6 @@ public class LaunchActivity extends ActionBarActivity implements
             // Start the background task
             (new LaunchActivity.GetAddressTask(this)).execute(currentLocation);
         }*/
-	}
-	
-	/*@Override
-	protected void onResume() {
-		Log.d("Launch Activity==", "I am inside onResume");
-		super.onResume();
-		UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
-		if( userModel.isUserLoggedIn() ){
-			Log.d("Launch Activity==", "Got user logged in");
-			invalidateOptionsMenu();
-		}
-	}*/
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_launch_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-	}
-	
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		Log.d("Launch Activity==", "Preparing menu");
-		UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
-		MenuItem item = menu.findItem(R.id.action_profile);
-		item.setVisible(userModel.isUserLoggedIn());
-		item = menu.findItem(R.id.action_fav);
-		item.setVisible(userModel.isUserLoggedIn());
-		item = menu.findItem(R.id.action_logout);
-		item.setVisible(userModel.isUserLoggedIn());
-		return super.onPrepareOptionsMenu(menu);
 	}
 
 	/*
