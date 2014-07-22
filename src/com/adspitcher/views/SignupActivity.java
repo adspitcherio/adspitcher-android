@@ -21,7 +21,6 @@ import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
-import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
 public class SignupActivity extends ActionBarActivity implements ActivityUpdateListener {

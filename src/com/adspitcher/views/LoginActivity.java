@@ -25,10 +25,11 @@ import com.adspitcher.R;
 import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
+import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
-public class LoginActivity extends ActionBarActivity implements ConnListener {
+public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener {
 
 	private TextView btn_signin;
 	private String username, password;
@@ -37,7 +38,6 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_login);
@@ -52,9 +52,9 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setListener(this);
-		connModel.registerView(AppEventsController.getInstance()
-				.getActivityUpdateListener());
+		//connModel.setListener(this);
+		//connModel.registerView(AppEventsController.getInstance().getActivityUpdateListener());
+		connModel.registerView(this);
 
 		// Settings Messages
 		Constants.ERROR_NETWORK_PROBLEM = getResources().getString(
@@ -132,13 +132,19 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 		}
 		return true;
 	}
-
+	
 	@Override
-	protected void onResume() {
-		super.onResume();
-		connModel = AppEventsController.getInstance().getModelFacade()
-				.getConnModel();
-		connModel.setListener(this);
+	protected void onPause() {
+		Log.d("LoginActivity", "Inside onPause");
+		connModel.unregisterView(this);
+		super.onPause();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		Log.d("LoginActivity", "Inside onDestroy");
+		connModel.unregisterView(this);
+		super.onDestroy();
 	}
 
 	@Override
@@ -165,7 +171,7 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 	}
 
 	@Override
-	public void onConnection() {
+	public void updateActivity() {
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.SUCCESS: {
 			Log.d("LoginActivity", "Inside onConnection");
@@ -181,7 +187,7 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 			}
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(LoginActivity.this,
-					HomeActivity.class);
+					LaunchActivity.class);
 			LoginActivity.this.startActivity(screenChangeIntent);
 			LoginActivity.this.finish();
 		}
