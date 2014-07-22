@@ -1,8 +1,6 @@
 package com.adspitcher.net;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.os.Handler;
 import android.os.Message;
@@ -13,7 +11,6 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.exceptions.ApplicationException;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.models.LocalModel;
-import com.adspitcher.models.UserModel;
 
 public class NetworkResponseHandler {
 	public static final String TAG = "Network Response Handler";
@@ -30,7 +27,7 @@ public class NetworkResponseHandler {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 				case Constants.SUCCESSFUL_RESPONSE: {
-					ConnectionModel model = AppEventsController.getInstance()
+					/*ConnectionModel model = AppEventsController.getInstance()
 							.getModelFacade().getConnModel();
 					try {
 						String response = ((JSONObject) msg.obj)
@@ -49,7 +46,7 @@ public class NetworkResponseHandler {
 							model.setConnectionStatus(ConnectionModel.LOGGED_IN);
 						} else if (response
 								.equalsIgnoreCase(Constants.TEXT_ERROR)) {
-							model.setConnectionStatus(ConnectionModel.GOT_ERROR);
+							model.setConnectionStatus(ConnectionModel.ERROR);
 							String message = ((JSONObject) msg.obj)
 									.getString(Constants.TEXT_MESSAGE);
 							model.setConnectionErrorMessage(message);
@@ -58,7 +55,7 @@ public class NetworkResponseHandler {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					model.notifyView();
+					model.notifyView();*/
 				}
 					break;
 				case Constants.EXCEPTION: {
@@ -66,7 +63,7 @@ public class NetworkResponseHandler {
 					Log.d(TAG, "exception:" + exceptionObj.getMessage());
 					ConnectionModel model = AppEventsController.getInstance()
 							.getModelFacade().getConnModel();
-					model.setConnectionStatus(ConnectionModel.GOT_ERROR);
+					model.setConnectionStatus(ConnectionModel.ERROR);
 					model.setConnectionErrorMessage(exceptionObj.getMessage());
 					model.notifyView();
 				}
@@ -107,7 +104,7 @@ public class NetworkResponseHandler {
 				case Constants.EXCEPTION: {
 					Exception exceptionObj = (Exception) msg.obj;
 					Log.d(TAG, "exception:" + exceptionObj.getMessage());
-					connmodel.setConnectionStatus(ConnectionModel.GOT_ERROR);
+					connmodel.setConnectionStatus(ConnectionModel.ERROR);
 					connmodel.setConnectionErrorMessage(exceptionObj.getMessage());
 					connmodel.notifyView();
 				}
@@ -134,7 +131,7 @@ public class NetworkResponseHandler {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 				case Constants.SUCCESSFUL_RESPONSE: {
-					ConnectionModel model = AppEventsController.getInstance()
+					/*ConnectionModel model = AppEventsController.getInstance()
 							.getModelFacade().getConnModel();
 					try {
 						String response = ((JSONObject) msg.obj)
@@ -162,7 +159,7 @@ public class NetworkResponseHandler {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					model.notifyView();
+					model.notifyView();*/
 				}
 					break;
 				case Constants.EXCEPTION: {
@@ -170,7 +167,7 @@ public class NetworkResponseHandler {
 					Log.d(TAG, "exception:" + exceptionObj.getMessage());
 					ConnectionModel model = AppEventsController.getInstance()
 							.getModelFacade().getConnModel();
-					model.setConnectionStatus(ConnectionModel.GOT_ERROR);
+					model.setConnectionStatus(ConnectionModel.ERROR);
 					model.setConnectionErrorMessage(exceptionObj.getMessage());
 					model.notifyView();
 				}

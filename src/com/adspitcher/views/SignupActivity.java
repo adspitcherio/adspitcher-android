@@ -37,7 +37,6 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setConnectionStatus(ConnectionModel.START_CONN);
 		connModel.setListener(this);
 		connModel.registerView(AppEventsController.getInstance()
 				.getActivityUpdateListener());
@@ -124,7 +123,7 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 	@Override
 	public void onConnection() {
 		switch (connModel.getConnectionStatus()) {
-		case ConnectionModel.LOGGED_IN: {
+		case ConnectionModel.SUCCESS: {
 			Log.d("SignupActivity", "Inside onConnection");
 			SharedPreferences sharedPref = getSharedPreferences(
 					Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
@@ -140,7 +139,7 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 			SignupActivity.this.finish();
 		}
 			break;
-		case ConnectionModel.GOT_ERROR: {
+		case ConnectionModel.ERROR: {
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					SignupActivity.this);
 			builder.setTitle(getResources().getString(R.string.text_error));

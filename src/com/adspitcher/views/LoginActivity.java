@@ -52,7 +52,6 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setConnectionStatus(ConnectionModel.START_CONN);
 		connModel.setListener(this);
 		connModel.registerView(AppEventsController.getInstance()
 				.getActivityUpdateListener());
@@ -140,7 +139,6 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
 		connModel.setListener(this);
-		connModel.setConnectionStatus(ConnectionModel.START_CONN);
 	}
 
 	@Override
@@ -169,7 +167,7 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 	@Override
 	public void onConnection() {
 		switch (connModel.getConnectionStatus()) {
-		case ConnectionModel.LOGGED_IN: {
+		case ConnectionModel.SUCCESS: {
 			Log.d("LoginActivity", "Inside onConnection");
 
 			if (keepMeLoggedInBool) {
@@ -188,7 +186,7 @@ public class LoginActivity extends ActionBarActivity implements ConnListener {
 			LoginActivity.this.finish();
 		}
 			break;
-		case ConnectionModel.GOT_ERROR: {
+		case ConnectionModel.ERROR: {
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					LoginActivity.this);
 			builder.setTitle(getResources().getString(R.string.text_error));

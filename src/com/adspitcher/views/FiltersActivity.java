@@ -40,7 +40,6 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setConnectionStatus(ConnectionModel.START_CONN);
 		connModel.setListener(this);
 		connModel.registerView(AppEventsController.getInstance()
 				.getActivityUpdateListener());
@@ -187,11 +186,11 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 	@Override
 	public void onConnection() {
 		switch (connModel.getConnectionStatus()) {
-		case ConnectionModel.GOT_FILTERED_OFFERS: {
+		case ConnectionModel.SUCCESS: {
 			FiltersActivity.this.finish();
 		}
 			break;
-		case ConnectionModel.GOT_ERROR: {
+		case ConnectionModel.ERROR: {
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					FiltersActivity.this);
 			builder.setTitle(getResources().getString(R.string.text_error));
