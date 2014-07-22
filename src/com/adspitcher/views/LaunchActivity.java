@@ -34,7 +34,7 @@ public class LaunchActivity extends ActionBarActivity implements
 	//private LocationClient mLocationClient;
 	
 	private ConnectionModel connModel;
-	private TextView textview_search;
+	private TextView textview_search,textview_createaccount,textview_login;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class LaunchActivity extends ActionBarActivity implements
 		//mLocationClient = new LocationClient(this, this, this);
 
 		// Action on click of Create An Account Button
-		TextView textview_createaccount = (TextView) findViewById(R.id.textview_createaccount);
+		textview_createaccount = (TextView) findViewById(R.id.textview_createaccount);
 		textview_createaccount.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -69,7 +69,7 @@ public class LaunchActivity extends ActionBarActivity implements
 		});
 
 		// Action on click of Create An Account Button
-		TextView textview_login = (TextView) findViewById(R.id.textview_login);
+		textview_login = (TextView) findViewById(R.id.textview_login);
 		textview_login.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -171,7 +171,34 @@ public class LaunchActivity extends ActionBarActivity implements
 		item.setVisible(userModel.isUserLoggedIn());
 		item = menu.findItem(R.id.action_logout);
 		item.setVisible(userModel.isUserLoggedIn());
+		
+		if( userModel.isUserLoggedIn() ){
+			textview_login.setVisibility(View.GONE);
+			textview_createaccount.setVisibility(View.GONE);
+		}
 		return super.onPrepareOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+		case R.id.action_logout:{
+			textview_login.setVisibility(View.VISIBLE);
+			textview_createaccount.setVisibility(View.VISIBLE);
+			UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
+			userModel.setUserLoggedIn(false);
+			invalidateOptionsMenu();
+			return true;
+		}
+		case R.id.action_profile:{
+			return true;
+		}
+		case R.id.action_fav:{
+			return true;
+		}
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	@Override
