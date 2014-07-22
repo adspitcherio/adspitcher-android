@@ -19,11 +19,13 @@
             android:layout_marginTop="@dimen/items_vertical_margin"
             android:drawableRight="@drawable/ic_location_place"
             android:gravity="center_vertical"
+            android:paddingLeft="@dimen/items_horizontal_padding"
+            android:paddingRight="@dimen/items_horizontal_padding"
             android:text="@string/text_location"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/blue_background_color"
             android:textStyle="bold"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
         <Spinner
             android:id="@+id/spinner_cities"
@@ -44,7 +46,7 @@
             android:ems="10"
             android:inputType="text"
             android:textColor="@color/heading_text_color"
-            android:typeface="serif" >
+            android:typeface="sans" >
         </EditText>
 
         <TextView
@@ -61,7 +63,7 @@
             android:text="@string/action_search"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/offer_item_background_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/textview_login"
@@ -77,7 +79,7 @@
             android:text="@string/text_existinguser_signin"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/offer_item_background_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/textview_createaccount"
@@ -93,7 +95,7 @@
             android:text="@string/text_create_account"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/offer_item_background_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/textview_signup_benefits"
@@ -107,7 +109,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/blue_background_color"
             android:textStyle="bold"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/textview_benefits_notification"
@@ -121,7 +123,7 @@
             android:text="@string/text_benefits_notification"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/heading_text_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
         
         <TextView
             android:id="@+id/textview_benefits_rewards"
@@ -135,7 +137,7 @@
             android:text="@string/text_benefits_rewards"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/heading_text_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
     </LinearLayout>
 

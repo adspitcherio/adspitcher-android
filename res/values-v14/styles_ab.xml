@@ -17,7 +17,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Theme.Ab" parent="@style/Theme.AppCompat.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_ab</item>
@@ -43,6 +43,7 @@
     <style name="ActionBar.Transparent.Ab" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_ab</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Ab</item>
+        <item name="android:typeface">sans</item>
     </style>
     
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
