@@ -191,6 +191,10 @@ public class LaunchActivity extends ActionBarActivity implements
 			return true;
 		}
 		case R.id.action_profile:{
+			Intent screenChangeIntent = null;
+			screenChangeIntent = new Intent(LaunchActivity.this,
+					ProfileActivity.class);
+			LaunchActivity.this.startActivity(screenChangeIntent);
 			return true;
 		}
 		case R.id.action_fav:{

@@ -16,7 +16,7 @@
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/heading_text_color"
-        android:typeface="serif" >
+        android:typeface="sans" >
 
             <requestFocus />
         </EditText>
@@ -33,7 +33,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/blue_background_color"
             android:textStyle="bold"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
     <ListView
         android:id="@+id/listview_searchoffers"

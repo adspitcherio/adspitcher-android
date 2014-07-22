@@ -19,7 +19,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter{
 	public Fragment getItem(int index) {
 		switch (index) {
         case 0:
-            //Search fragment activity
             return new LatestFragment();
         case 1:
         	return new NearbyFragment();
