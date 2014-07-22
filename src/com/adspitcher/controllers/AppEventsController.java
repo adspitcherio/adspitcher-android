@@ -82,6 +82,16 @@ public class AppEventsController {
 	 */
 	private void fireEvents(int eventId, Bundle eventData, View view) {
 		switch (eventId) {
+		case NetworkEvents.EVENT_ID_AUTHORIZE_USER: {
+			try {
+				modelFacade.getRemoteModel().registerUser(eventData,
+						NetworkResponseHandler.REGISTERUSER_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+
+			break;
 		case NetworkEvents.EVENT_ID_AUTHENTICATE_USER: {
 			Log.d(TAG, "Creating Bundle");
 			try {
@@ -92,8 +102,7 @@ public class AppEventsController {
 			}
 		}
 			break;
-
-		case NetworkEvents.EVENT_ID_REGISTER_USER: {
+		/*case NetworkEvents.EVENT_ID_GET_LATEST_OFFERS: {
 			try {
 				modelFacade.getRemoteModel().registerUser(eventData,
 						NetworkResponseHandler.REGISTERUSER_HANDLER, view);
@@ -102,18 +111,8 @@ public class AppEventsController {
 			}
 		}
 
-			break;
-		case NetworkEvents.EVENT_ID_GET_LATEST_OFFERS: {
-			try {
-				modelFacade.getRemoteModel().registerUser(eventData,
-						NetworkResponseHandler.REGISTERUSER_HANDLER, view);
-			} catch (Exception ex) {
-				Log.d("Application Exception:", ex.getMessage());
-			}
-		}
-
-			break;
-		case NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS: {
+			break;*/
+		/*case NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS: {
 			try {
 				modelFacade.getRemoteModel().getFilteredOffers(eventData,
 						NetworkResponseHandler.FILTERED_OFFERS_HANDLER, view);
@@ -122,7 +121,7 @@ public class AppEventsController {
 			}
 		}
 
-			break;
+			break;*/
 		case NetworkEvents.EVENT_ID_GET_CITIES: {
 			try {
 				modelFacade.getRemoteModel().getCities(eventData,

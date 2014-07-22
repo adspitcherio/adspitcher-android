@@ -10,6 +10,8 @@ import android.view.WindowManager;
 
 import com.adspitcher.R;
 import com.adspitcher.constants.Constants;
+import com.adspitcher.controllers.AppEventsController;
+import com.adspitcher.models.UserModel;
 
 public class SplashActivity extends FragmentActivity{
 
@@ -22,9 +24,9 @@ public class SplashActivity extends FragmentActivity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		/*requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 
 		setContentView(R.layout.activity_splash);
 
@@ -38,12 +40,20 @@ public class SplashActivity extends FragmentActivity{
 			@Override
 			public void run() {
 				if (!accessToken.equals(Constants.TEXT_DATABASE_ACCESS_VALUE_DEFAULT)) {
+					UserModel userModel = AppEventsController
+							.getInstance().getModelFacade()
+							.getUserModel();
+					userModel.setUserLoggedIn(true);
 					Intent screenChangeIntent = null;
 					screenChangeIntent = new Intent(SplashActivity.this,
 							HomeActivity.class);
 					SplashActivity.this.startActivity(screenChangeIntent);
 					SplashActivity.this.finish();
 				} else {
+					UserModel userModel = AppEventsController
+							.getInstance().getModelFacade()
+							.getUserModel();
+					userModel.setUserLoggedIn(false);
 					Intent screenChangeIntent = null;
 					screenChangeIntent = new Intent(SplashActivity.this,
 							LaunchActivity.class);

@@ -18,6 +18,7 @@ public class UserModel {
 	private String[] preferredLocations, preferredBusinesses,
 			preferredCategories;
 	private String[] reviews;
+	private boolean userLoggedIn;
 
 	public UserModel() {
 
@@ -122,5 +123,13 @@ public class UserModel {
 			throw new ApplicationException(
 					Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM);
 		}
+	}
+
+	public boolean isUserLoggedIn() {
+		return userLoggedIn;
+	}
+
+	public void setUserLoggedIn(boolean userLoggedIn) {
+		this.userLoggedIn = userLoggedIn;
 	}
 }

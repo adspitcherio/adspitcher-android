@@ -19,7 +19,7 @@
             android:text="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/heading_text_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
         <ImageView
             android:id="@+id/imageview_splash"
@@ -37,7 +37,7 @@
             android:text="@string/text_version"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/heading_text_color"
-            android:typeface="serif" />
+            android:typeface="sans" />
 
     </LinearLayout>
 

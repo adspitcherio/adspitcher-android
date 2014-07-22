@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +22,7 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.models.UserModel;
 
 public class LaunchActivity extends ActionBarActivity implements
 		ConnListener{
@@ -34,7 +37,6 @@ public class LaunchActivity extends ActionBarActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_launch);
@@ -143,6 +145,17 @@ public class LaunchActivity extends ActionBarActivity implements
         }*/
 	}
 	
+	/*@Override
+	protected void onResume() {
+		Log.d("Launch Activity==", "I am inside onResume");
+		super.onResume();
+		UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
+		if( userModel.isUserLoggedIn() ){
+			Log.d("Launch Activity==", "Got user logged in");
+			invalidateOptionsMenu();
+		}
+	}*/
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -152,7 +165,14 @@ public class LaunchActivity extends ActionBarActivity implements
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
+		Log.d("Launch Activity==", "Preparing menu");
+		UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
+		MenuItem item = menu.findItem(R.id.action_profile);
+		item.setVisible(userModel.isUserLoggedIn());
+		item = menu.findItem(R.id.action_fav);
+		item.setVisible(userModel.isUserLoggedIn());
+		item = menu.findItem(R.id.action_logout);
+		item.setVisible(userModel.isUserLoggedIn());
 		return super.onPrepareOptionsMenu(menu);
 	}
 

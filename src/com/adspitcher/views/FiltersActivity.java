@@ -20,7 +20,6 @@ import com.adspitcher.R;
 import com.adspitcher.adapters.FiltersAdapter;
 import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
-import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
@@ -173,8 +172,8 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 			}
 			eventData.putStringArray(Constants.TEXT_CATEGORIES, tempData);
 			
-			AppEventsController.getInstance().handleEvent(
-					NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS, eventData, listView_location_filters);
+			/*AppEventsController.getInstance().handleEvent(
+					NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS, eventData, listView_location_filters);*/
 
 			return true;
 		}

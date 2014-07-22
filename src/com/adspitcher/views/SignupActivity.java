@@ -31,7 +31,6 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signup);
 
@@ -93,7 +92,7 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 			eventData.putString(Constants.TEXT_EMAIL, email);
 
 			AppEventsController.getInstance().handleEvent(
-					NetworkEvents.EVENT_ID_REGISTER_USER, eventData, view);
+					NetworkEvents.EVENT_ID_AUTHORIZE_USER, eventData, view);
 		}
 	}
 
@@ -134,7 +133,7 @@ public class SignupActivity extends ActionBarActivity implements ConnListener {
 			editor.commit();
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(SignupActivity.this,
-					HomeActivity.class);
+					LaunchActivity.class);
 			SignupActivity.this.startActivity(screenChangeIntent);
 			SignupActivity.this.finish();
 		}
