@@ -87,9 +87,10 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 
 		if (validateEnteredData(username, password, email)) {
 			Bundle eventData = new Bundle();
-			eventData.putString(Constants.TEXT_USERNAME, username);
-			eventData.putString(Constants.TEXT_PASSWORD, password);
-			eventData.putString(Constants.TEXT_EMAIL, email);
+			eventData.putString(Constants.TEXT_CONSUMER_NAME, username);
+			eventData.putString(Constants.TEXT_CONSUMER_PASSWORD, password);
+			eventData.putString(Constants.TEXT_CONSUMER_EMAIL, email);
+			eventData.putString("consumer[username]", "rachna");
 
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHORIZE_USER, eventData, view);

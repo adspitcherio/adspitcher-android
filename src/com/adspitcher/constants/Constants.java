@@ -5,9 +5,7 @@ public class Constants {
 	// Required URLs
 	public static final String BASE_URL = "http://api.adspitcher.com/v1/";
 	//public static final String BASE_URL = "http://54.243.74.12/v1/";
-	public static final String URL_REGISTERUSER_REQUEST = "registeruser";
-	public static final String URL_OFFERS_REQUEST = "offers";
-	public static final String URL_USERPROFILE_REQUEST = "userprofile";
+	public static final String URL_REGISTERUSER_REQUEST = "consumers.json";
 	public static final String URL_GET_CITIES_REQUEST = "locations.json";
 	public static final String URL_GET_ACCESSTOKEN_REQUEST = "/oauth/token";
 	// ----------------------------------------------------------------------------------
@@ -56,7 +54,11 @@ public class Constants {
 	public static final String TEXT_CREDITS = "credits";
 	public static final String TEXT_BADGELEVEL = "badgelevel";
 	public static final String TEXT_NAME = "name";
+	public static final String TEXT_ID = "id";
+	public static final String TEXT_PASSWORD_DIGEST = "password_digest";
 	public static final String TEXT_CURRENTLOCATION = "currentlocation";
+	public static final String TEXT_CURRENTLOCATION_LATITUDE = "current_location_latitude";
+	public static final String TEXT_CURRENTLOCATION_LONGITUDE = "current_location_longitude";
 	public static final String TEXT_REVIEWS = "reviews";
 	public static final String TEXT_PREFERENCES = "preferences";
 	public static final String TEXT_LOCATIONS = "locations";
@@ -67,4 +69,11 @@ public class Constants {
 	public static final String TEXT_CLIENT_SECRET = "client_secret";
 	public static final String TEXT_TOKEN_TYPE = "token_type";
 	public static final String TEXT_EXPIRES_IN = "expires_in";
+	// ----------------------------------------------------------------------------------
+	
+	//POST Data Constants
+	public static final String TEXT_CONSUMER_NAME = "consumer[name]";
+	public static final String TEXT_CONSUMER_EMAIL = "consumer[email]";
+	public static final String TEXT_CONSUMER_PASSWORD = "consumer[password]";
+	// ----------------------------------------------------------------------------------
 }

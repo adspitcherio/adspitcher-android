@@ -123,31 +123,15 @@ public class NetworkResponseHandler {
 					UserModel userModel = AppEventsController
 							.getInstance().getModelFacade()
 							.getUserModel();
-					userModel.setUserLoggedIn(true);
-					/*
 					try {
-						String response = ((JSONObject) msg.obj)
-								.getString(Constants.TEXT_RESPONSE);
-						Log.d("response==", response);
-						if (response.equalsIgnoreCase(Constants.TEXT_SUCCESS)) {
-							try {
-								userModel.setUserDetails((JSONObject) msg.obj);
-							} catch (ApplicationException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							model.setConnectionStatus(ConnectionModel.LOGGED_IN);
-						} else if (response
-								.equalsIgnoreCase(Constants.TEXT_ERROR)) {
-							model.setConnectionStatus(ConnectionModel.GOT_ERROR);
-							String message = ((JSONObject) msg.obj)
-									.getString(Constants.TEXT_MESSAGE);
-							model.setConnectionErrorMessage(message);
-						}
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}*/
+						userModel.setCompleteProfileDetails((JSONObject) msg.obj);
+					} catch (ApplicationException exceptionObj) {
+						Log.d(TAG, "exception:" + exceptionObj.getMessage());
+						model.setConnectionStatus(ConnectionModel.ERROR);
+						model.setConnectionErrorMessage(exceptionObj.getMessage());
+						model.notifyView();
+					}
+					userModel.setUserLoggedIn(true);
 					model.notifyView();
 				}
 					break;

@@ -1,10 +1,7 @@
 package com.adspitcher.models;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.util.Log;
 
 import com.adspitcher.constants.Constants;
 import com.adspitcher.exceptions.ApplicationException;
@@ -12,13 +9,12 @@ import com.adspitcher.exceptions.ApplicationException;
 public class UserModel {
 
 	private String accessToken, token_type, expires_in;
-	private int credits;
-	private int badgeLevel;
-	private String name, email, currentlocation;
-	private String[] preferredLocations, preferredBusinesses,
-			preferredCategories;
-	private String[] reviews;
 	private boolean userLoggedIn;
+	private int user_id;
+	private String user_name, user_username, user_email, password_digest;
+	private int user_credits;
+	private String user_currentlocation_longitude, user_currentlocation_latitude;
+	private String user_passworddigest;
 
 	public UserModel() {
 
@@ -28,48 +24,48 @@ public class UserModel {
 		return accessToken;
 	}
 
-	public int getCredits() {
-		return credits;
-	}
-
-	public int getBadgeLevel() {
-		return badgeLevel;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getCurrentlocation() {
-		return currentlocation;
-	}
-
-	public String[] getPreferredLocations() {
-		return preferredLocations;
-	}
-
-	public String[] getPreferredBusinesses() {
-		return preferredBusinesses;
-	}
-
-	public String[] getPreferredCategories() {
-		return preferredCategories;
-	}
-
-	public String[] getReviews() {
-		return reviews;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
 	public String getToken_type() {
 		return token_type;
 	}
 
 	public String getExpires_in() {
 		return expires_in;
+	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public String getUser_username() {
+		return user_username;
+	}
+
+	public String getUser_email() {
+		return user_email;
+	}
+
+	public String getPassword_digest() {
+		return password_digest;
+	}
+
+	public int getUser_credits() {
+		return user_credits;
+	}
+
+	public String getUser_currentlocation_longitude() {
+		return user_currentlocation_longitude;
+	}
+
+	public String getUser_currentlocation_latitude() {
+		return user_currentlocation_latitude;
+	}
+
+	public String getUser_passworddigest() {
+		return user_passworddigest;
 	}
 
 	public void setAuthenticationDetails(JSONObject loginData) throws ApplicationException {
@@ -88,41 +84,19 @@ public class UserModel {
 
 	public void setCompleteProfileDetails(JSONObject userData)
 			throws ApplicationException {
-		JSONObject userDetails;
 		try {
-			userDetails = userData.getJSONObject(Constants.TEXT_DATA);
-			Log.d("usermodel", userDetails.toString());
-			accessToken = userDetails.getString(Constants.TEXT_ACCESSTOKEN)
+			user_id = Integer.parseInt(userData.getString(Constants.TEXT_ID)
+					.trim());
+			user_name = userData.getString(Constants.TEXT_NAME)
 					.trim();
-			name = userDetails.getString(Constants.TEXT_NAME)
+			user_username = userData.getString(Constants.TEXT_USERNAME)
 					.trim();
-			credits = Integer.parseInt(userDetails.getString(
+			user_credits = Integer.parseInt(userData.getString(
 					Constants.TEXT_CREDITS).trim());
-			badgeLevel = Integer.parseInt(userDetails.getString(
-					Constants.TEXT_BADGELEVEL).trim());
-			email = userDetails.getString(Constants.TEXT_EMAIL).trim();
-			currentlocation = userDetails.getString(Constants.TEXT_CURRENTLOCATION).trim();
-			JSONArray reviewsArray = userDetails.getJSONArray(Constants.TEXT_REVIEWS);
-			reviews = new String[reviewsArray.length()];
-			for (int i = 0; i < reviewsArray.length(); i++) {
-				reviews[i] = reviewsArray.getString(i);
-			}
-			JSONObject preferencesObject = (JSONObject)userDetails.get(Constants.TEXT_PREFERENCES);
-			JSONArray locationsArray = preferencesObject.getJSONArray(Constants.TEXT_LOCATIONS);
-			preferredLocations = new String[locationsArray.length()];
-			for (int i = 0; i < locationsArray.length(); i++) {
-				preferredLocations[i] = locationsArray.getString(i);
-			}
-			JSONArray businessesArray = preferencesObject.getJSONArray(Constants.TEXT_BUSINESSES);
-			preferredBusinesses = new String[businessesArray.length()];
-			for (int i = 0; i < businessesArray.length(); i++) {
-				preferredBusinesses[i] = businessesArray.getString(i);
-			}
-			JSONArray categoriesArray = preferencesObject.getJSONArray(Constants.TEXT_CATEGORIES);
-			preferredCategories = new String[categoriesArray.length()];
-			for (int i = 0; i < categoriesArray.length(); i++) {
-				preferredCategories[i] = categoriesArray.getString(i);
-			}
+			user_email = userData.getString(Constants.TEXT_EMAIL).trim();
+			user_passworddigest = userData.getString(Constants.TEXT_PASSWORD_DIGEST).trim();
+			user_currentlocation_latitude = userData.getString(Constants.TEXT_CURRENTLOCATION_LATITUDE).trim();
+			user_currentlocation_longitude = userData.getString(Constants.TEXT_CURRENTLOCATION_LONGITUDE).trim();
 		} catch (JSONException e) {
 			throw new ApplicationException(
 					Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM);

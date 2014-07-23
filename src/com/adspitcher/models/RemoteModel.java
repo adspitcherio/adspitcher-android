@@ -15,6 +15,7 @@ import com.adspitcher.constants.Constants;
 import com.adspitcher.net.ConnectivityHandler;
 import com.adspitcher.net.HttpParams;
 import com.adspitcher.net.NetworkAsyncTask;
+import com.adspitcher.utils.CommonUtils;
 
 
 public class RemoteModel {
@@ -25,27 +26,16 @@ public class RemoteModel {
 		ConnectivityHandler connHandler = new ConnectivityHandler(view.getContext());
 		if(connHandler.isOnline())
 		{
-			/*HttpParams httpParams = new HttpParams();
+			HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL + Constants.URL_REGISTERUSER_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
 			
-			JSONObject jsonObj = new JSONObject();
-			Set<String> keySet = params.keySet();
-			Iterator<String> keyIterator = keySet.iterator();
-			String keyVal = null;
-			while(keyIterator.hasNext())
-			{
-				keyVal = keyIterator.next();
-				jsonObj.put(keyVal, params.get(keyVal));
-			}
-			httpParams.setRequestData(jsonObj.toString());
-			Log.v(TAG, "Request Data for registerUser=====>" + jsonObj.toString());
+			String requestData = CommonUtils.createPostdata(params);
+			httpParams.setRequestData(requestData);
+			Log.v(TAG, "Request Data=====>" + requestData);
 			
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(view.getContext(), "Connecting", listener);
-			asyncTask.execute(httpParams);	*/	
-			
-			listener.sendMessage(listener.obtainMessage(
-					Constants.SUCCESSFUL_RESPONSE, ""));
+			asyncTask.execute(httpParams);
 		}
 		else
 		{
@@ -64,17 +54,7 @@ public class RemoteModel {
 					+ Constants.URL_GET_ACCESSTOKEN_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
 
-			//JSONObject jsonObj = new JSONObject();
-			Set<String> keySet = params.keySet();
-			Iterator<String> keyIterator = keySet.iterator();
-			String keyVal = null;
-			String requestData = new String();
-			while (keyIterator.hasNext()) {
-				keyVal = keyIterator.next();
-				requestData += keyVal;
-				requestData += params.getString(keyVal);
-				//jsonObj.put(keyVal, params.getString(keyVal));
-			}
+			String requestData = CommonUtils.createPostdata(params);
 			httpParams.setRequestData(requestData);
 			Log.v(TAG, "Request Data=====>" + requestData);
 
@@ -97,17 +77,9 @@ public class RemoteModel {
 			httpParams.setRequestURL(Constants.BASE_URL
 					+ Constants.URL_GET_ACCESSTOKEN_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
-
-			JSONObject jsonObj = new JSONObject();
-			Set<String> keySet = params.keySet();
-			Iterator<String> keyIterator = keySet.iterator();
-			String keyVal = null;
-			while (keyIterator.hasNext()) {
-				keyVal = keyIterator.next();
-				jsonObj.put(keyVal, params.getString(keyVal));
-			}
-			httpParams.setRequestData(jsonObj.toString());
-			Log.v(TAG, "Request Data=====>" + jsonObj.toString());
+			String requestData = CommonUtils.createPostdata(params);
+			httpParams.setRequestData(requestData);
+			Log.v(TAG, "Request Data=====>" + requestData);
 
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
 					view.getContext(), "Connecting...", listener);
