@@ -61,7 +61,41 @@ public class RemoteModel {
 		if (connHandler.isOnline()) {
 			HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL
-					+ Constants.URL_AUTHENTICATEUSER_REQUEST);
+					+ Constants.URL_GET_ACCESSTOKEN_REQUEST);
+			httpParams.setRequestMethod(HttpParams.HTTP_POST);
+
+			//JSONObject jsonObj = new JSONObject();
+			Set<String> keySet = params.keySet();
+			Iterator<String> keyIterator = keySet.iterator();
+			String keyVal = null;
+			String requestData = new String();
+			while (keyIterator.hasNext()) {
+				keyVal = keyIterator.next();
+				requestData += keyVal;
+				requestData += params.getString(keyVal);
+				//jsonObj.put(keyVal, params.getString(keyVal));
+			}
+			httpParams.setRequestData(requestData);
+			Log.v(TAG, "Request Data=====>" + requestData);
+
+			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
+					view.getContext(), "Connecting...", listener);
+			asyncTask.execute(httpParams);
+		} else {
+			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
+					Constants.ERROR_NETWORK_PROBLEM));
+		}
+	}
+	// --------------------------------------------------------------------------------------------------------
+	
+	public void getAccessToken(Bundle params, Handler listener, View view)
+			throws Exception {
+		ConnectivityHandler connHandler = new ConnectivityHandler(
+				view.getContext());
+		if (connHandler.isOnline()) {
+			HttpParams httpParams = new HttpParams();
+			httpParams.setRequestURL(Constants.BASE_URL
+					+ Constants.URL_GET_ACCESSTOKEN_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
 
 			JSONObject jsonObj = new JSONObject();

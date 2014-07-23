@@ -26,7 +26,6 @@ import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
-import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 
 public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener {
@@ -104,8 +103,11 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 
 		if (validateEnteredData(username, password)) {
 			Bundle eventData = new Bundle();
+			eventData.putString(Constants.TEXT_GRANT_TYPE, Constants.TEXT_PASSWORD);
 			eventData.putString(Constants.TEXT_USERNAME, username);
 			eventData.putString(Constants.TEXT_PASSWORD, password);
+			eventData.putString(Constants.TEXT_CLIENT_ID, Constants.OAUTH_CLIENT_ID);
+			eventData.putString(Constants.TEXT_CLIENT_SECRET, Constants.OAUTH_CLIENT_SECRET);
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHENTICATE_USER, eventData, view);
 		}

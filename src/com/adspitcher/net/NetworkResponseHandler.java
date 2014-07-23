@@ -1,6 +1,8 @@
 package com.adspitcher.net;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.os.Handler;
 import android.os.Message;
@@ -26,44 +28,27 @@ public class NetworkResponseHandler {
 		return new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
+				ConnectionModel model = AppEventsController.getInstance()
+						.getModelFacade().getConnModel();
 				switch (msg.what) {
 				case Constants.SUCCESSFUL_RESPONSE: {
-					/*ConnectionModel model = AppEventsController.getInstance()
-							.getModelFacade().getConnModel();
-					try {
-						String response = ((JSONObject) msg.obj)
-								.getString(Constants.TEXT_RESPONSE);
-						Log.d("response==", response);
-						if (response.equalsIgnoreCase(Constants.TEXT_SUCCESS)) {
-							UserModel userModel = AppEventsController
-									.getInstance().getModelFacade()
-									.getUserModel();
-							try {
-								userModel.setCompleteProfileDetails((JSONObject) msg.obj);
-							} catch (ApplicationException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							model.setConnectionStatus(ConnectionModel.LOGGED_IN);
-						} else if (response
-								.equalsIgnoreCase(Constants.TEXT_ERROR)) {
-							model.setConnectionStatus(ConnectionModel.ERROR);
-							String message = ((JSONObject) msg.obj)
-									.getString(Constants.TEXT_MESSAGE);
-							model.setConnectionErrorMessage(message);
+					Log.d("response==", ((JSONObject) msg.obj).toString());
+						UserModel userModel = AppEventsController
+								.getInstance().getModelFacade()
+								.getUserModel();
+						try {
+							userModel.setAuthenticationDetails((JSONObject) msg.obj);
+						} catch (ApplicationException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					model.notifyView();*/
+						model.setConnectionStatus(ConnectionModel.SUCCESS);
+					model.notifyView();
 				}
 					break;
 				case Constants.EXCEPTION: {
 					Exception exceptionObj = (Exception) msg.obj;
 					Log.d(TAG, "exception:" + exceptionObj.getMessage());
-					ConnectionModel model = AppEventsController.getInstance()
-							.getModelFacade().getConnModel();
 					model.setConnectionStatus(ConnectionModel.ERROR);
 					model.setConnectionErrorMessage(exceptionObj.getMessage());
 					model.notifyView();

@@ -11,7 +11,7 @@ import com.adspitcher.exceptions.ApplicationException;
 
 public class UserModel {
 
-	private String accessToken;
+	private String accessToken, token_type, expires_in;
 	private int credits;
 	private int badgeLevel;
 	private String name, email, currentlocation;
@@ -64,18 +64,22 @@ public class UserModel {
 		return email;
 	}
 
-	public void setUserDetails(JSONObject userData) throws ApplicationException {
-		JSONObject userDetails;
+	public String getToken_type() {
+		return token_type;
+	}
+
+	public String getExpires_in() {
+		return expires_in;
+	}
+
+	public void setAuthenticationDetails(JSONObject loginData) throws ApplicationException {
 		try {
-			userDetails = userData.getJSONObject(Constants.TEXT_DATA);
-			Log.d("usermodel", userDetails.toString());
-			accessToken = userDetails.getString(Constants.TEXT_ACCESSTOKEN)
+			accessToken = loginData.getString(Constants.TEXT_ACCESSTOKEN)
 					.trim();
-			credits = Integer.parseInt(userDetails.getString(
-					Constants.TEXT_CREDITS).trim());
-			badgeLevel = Integer.parseInt(userDetails.getString(
-					Constants.TEXT_BADGELEVEL).trim());
-			email = userDetails.getString(Constants.TEXT_EMAIL).trim();
+			token_type = loginData.getString(Constants.TEXT_TOKEN_TYPE)
+					.trim();
+			expires_in = loginData.getString(Constants.TEXT_EXPIRES_IN)
+					.trim();
 		} catch (JSONException e) {
 			throw new ApplicationException(
 					Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM);
