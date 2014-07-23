@@ -22,7 +22,7 @@
             android:text="@string/text_offertext"
             android:textColor="@color/heading_text_color"
             android:textSize="@dimen/offers_text_font_size"
-            android:typeface="serif" />
+            android:typeface="sans" />
         
         <TextView
             android:id="@+id/textview_votesup"
@@ -59,29 +59,29 @@
         android:id="@+id/textview_brandstore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/items_vertical_margin"
         android:layout_marginLeft="@dimen/items_horizontal_margin"
+        android:layout_marginTop="@dimen/items_vertical_margin"
         android:drawableLeft="@drawable/ic_cart"
         android:drawablePadding="@dimen/text_border_horizontal_padding"
         android:gravity="center_vertical"
         android:text="@string/text_offertext"
         android:textColor="@color/blue_background_color"
         android:textSize="@dimen/brandstore_text_font_size"
-        android:typeface="serif" />
+        android:typeface="sans" />
 
     <TextView
         android:id="@+id/textview_locations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/items_vertical_margin"
         android:layout_marginLeft="@dimen/items_horizontal_margin"
+        android:layout_marginTop="@dimen/items_vertical_margin"
         android:drawableLeft="@drawable/ic_location_place"
         android:drawablePadding="@dimen/text_border_horizontal_padding"
         android:gravity="center_vertical"
         android:text="@string/text_offertext"
         android:textColor="@color/blue_background_color"
         android:textSize="@dimen/brandstore_text_font_size"
-        android:typeface="serif" />
+        android:typeface="sans" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,9 +97,9 @@
             android:paddingBottom="@dimen/text_border_vertical_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/text_views"
-            android:textSize="@dimen/details_text_font_size"
             android:textColor="@color/background_color"
-            android:typeface="serif"/>
+            android:textSize="@dimen/details_text_font_size"
+            android:typeface="sans" />
 
         <TextView
             android:id="@+id/textview_reviews"
@@ -110,9 +110,9 @@
             android:paddingBottom="@dimen/text_border_vertical_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/text_reviews"
-            android:textSize="@dimen/details_text_font_size"
             android:textColor="@color/background_color"
-            android:typeface="serif"/>
+            android:textSize="@dimen/details_text_font_size"
+            android:typeface="sans" />
 
     </LinearLayout>
 

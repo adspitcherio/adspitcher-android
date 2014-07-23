@@ -43,7 +43,6 @@
     <style name="ActionBar.Transparent.Ab" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_ab</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Ab</item>
-        <item name="android:typeface">sans</item>
     </style>
     
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->

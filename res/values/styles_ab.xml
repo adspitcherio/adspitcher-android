@@ -43,7 +43,6 @@
     <style name="ActionBar.Transparent.Ab" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="background">@drawable/ab_transparent_ab</item>
         <item name="progressBarStyle">@style/ProgressBar.Ab</item>
-        <item name="android:typeface">sans</item>
     </style>
 	
     <style name="PopupMenu.Ab" parent="@style/Widget.AppCompat.Light.PopupMenu">	
