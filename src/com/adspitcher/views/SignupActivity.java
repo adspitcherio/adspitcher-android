@@ -1,5 +1,8 @@
 package com.adspitcher.views;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,6 +33,8 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 	private ConnectionModel connModel;
 	private TextView btn_submit;
 	private EditText edittext_username, edittext_email, edittext_password;
+	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,13 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 		edittext_username = (EditText)findViewById(R.id.edittext_name);
 		edittext_username.addTextChangedListener(new TextValidator(edittext_username) {
 		    @Override public void validate(TextView textView, String text) {
-		       /* Validation code here */
+		    	if (text != null && text.length() >= 4) {
+		    		textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_social_person_valid), null);
+				}else if(text != null && !text.matches("[a-zA-Z ]+")){
+					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_social_person_error), null);
+				}else{
+					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_social_person), null);
+				}
 		    }
 		});
 		
@@ -77,7 +88,15 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 		edittext_email = (EditText) findViewById(R.id.edittext_email);
 		edittext_email.addTextChangedListener(new TextValidator(edittext_email) {
 		    @Override public void validate(TextView textView, String text) {
-		       /* Validation code here */
+				Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+				Matcher matcher = pattern.matcher(text);
+				if (text != null && matcher.matches()) {
+		    		textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_content_email_valid), null);
+				}else if(text != null && !matcher.matches()){
+					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_content_email_error), null);
+				}else{
+					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_content_email), null);
+				}
 		    }
 		});
 	}

@@ -12,7 +12,7 @@
         android:drawableRight="@drawable/ic_social_person"
         android:ems="10"
         android:hint="@string/text_name"
-        android:inputType="none">
+        android:inputType="textPersonName">
 
     <requestFocus />
     </EditText>
