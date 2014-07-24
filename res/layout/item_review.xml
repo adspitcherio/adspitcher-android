@@ -6,15 +6,10 @@
 
     <TextView
         android:id="@+id/textview_postedby"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_social_person"
-        android:gravity="center_vertical"
         android:text="@string/text_offertext"
-        android:textColor="@color/heading_text_color"
-        android:textSize="@dimen/offers_text_font_size"
-        android:textStyle="italic"
-        android:typeface="serif" />
+        style="@style/commonH3TextViewStyle"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/textview_review"
@@ -24,14 +19,9 @@
     
     <TextView
         android:id="@+id/textview_postedtimeago"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_clock"
-        android:gravity="center_vertical"
         android:text="@string/text_offertext"
-        android:textColor="@color/heading_text_color"
-        android:textSize="@dimen/offers_text_font_size"
-        android:textStyle="italic"
-        android:typeface="serif" />
+        style="@style/commonH3TextViewStyle"
+        android:textStyle="italic"/>
 
 </LinearLayout>

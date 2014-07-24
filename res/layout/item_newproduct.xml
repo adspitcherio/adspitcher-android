@@ -18,29 +18,15 @@
 
         <TextView
             android:id="@+id/textview_newcollectionbrandstore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
+            style="@style/commonH3TextViewStyle"
             android:drawableLeft="@drawable/ic_cart"
-            android:gravity="center_vertical"
-            android:text="@string/text_offertext"
-            android:textColor="@color/blue_background_color"
-            android:textSize="@dimen/brandstore_text_font_size"
-            android:typeface="serif" />
+            android:text="@string/text_offertext"/>
 
         <TextView
             android:id="@+id/textview_newcollectionlocations"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
+            style="@style/commonH3TextViewStyle"
             android:drawableLeft="@drawable/ic_location_place"
-            android:gravity="center_vertical"
-            android:text="@string/text_offertext"
-            android:textColor="@color/blue_background_color"
-            android:textSize="@dimen/brandstore_text_font_size"
-            android:typeface="serif" />
+            android:text="@string/text_offertext"/>
 
         <RatingBar
             android:id="@+id/ratingbar_collection"
