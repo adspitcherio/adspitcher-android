@@ -7,34 +7,22 @@
 
     <EditText
         android:id="@+id/edittext_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/items_horizontal_margin"
-        android:layout_marginRight="@dimen/items_horizontal_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin"
+        style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_social_person"
         android:ems="10"
         android:hint="@string/text_username"
-        android:inputType="none"
-        android:textColor="@color/heading_text_color"
-        android:typeface="sans" >
+        android:inputType="none" >
 
     <requestFocus />
     </EditText>
 
     <EditText
         android:id="@+id/edittext_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/items_horizontal_margin"
-        android:layout_marginRight="@dimen/items_horizontal_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin"
+        style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_device_access_accounts"
         android:ems="10"
         android:hint="@string/text_password"
-        android:inputType="textPassword"
-        android:textColor="@color/heading_text_color"
-        android:typeface="sans" >
+        android:inputType="textPassword" >
 
     </EditText>
 

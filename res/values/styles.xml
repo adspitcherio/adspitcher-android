@@ -16,5 +16,16 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="commonEditTextStyle">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginLeft">@dimen/items_horizontal_margin</item>
+		<item name="android:layout_marginRight">@dimen/items_horizontal_margin</item>
+		<item name="android:layout_marginTop">@dimen/items_vertical_margin</item>
+		<item name="android:textColor">@color/heading_text_color</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:textSize">@dimen/edit_textbox_font_size</item>
+	</style>
 
 </resources>

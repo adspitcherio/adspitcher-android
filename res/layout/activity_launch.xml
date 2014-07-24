@@ -50,16 +50,10 @@
 
         <EditText
             android:id="@+id/edittext_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/items_horizontal_margin"
-            android:layout_marginRight="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
+            style="@style/commonEditTextStyle"
             android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/heading_text_color"
-            android:typeface="sans"
-            android:textSize="@dimen/edit_textbox_font_size"  >
+            android:inputType="text" >
+
         </EditText>
 
         <TextView

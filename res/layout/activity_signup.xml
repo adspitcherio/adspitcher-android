@@ -7,53 +7,32 @@
     
     <EditText
         android:id="@+id/edittext_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/items_horizontal_margin"
-        android:layout_marginRight="@dimen/items_horizontal_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin"
+        style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_social_person"
         android:ems="10"
         android:hint="@string/text_name"
-        android:inputType="none"
-        android:textColor="@color/heading_text_color"
-        android:typeface="sans"
-        android:textSize="@dimen/edit_textbox_font_size" >
+        android:inputType="none">
 
     <requestFocus />
     </EditText>
 
     <EditText
         android:id="@+id/edittext_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/items_horizontal_margin"
-        android:layout_marginRight="@dimen/items_horizontal_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin"
+        style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_content_email"
         android:ems="10"
         android:hint="@string/text_email"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/heading_text_color"
-        android:typeface="sans"
-        android:textSize="@dimen/edit_textbox_font_size" >
+        android:inputType="textEmailAddress" >
 
     </EditText>
 
     <EditText
         android:id="@+id/edittext_signup_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/items_horizontal_margin"
-        android:layout_marginRight="@dimen/items_horizontal_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin"
+        style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_device_access_accounts"
         android:ems="10"
         android:hint="@string/text_password"
-        android:inputType="textPassword"
-        android:textColor="@color/heading_text_color"
-        android:typeface="sans"
-        android:textSize="@dimen/edit_textbox_font_size" >
+        android:inputType="textPassword" >
 
     </EditText>
     

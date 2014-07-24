@@ -78,19 +78,22 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 	}
 
 	private void requestConnection(View view) {
-		username = ((EditText) findViewById(R.id.edittext_name)).getText()
+		/*username = ((EditText) findViewById(R.id.edittext_name)).getText()
 				.toString();
 		password = ((EditText) findViewById(R.id.edittext_signup_password))
 				.getText().toString();
 		email = ((EditText) findViewById(R.id.edittext_email)).getText()
-				.toString();
+				.toString();*/
+		
+		username = "test1";
+		password = "test1";
+		email = "test1@gmail.com";
 
 		if (validateEnteredData(username, password, email)) {
 			Bundle eventData = new Bundle();
 			eventData.putString(Constants.TEXT_CONSUMER_NAME, username);
 			eventData.putString(Constants.TEXT_CONSUMER_PASSWORD, password);
 			eventData.putString(Constants.TEXT_CONSUMER_EMAIL, email);
-			eventData.putString("consumer[username]", "rachna");
 
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHORIZE_USER, eventData, view);
