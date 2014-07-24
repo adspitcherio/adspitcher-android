@@ -27,15 +27,17 @@ import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.utils.TextValidator;
 
-public class SignupActivity extends ActionBarActivity implements ActivityUpdateListener {
+public class SignupActivity extends ActionBarActivity implements
+		ActivityUpdateListener {
 
 	private String username, email, password;
 	private ConnectionModel connModel;
 	private TextView btn_submit;
 	private EditText edittext_username, edittext_email, edittext_password;
+	private boolean isUsernameValid, isEmailValid, isPasswordValid;
 	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,8 +45,8 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		//connModel.setListener(this);
-		//connModel.registerView(AppEventsController.getInstance().getActivityUpdateListener());
+		// connModel.setListener(this);
+		// connModel.registerView(AppEventsController.getInstance().getActivityUpdateListener());
 		connModel.registerView(this);
 
 		ActionBar actionBar = getSupportActionBar();
@@ -58,47 +60,102 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 				requestConnection(view);
 			}
 		});
-		
-		edittext_username = (EditText)findViewById(R.id.edittext_name);
-		edittext_username.addTextChangedListener(new TextValidator(edittext_username) {
-		    @Override public void validate(TextView textView, String text) {
-		    	if (text != null && text.length() >= 4) {
-		    		textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_social_person_valid), null);
-				}else if(text != null && !text.matches("[a-zA-Z ]+")){
-					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_social_person_error), null);
-				}else{
-					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_social_person), null);
+
+		edittext_username = (EditText) findViewById(R.id.edittext_name);
+		edittext_username.addTextChangedListener(new TextValidator(
+				edittext_username) {
+			@Override
+			public void validate(TextView textView, String text) {
+				if (text != null && text.length() > 2) {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_social_person_valid), null);
+					isUsernameValid = true;
+				} else if (text != null && !text.matches("[a-zA-Z ]+")) {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_social_person_error), null);
+					isUsernameValid = false;
+				} else {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_social_person), null);
+					isUsernameValid = false;
 				}
-		    }
+			}
 		});
-		
+
 		edittext_password = (EditText) findViewById(R.id.edittext_signup_password);
-		edittext_password.addTextChangedListener(new TextValidator(edittext_password) {
-		    @Override public void validate(TextView textView, String text) {
-		    	if (text != null && text.length() >= 6) {
-		    		textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_device_access_accounts_valid), null);
-				}else if(text != null && text.length() < 6){
-					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_device_access_accounts_error), null);
-				}else{
-					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_device_access_accounts), null);
+		edittext_password.addTextChangedListener(new TextValidator(
+				edittext_password) {
+			@Override
+			public void validate(TextView textView, String text) {
+				if (text != null && text.length() >= 6) {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_device_access_accounts_valid),
+							null);
+					isPasswordValid = true;
+				} else if (text != null && text.length() < 6) {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_device_access_accounts_error),
+							null);
+					isPasswordValid = false;
+				} else {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_device_access_accounts), null);
+					isPasswordValid = false;
 				}
-		    }
+			}
 		});
-		
+
 		edittext_email = (EditText) findViewById(R.id.edittext_email);
-		edittext_email.addTextChangedListener(new TextValidator(edittext_email) {
-		    @Override public void validate(TextView textView, String text) {
-				Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-				Matcher matcher = pattern.matcher(text);
-				if (text != null && matcher.matches()) {
-		    		textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_content_email_valid), null);
-				}else if(text != null && !matcher.matches()){
-					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_content_email_error), null);
-				}else{
-					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_content_email), null);
-				}
-		    }
-		});
+		edittext_email
+				.addTextChangedListener(new TextValidator(edittext_email) {
+					@Override
+					public void validate(TextView textView, String text) {
+						Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+						Matcher matcher = pattern.matcher(text);
+						if (text != null && matcher.matches()) {
+							textView.setCompoundDrawablesWithIntrinsicBounds(
+									null,
+									null,
+									getResources().getDrawable(
+											R.drawable.ic_content_email_valid),
+									null);
+							isEmailValid = true;
+						} else if (text != null && !matcher.matches()) {
+							textView.setCompoundDrawablesWithIntrinsicBounds(
+									null,
+									null,
+									getResources().getDrawable(
+											R.drawable.ic_content_email_error),
+									null);
+							isEmailValid = false;
+						} else {
+							textView.setCompoundDrawablesWithIntrinsicBounds(
+									null,
+									null,
+									getResources().getDrawable(
+											R.drawable.ic_content_email), null);
+							isEmailValid = false;
+						}
+					}
+				});
 	}
 
 	@Override
@@ -125,58 +182,36 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 	}
 
 	private void requestConnection(View view) {
-		/*username = ((EditText) findViewById(R.id.edittext_name)).getText()
-				.toString();
-		password = ((EditText) findViewById(R.id.edittext_signup_password))
-				.getText().toString();
-		email = ((EditText) findViewById(R.id.edittext_email)).getText()
-				.toString();*/
-		
+		/*
+		 * username = ((EditText) findViewById(R.id.edittext_name)).getText()
+		 * .toString(); password = ((EditText)
+		 * findViewById(R.id.edittext_signup_password)) .getText().toString();
+		 * email = ((EditText) findViewById(R.id.edittext_email)).getText()
+		 * .toString();
+		 */
+
 		username = "test1";
 		password = "test1";
 		email = "test1@gmail.com";
 
-		if (validateEnteredData(username, password, email)) {
+		if( isUsernameValid && isPasswordValid && isEmailValid ){
 			Bundle eventData = new Bundle();
 			eventData.putString(Constants.TEXT_CONSUMER_NAME, username);
 			eventData.putString(Constants.TEXT_CONSUMER_PASSWORD, password);
 			eventData.putString(Constants.TEXT_CONSUMER_EMAIL, email);
-
+	
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHORIZE_USER, eventData, view);
 		}
 	}
 
-	private boolean validateEnteredData(String name, String pwd, String email) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		if ((name == null || name.equals(""))
-				|| (pwd == null || pwd.equals(""))
-				|| (email == null || email.equals(""))) {
-			builder.setTitle(R.string.text_error);
-			builder.setMessage(R.string.text_valid_credentials);
-			builder.setCancelable(false);
-			builder.setPositiveButton(getResources().getString(R.string.OK),
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.cancel();
-						}
-					});
-			AlertDialog alertDialog = builder.create();
-			alertDialog.show();
-			return false;
-		}
-		return true;
-	}
-	
 	@Override
 	protected void onPause() {
 		Log.d("SignupActivity", "Inside onDestroy");
 		connModel.unregisterView(this);
 		super.onPause();
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		Log.d("SignupActivity", "Inside onDestroy");
