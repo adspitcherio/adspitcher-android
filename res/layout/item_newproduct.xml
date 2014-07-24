@@ -12,15 +12,9 @@
         <TextView
             android:id="@+id/textview_newcollectiontext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/items_horizontal_margin"
-            android:layout_marginRight="@dimen/items_horizontal_margin"
-            android:layout_marginTop="@dimen/items_vertical_margin"
-            android:maxLines="2"
-            android:text="@string/text_offertext"
-            android:textColor="@color/heading_text_color"
-            android:textSize="@dimen/offers_text_font_size"
-            android:typeface="serif" />
+            style="@style/commonH2TextViewStyle"
+            android:maxLines="3"
+            android:text="@string/text_offertext"/>
 
         <TextView
             android:id="@+id/textview_newcollectionbrandstore"

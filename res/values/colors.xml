@@ -28,5 +28,6 @@
     
     <!-- Color used for H1 TextView -->
     <color name="h1_textview">#0095CD</color>
+    <color name="h2_textview">#000000</color>
     
 </resources>
