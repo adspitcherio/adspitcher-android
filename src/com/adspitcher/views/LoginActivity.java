@@ -1,5 +1,8 @@
 package com.adspitcher.views;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -36,6 +39,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	private boolean keepMeLoggedInBool;
 	private ConnectionModel connModel;
 	private EditText editText_username, editText_password;
+	private boolean isEmailValid, isPasswordValid;
+	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,70 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		editText_password.setTypeface(Typeface.SERIF);
 		editText_password
 				.setTransformationMethod(new PasswordTransformationMethod());
+		
+		editText_password.addTextChangedListener(new TextValidator(
+				editText_password) {
+			@Override
+			public void validate(TextView textView, String text) {
+				if (text != null && text.length() >= 6) {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_device_access_accounts_valid),
+							null);
+					isPasswordValid = true;
+				} else if (text != null && text.length() < 6) {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_device_access_accounts_error),
+							null);
+					isPasswordValid = false;
+				} else {
+					textView.setCompoundDrawablesWithIntrinsicBounds(
+							null,
+							null,
+							getResources().getDrawable(
+									R.drawable.ic_device_access_accounts), null);
+					isPasswordValid = false;
+				}
+			}
+		});
+
+		editText_username
+				.addTextChangedListener(new TextValidator(editText_username) {
+					@Override
+					public void validate(TextView textView, String text) {
+						Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+						Matcher matcher = pattern.matcher(text);
+						if (text != null && matcher.matches()) {
+							textView.setCompoundDrawablesWithIntrinsicBounds(
+									null,
+									null,
+									getResources().getDrawable(
+											R.drawable.ic_content_email_valid),
+									null);
+							isEmailValid = true;
+						} else if (text != null && !matcher.matches()) {
+							textView.setCompoundDrawablesWithIntrinsicBounds(
+									null,
+									null,
+									getResources().getDrawable(
+											R.drawable.ic_content_email_error),
+									null);
+							isEmailValid = false;
+						} else {
+							textView.setCompoundDrawablesWithIntrinsicBounds(
+									null,
+									null,
+									getResources().getDrawable(
+											R.drawable.ic_content_email), null);
+							isEmailValid = false;
+						}
+					}
+				});
 		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
@@ -104,7 +174,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		password = editText_password.getText()
 				.toString();
 
-		if (validateEnteredData(username, password)) {
+		if (isEmailValid && isPasswordValid) {
 			Bundle eventData = new Bundle();
 			eventData.putString(Constants.TEXT_GRANT_TYPE, Constants.TEXT_PASSWORD);
 			eventData.putString(Constants.TEXT_USERNAME, username);
@@ -114,29 +184,6 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHENTICATE_USER, eventData, view);
 		}
-	}
-
-	private boolean validateEnteredData(String name, String pwd) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		if ((name == null || name.equals(""))
-				|| (pwd == null || pwd.equals(""))) {
-			builder.setTitle(R.string.text_error);
-			builder.setMessage(R.string.text_valid_credentials);
-			builder.setCancelable(false);
-			builder.setPositiveButton(getResources().getString(R.string.OK),
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.cancel();
-						}
-					});
-			AlertDialog alertDialog = builder.create();
-			alertDialog.show();
-			return false;
-		}
-		
-		return true;
 	}
 	
 	@Override

@@ -8,10 +8,10 @@
     <EditText
         android:id="@+id/edittext_username"
         style="@style/commonEditTextStyle"
-        android:drawableRight="@drawable/ic_social_person"
+        android:drawableRight="@drawable/ic_content_email"
         android:ems="10"
-        android:hint="@string/text_username"
-        android:inputType="none" >
+        android:hint="@string/text_email"
+        android:inputType="textEmailAddress" >
 
     <requestFocus />
     </EditText>
