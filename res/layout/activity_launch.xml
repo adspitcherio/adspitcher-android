@@ -22,9 +22,7 @@
             android:paddingLeft="@dimen/items_horizontal_padding"
             android:paddingRight="@dimen/items_horizontal_padding"
             android:text="@string/text_location"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/blue_background_color"
-            android:textStyle="bold"
             android:typeface="sans" />
 
         <Spinner
@@ -34,6 +32,21 @@
             android:layout_marginLeft="@dimen/items_horizontal_margin"
             android:layout_marginRight="@dimen/items_horizontal_margin"
             android:layout_marginTop="@dimen/items_vertical_margin"/>
+        
+        <TextView
+            android:id="@+id/textview_search_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/items_horizontal_margin"
+            android:layout_marginRight="@dimen/items_horizontal_margin"
+            android:layout_marginTop="@dimen/items_vertical_margin"
+            android:drawableRight="@drawable/ic_action_search"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/items_horizontal_padding"
+            android:paddingRight="@dimen/items_horizontal_padding"
+            android:text="@string/action_search"
+            android:textColor="@color/blue_background_color"
+            android:typeface="sans" />
 
         <EditText
             android:id="@+id/edittext_search"
@@ -42,11 +55,11 @@
             android:layout_marginLeft="@dimen/items_horizontal_margin"
             android:layout_marginRight="@dimen/items_horizontal_margin"
             android:layout_marginTop="@dimen/items_vertical_margin"
-            android:drawableRight="@drawable/ic_action_search"
             android:ems="10"
             android:inputType="text"
             android:textColor="@color/heading_text_color"
-            android:typeface="sans" >
+            android:typeface="sans"
+            android:textSize="@dimen/edit_textbox_font_size"  >
         </EditText>
 
         <TextView
@@ -61,7 +74,6 @@
             android:paddingRight="@dimen/text_border_horizontal_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/action_search"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/offer_item_background_color"
             android:typeface="sans" />
 
@@ -77,7 +89,6 @@
             android:paddingRight="@dimen/text_border_horizontal_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/text_existinguser_signin"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/offer_item_background_color"
             android:typeface="sans" />
 
@@ -93,7 +104,6 @@
             android:paddingRight="@dimen/text_border_horizontal_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
             android:text="@string/text_create_account"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/offer_item_background_color"
             android:typeface="sans" />
 
@@ -106,9 +116,7 @@
             android:paddingRight="@dimen/text_border_horizontal_padding"
             android:paddingTop="@dimen/items_vertical_padding"
             android:text="@string/text_signup_benefits"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/blue_background_color"
-            android:textStyle="bold"
             android:typeface="sans" />
 
         <TextView
@@ -121,7 +129,6 @@
             android:drawableLeft="@drawable/ic_notification"
             android:gravity="center_vertical"
             android:text="@string/text_benefits_notification"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/heading_text_color"
             android:typeface="sans" />
         
@@ -135,7 +142,6 @@
             android:drawableLeft="@drawable/ic_rewards_icon"
             android:gravity="center_vertical"
             android:text="@string/text_benefits_rewards"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/heading_text_color"
             android:typeface="sans" />
 

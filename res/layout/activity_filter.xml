@@ -16,9 +16,9 @@
         android:paddingRight="@dimen/text_border_horizontal_padding"
         android:paddingTop="@dimen/text_border_vertical_padding"
         android:text="@string/text_locations"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/heading_text_color"
-        android:typeface="serif" />
+        android:textColor="@color/blue_background_color"
+        android:typeface="sans"
+        android:textSize="@dimen/h1_heading_font_size"  />
 
     <ListView
         android:id="@+id/listView_filters_locations"
@@ -40,9 +40,9 @@
         android:paddingRight="@dimen/text_border_horizontal_padding"
         android:paddingTop="@dimen/text_border_vertical_padding"
         android:text="@string/text_brands"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/heading_text_color"
-        android:typeface="serif" />
+        android:textColor="@color/blue_background_color"
+        android:typeface="sans"
+        android:textSize="@dimen/h1_heading_font_size" />
     
     <ListView
         android:id="@+id/listView_filters_brands"
@@ -64,9 +64,9 @@
         android:paddingRight="@dimen/text_border_horizontal_padding"
         android:paddingTop="@dimen/text_border_vertical_padding"
         android:text="@string/text_categories"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/heading_text_color"
-        android:typeface="serif" />
+        android:textColor="@color/blue_background_color"
+        android:typeface="sans"
+        android:textSize="@dimen/h1_heading_font_size" />
     
     <ListView
         android:id="@+id/listView_filters_categories"

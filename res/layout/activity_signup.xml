@@ -17,7 +17,8 @@
         android:hint="@string/text_name"
         android:inputType="none"
         android:textColor="@color/heading_text_color"
-        android:typeface="sans" >
+        android:typeface="sans"
+        android:textSize="@dimen/edit_textbox_font_size" >
 
     <requestFocus />
     </EditText>
@@ -34,7 +35,8 @@
         android:hint="@string/text_email"
         android:inputType="textEmailAddress"
         android:textColor="@color/heading_text_color"
-        android:typeface="sans" >
+        android:typeface="sans"
+        android:textSize="@dimen/edit_textbox_font_size" >
 
     </EditText>
 
@@ -50,7 +52,8 @@
         android:hint="@string/text_password"
         android:inputType="textPassword"
         android:textColor="@color/heading_text_color"
-        android:typeface="sans" >
+        android:typeface="sans"
+        android:textSize="@dimen/edit_textbox_font_size" >
 
     </EditText>
     
@@ -66,8 +69,8 @@
         android:paddingRight="@dimen/text_border_horizontal_padding"
         android:paddingTop="@dimen/text_border_vertical_padding"
         android:text="@string/text_submit"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/offer_item_background_color"
-        android:typeface="sans" />
+        android:typeface="sans" 
+        android:textSize="@dimen/button_font_size"/>
 
 </LinearLayout>

@@ -13,5 +13,8 @@
     <dimen name="details_text_font_size">12sp</dimen>
     <dimen name="offers_text_font_size">12sp</dimen>
     <dimen name="brandstore_text_font_size">12sp</dimen>
+    <dimen name="edit_textbox_font_size">14sp</dimen>
+    <dimen name="button_font_size">14sp</dimen>
+    <dimen name="h1_heading_font_size">14sp</dimen>
 
 </resources>
