@@ -19,14 +19,14 @@
         <TextView
             android:id="@+id/textview_newcollectionbrandstore"
             style="@style/commonH3TextViewStyle"
-            android:drawableLeft="@drawable/ic_cart"
-            android:text="@string/text_offertext"/>
+            android:drawableLeft="@drawable/ic_cart_small"
+            android:text="@string/text_offertext" />
 
         <TextView
             android:id="@+id/textview_newcollectionlocations"
             style="@style/commonH3TextViewStyle"
-            android:drawableLeft="@drawable/ic_location_place"
-            android:text="@string/text_offertext"/>
+            android:drawableLeft="@drawable/ic_location_small"
+            android:text="@string/text_offertext" />
 
         <RatingBar
             android:id="@+id/ratingbar_collection"
