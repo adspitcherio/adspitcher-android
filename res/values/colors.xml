@@ -26,4 +26,7 @@
     <color name="button_pressed_border">#FFFFFF</color>
     <color name="button_disabled_border">#D8D9D8</color>
     
+    <!-- Color used for H1 TextView -->
+    <color name="h1_textview">#0095CD</color>
+    
 </resources>
