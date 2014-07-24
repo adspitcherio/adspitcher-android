@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/background_color"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
     
     <EditText
@@ -38,17 +39,7 @@
     
     <TextView
         android:id="@+id/btn_submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_custom"
-        android:gravity="center_vertical"
-        android:paddingBottom="@dimen/text_border_vertical_padding"
-        android:paddingLeft="@dimen/text_border_horizontal_padding"
-        android:paddingRight="@dimen/text_border_horizontal_padding"
-        android:paddingTop="@dimen/text_border_vertical_padding"
-        android:text="@string/text_submit"
-        android:textColor="@drawable/button_text_custom"
-        android:textSize="@dimen/button_font_size"
-        android:typeface="sans" />
+        style="@style/commonButttonStyle"
+        android:text="@string/text_submit"/>
 
 </LinearLayout>
