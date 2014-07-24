@@ -22,12 +22,14 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.utils.TextValidator;
 
 public class SignupActivity extends ActionBarActivity implements ActivityUpdateListener {
 
 	private String username, email, password;
 	private ConnectionModel connModel;
 	private TextView btn_submit;
+	private EditText edittext_username, edittext_email, edittext_password;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,33 @@ public class SignupActivity extends ActionBarActivity implements ActivityUpdateL
 				requestConnection(view);
 			}
 		});
-
+		
+		edittext_username = (EditText)findViewById(R.id.edittext_name);
+		edittext_username.addTextChangedListener(new TextValidator(edittext_username) {
+		    @Override public void validate(TextView textView, String text) {
+		       /* Validation code here */
+		    }
+		});
+		
+		edittext_password = (EditText) findViewById(R.id.edittext_signup_password);
+		edittext_password.addTextChangedListener(new TextValidator(edittext_password) {
+		    @Override public void validate(TextView textView, String text) {
+		    	if (text != null && text.length() >= 6) {
+		    		textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_device_access_accounts_valid), null);
+				}else if(text != null && text.length() < 6){
+					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_device_access_accounts_error), null);
+				}else{
+					textView.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_device_access_accounts), null);
+				}
+		    }
+		});
+		
+		edittext_email = (EditText) findViewById(R.id.edittext_email);
+		edittext_email.addTextChangedListener(new TextValidator(edittext_email) {
+		    @Override public void validate(TextView textView, String text) {
+		       /* Validation code here */
+		    }
+		});
 	}
 
 	@Override

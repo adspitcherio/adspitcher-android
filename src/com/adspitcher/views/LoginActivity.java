@@ -27,6 +27,7 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.utils.TextValidator;
 
 public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener {
 
@@ -34,6 +35,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	private String username, password;
 	private boolean keepMeLoggedInBool;
 	private ConnectionModel connModel;
+	private EditText editText_username, editText_password;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +46,12 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
-		EditText editText_password = (EditText) findViewById(R.id.edittext_password);
+		editText_username = (EditText) findViewById(R.id.edittext_username);
+		editText_password = (EditText) findViewById(R.id.edittext_password);
 		editText_password.setTypeface(Typeface.SERIF);
 		editText_password
 				.setTransformationMethod(new PasswordTransformationMethod());
-
+		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
 		//connModel.setListener(this);
@@ -96,9 +99,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	}
 
 	private void requestConnection(View view) {
-		username = ((EditText) findViewById(R.id.edittext_username)).getText()
+		username = editText_username.getText()
 				.toString();
-		password = ((EditText) findViewById(R.id.edittext_password)).getText()
+		password = editText_password.getText()
 				.toString();
 
 		if (validateEnteredData(username, password)) {
@@ -132,6 +135,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 			alertDialog.show();
 			return false;
 		}
+		
 		return true;
 	}
 	
