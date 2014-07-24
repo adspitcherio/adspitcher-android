@@ -187,10 +187,15 @@ public class LaunchActivity extends ActionBarActivity implements
 			textview_createaccount.setVisibility(View.VISIBLE);
 			UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
 			userModel.setUserLoggedIn(false);
+			userModel.setAccessToken(null);
 			invalidateOptionsMenu();
 			return true;
 		}
 		case R.id.action_profile:{
+			Intent screenChangeIntent = null;
+			screenChangeIntent = new Intent(LaunchActivity.this,
+					ProfileActivity.class);
+			LaunchActivity.this.startActivity(screenChangeIntent);
 			return true;
 		}
 		case R.id.action_fav:{
