@@ -11,7 +11,6 @@
     <string name="text_username"><i>username</i></string>
     <string name="text_name"><i>name</i></string>
     <string name="text_password"><i>password</i></string>
-    <string name="text_create_account">New user? Create an account</string>
     <string name="text_register">Register</string>
     <string name="text_signin">Sign In</string>
     <string name="text_submit">Submit</string>
@@ -66,7 +65,6 @@
     <string name="text_benefits_notification">Get notified by your favorite brands for their latest offers and collections.</string>
     <string name="text_benefits_rewards">Earn rewards when you dive-in the pitcher, sharing your reviews and rating various brands.</string>
     
-    <string name="text_existinguser_signin">Existing user? Sign In</string>
     <string name="text_rememberme">Remember me</string>
     <string name="text_forgotpwd">Forgot Password</string>
     <string name="text_forgotpwd_details">An email with instructions to reset password has been sent to your registered email address. Please follow the instructions in email to reset your password.</string>

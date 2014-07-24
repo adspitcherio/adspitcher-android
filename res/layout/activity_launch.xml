@@ -56,50 +56,67 @@
 
         </EditText>
 
-        <TextView
-            android:id="@+id/textview_search"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_custom"
-            android:drawableRight="@drawable/ic_navigation_next_item_white"
-            android:gravity="center_vertical"
-            android:paddingBottom="@dimen/text_border_vertical_padding"
-            android:paddingLeft="@dimen/text_border_horizontal_padding"
-            android:paddingRight="@dimen/text_border_horizontal_padding"
-            android:paddingTop="@dimen/text_border_vertical_padding"
-            android:text="@string/action_search"
-            android:textColor="@color/offer_item_background_color"
-            android:typeface="sans" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/items_vertical_margin"
+            android:layout_marginTop="@dimen/items_vertical_margin"
+            android:paddingBottom="@dimen/items_vertical_padding"
+            android:paddingTop="@dimen/items_vertical_padding" >
 
-        <TextView
-            android:id="@+id/textview_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_custom"
-            android:drawableRight="@drawable/ic_navigation_next_item_white"
-            android:gravity="center_vertical"
-            android:paddingBottom="@dimen/text_border_vertical_padding"
-            android:paddingLeft="@dimen/text_border_horizontal_padding"
-            android:paddingRight="@dimen/text_border_horizontal_padding"
-            android:paddingTop="@dimen/text_border_vertical_padding"
-            android:text="@string/text_existinguser_signin"
-            android:textColor="@color/offer_item_background_color"
-            android:typeface="sans" />
+            <TextView
+                android:id="@+id/textview_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/items_horizontal_margin"
+                android:layout_marginRight="@dimen/items_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingBottom="@dimen/text_border_vertical_padding"
+                android:paddingLeft="@dimen/text_border_horizontal_padding"
+                android:paddingRight="@dimen/text_border_horizontal_padding"
+                android:paddingTop="@dimen/text_border_vertical_padding"
+                android:text="@string/action_search"
+                android:textColor="@drawable/button_text_custom"
+                android:typeface="sans" />
 
-        <TextView
-            android:id="@+id/textview_createaccount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_custom"
-            android:drawableRight="@drawable/ic_navigation_next_item_white"
-            android:gravity="center_vertical"
-            android:paddingBottom="@dimen/text_border_vertical_padding"
-            android:paddingLeft="@dimen/text_border_horizontal_padding"
-            android:paddingRight="@dimen/text_border_horizontal_padding"
-            android:paddingTop="@dimen/text_border_vertical_padding"
-            android:text="@string/text_create_account"
-            android:textColor="@color/offer_item_background_color"
-            android:typeface="sans" />
+            <TextView
+                android:id="@+id/textview_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/items_horizontal_margin"
+                android:layout_marginRight="@dimen/items_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingBottom="@dimen/text_border_vertical_padding"
+                android:paddingLeft="@dimen/text_border_horizontal_padding"
+                android:paddingRight="@dimen/text_border_horizontal_padding"
+                android:paddingTop="@dimen/text_border_vertical_padding"
+                android:text="@string/text_signin"
+                android:textColor="@drawable/button_text_custom"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/textview_createaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/items_horizontal_margin"
+                android:layout_marginRight="@dimen/items_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@drawable/button_custom"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingBottom="@dimen/text_border_vertical_padding"
+                android:paddingLeft="@dimen/text_border_horizontal_padding"
+                android:paddingRight="@dimen/text_border_horizontal_padding"
+                android:paddingTop="@dimen/text_border_vertical_padding"
+                android:text="@string/text_register"
+                android:textColor="@drawable/button_text_custom"
+                android:typeface="sans" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textview_signup_benefits"

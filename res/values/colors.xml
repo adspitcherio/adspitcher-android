@@ -14,4 +14,16 @@
     <color name="offer_text_color">#FFBA31</color>
     <color name="brandstore_text_color">#FFFFFF</color>
     <color name="offer_item_background_color">#FFFFFF</color>
+    
+    <!-- Color used for Custom Button -->
+    <color name="button_normal_text">#0095CD</color>
+    <color name="button_pressed_text">#FFFFFF</color>
+    <color name="button_disabled_text">#D8D9D8</color>
+    <color name="button_normal_background">#FFFFFF</color>
+    <color name="button_pressed_background">#0095CD</color>
+    <color name="button_disabled_background">#FFFFFF</color>
+    <color name="button_normal_border">#0095CD</color>
+    <color name="button_pressed_border">#FFFFFF</color>
+    <color name="button_disabled_border">#D8D9D8</color>
+    
 </resources>
