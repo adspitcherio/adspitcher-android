@@ -33,15 +33,14 @@
                 style="@style/commonH1TextViewValueStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_profile_name"/>
-
+                android:text="@string/text_profile_name" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-            
+
             <TextView
                 android:id="@+id/label_email"
                 style="@style/commonH1TextViewStyle"
@@ -54,14 +53,54 @@
                 style="@style/commonH1TextViewValueStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_profile_email"/>
+                android:text="@string/text_profile_email" />
+        </TableRow>
+        
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/label_dob"
+                style="@style/commonH1TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_dob" />
+
+            <TextView
+                android:id="@+id/textview_dob_value"
+                style="@style/commonH1TextViewValueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_dob" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/label_phonenumber"
+                style="@style/commonH1TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_phonenumber" />
+
+            <TextView
+                android:id="@+id/textview_phonenumber_value"
+                style="@style/commonH1TextViewValueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_phonenumber" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-            
+
             <TextView
                 android:id="@+id/label_credits"
                 style="@style/commonH1TextViewStyle"
@@ -74,15 +113,14 @@
                 style="@style/commonH1TextViewValueStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_profile_credits"/>
-            
+                android:text="@string/text_profile_credits" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-            
+
             <TextView
                 android:id="@+id/label_currentlocation"
                 style="@style/commonH1TextViewStyle"
@@ -95,8 +133,7 @@
                 style="@style/commonH1TextViewValueStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_profile_currentlocation"/>
-            
+                android:text="@string/text_profile_currentlocation" />
         </TableRow>
     </TableLayout>
 

@@ -25,6 +25,8 @@
     <string name="text_profile_email">Email</string>
     <string name="text_profile_credits">Credits</string>
     <string name="text_profile_currentlocation">CurrentLocation</string>
+    <string name="text_profile_dob">Birth Date</string>
+    <string name="text_profile_phonenumber">Phone Number</string>
     <string name="text_profile_taptoaddpic">Tap to add a profile picture</string>
     <string-array name="profile_tabs_array">
         <item>Info</item>
@@ -40,6 +42,8 @@
     <string name="text_watermark_name"><i>name</i></string>
     <string name="text_watermark_email"><i>email</i></string>
     <string name="text_watermark_password"><i>password</i></string>
+    <string name="text_watermark_phonenumber"><i>phonenumber</i></string>
+    <string name="text_watermark_birthdate"><i>birthdate</i></string>
     <string name="text_watermark_search"><i>search text (eg:40% bags)</i></string>
     
     <!-- Action Button Specific Strings -->
