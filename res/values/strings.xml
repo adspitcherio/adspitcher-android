@@ -6,6 +6,7 @@
     <string name="cd_img">image</string>
     <string name="text_dummytext">Dummy text</string>
     <string name="error">Error</string>
+    <string name="success">Success</string>
     <string name="OK">OK</string>
     
     <!-- Splash Specific Strings -->
@@ -37,6 +38,7 @@
     <!-- EditProfile Specific Strings -->
     <string name="text_editprofile_save">Save</string>
     <string name="text_editprofile_cancel">Cancel</string>
+    <string name="text_editprofile_editsuccess">Data saved successfully.</string>
     
     <!-- Watermark Specific Strings -->
     <string name="text_watermark_name"><i>name</i></string>

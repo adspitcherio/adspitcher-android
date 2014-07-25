@@ -1766,8 +1766,8 @@ containing a value of this type.
         public static final int activity_profile_menu=0x7f0d0003;
     }
     public static final class string {
-        public static final int IO_Exception_getFromLocation=0x7f060080;
-        public static final int OK=0x7f06003f;
+        public static final int IO_Exception_getFromLocation=0x7f060082;
+        public static final int OK=0x7f060040;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f060021;
@@ -1811,7 +1811,7 @@ containing a value of this type.
         /**  Location Specific Strings 
  Address format 
          */
-        public static final int address_output_string=0x7f060075;
+        public static final int address_output_string=0x7f060077;
         /**  Common App Strings 
          */
         public static final int app_name=0x7f06003b;
@@ -1913,9 +1913,9 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f06001e;
         /**  Messages 
          */
-        public static final int connected=0x7f060077;
+        public static final int connected=0x7f060079;
         public static final int connection_error_code=0x7f06002d;
-        public static final int connection_error_code_unknown=0x7f060078;
+        public static final int connection_error_code_unknown=0x7f06007a;
         public static final int connection_error_disabled=0x7f06002e;
         public static final int connection_error_internal=0x7f06002f;
         public static final int connection_error_invalid=0x7f060030;
@@ -1929,117 +1929,119 @@ containing a value of this type.
         public static final int connection_error_outdated=0x7f060038;
         public static final int connection_error_sign_in_required=0x7f060039;
         public static final int connection_error_unknown=0x7f06003a;
-        public static final int connection_failed=0x7f060079;
-        public static final int disconnected=0x7f06007a;
-        public static final int drawer_close=0x7f060074;
-        public static final int drawer_open=0x7f060073;
+        public static final int connection_failed=0x7f06007b;
+        public static final int disconnected=0x7f06007c;
+        public static final int drawer_close=0x7f060076;
+        public static final int drawer_open=0x7f060075;
         public static final int error=0x7f06003e;
         /**  Error Specific Strings 
          */
-        public static final int error_network_problem=0x7f06006b;
-        public static final int error_reading_data_from_server=0x7f06006c;
-        public static final int get_address=0x7f06007b;
-        public static final int get_location=0x7f06007c;
-        public static final int illegal_argument_exception=0x7f06007d;
-        public static final int invalid_action=0x7f06007e;
-        public static final int invalid_integer_id=0x7f06007f;
+        public static final int error_network_problem=0x7f06006d;
+        public static final int error_reading_data_from_server=0x7f06006e;
+        public static final int get_address=0x7f06007d;
+        public static final int get_location=0x7f06007e;
+        public static final int illegal_argument_exception=0x7f06007f;
+        public static final int invalid_action=0x7f060080;
+        public static final int invalid_integer_id=0x7f060081;
         /**  Latitude, longitude format 
          */
-        public static final int latitude_longitude=0x7f060076;
-        public static final int location_requested=0x7f060081;
-        public static final int location_update_error=0x7f060083;
-        public static final int location_update_error_detail=0x7f060084;
-        public static final int location_update_missing_update=0x7f060085;
-        public static final int location_updated=0x7f060082;
-        public static final int location_updates_stopped=0x7f060086;
-        public static final int log_new_location=0x7f060087;
-        public static final int no_address_found=0x7f060088;
-        public static final int no_connection=0x7f060089;
-        public static final int no_geocoder_available=0x7f06008a;
-        public static final int no_location_available=0x7f06008b;
-        public static final int no_resolution=0x7f06008d;
-        public static final int periodic_update_stop=0x7f06008e;
-        public static final int play_services_available=0x7f06008f;
-        public static final int request_location_updates_in_progress=0x7f060090;
-        public static final int resolved=0x7f06008c;
-        public static final int start_updates=0x7f060091;
-        public static final int stop_updates=0x7f060092;
-        public static final int text_button_register=0x7f060058;
-        public static final int text_button_search=0x7f06005a;
+        public static final int latitude_longitude=0x7f060078;
+        public static final int location_requested=0x7f060083;
+        public static final int location_update_error=0x7f060085;
+        public static final int location_update_error_detail=0x7f060086;
+        public static final int location_update_missing_update=0x7f060087;
+        public static final int location_updated=0x7f060084;
+        public static final int location_updates_stopped=0x7f060088;
+        public static final int log_new_location=0x7f060089;
+        public static final int no_address_found=0x7f06008a;
+        public static final int no_connection=0x7f06008b;
+        public static final int no_geocoder_available=0x7f06008c;
+        public static final int no_location_available=0x7f06008d;
+        public static final int no_resolution=0x7f06008f;
+        public static final int periodic_update_stop=0x7f060090;
+        public static final int play_services_available=0x7f060091;
+        public static final int request_location_updates_in_progress=0x7f060092;
+        public static final int resolved=0x7f06008e;
+        public static final int start_updates=0x7f060093;
+        public static final int stop_updates=0x7f060094;
+        public static final int success=0x7f06003f;
+        public static final int text_button_register=0x7f06005a;
+        public static final int text_button_search=0x7f06005c;
         /**  Action Button Specific Strings 
          */
-        public static final int text_button_signin=0x7f060057;
-        public static final int text_button_submit=0x7f060059;
+        public static final int text_button_signin=0x7f060059;
+        public static final int text_button_submit=0x7f06005b;
         public static final int text_dummytext=0x7f06003d;
-        public static final int text_editprofile_cancel=0x7f060050;
+        public static final int text_editprofile_cancel=0x7f060051;
+        public static final int text_editprofile_editsuccess=0x7f060052;
         /**  EditProfile Specific Strings 
          */
-        public static final int text_editprofile_save=0x7f06004f;
+        public static final int text_editprofile_save=0x7f060050;
         /**  Filter Specific Strings 
          */
-        public static final int text_filter=0x7f06006d;
-        public static final int text_filter_apply=0x7f06006e;
-        public static final int text_filter_brands=0x7f06006f;
-        public static final int text_filter_categories=0x7f060070;
-        public static final int text_filter_locations=0x7f060071;
+        public static final int text_filter=0x7f06006f;
+        public static final int text_filter_apply=0x7f060070;
+        public static final int text_filter_brands=0x7f060071;
+        public static final int text_filter_categories=0x7f060072;
+        public static final int text_filter_locations=0x7f060073;
         /**  Home Activity Specific Strings 
          */
-        public static final int text_home_search=0x7f06006a;
-        public static final int text_launch_benefits_notification=0x7f060065;
-        public static final int text_launch_benefits_rewards=0x7f060066;
-        public static final int text_launch_fav=0x7f060061;
+        public static final int text_home_search=0x7f06006c;
+        public static final int text_launch_benefits_notification=0x7f060067;
+        public static final int text_launch_benefits_rewards=0x7f060068;
+        public static final int text_launch_fav=0x7f060063;
         /**  Launch Activity Specific Strings 
          */
-        public static final int text_launch_location=0x7f06005f;
-        public static final int text_launch_logout=0x7f060063;
-        public static final int text_launch_profile=0x7f060062;
-        public static final int text_launch_search=0x7f060060;
-        public static final int text_launch_signup_benefits=0x7f060064;
-        public static final int text_login_forgotpwd=0x7f060068;
-        public static final int text_login_forgotpwd_details=0x7f060069;
+        public static final int text_launch_location=0x7f060061;
+        public static final int text_launch_logout=0x7f060065;
+        public static final int text_launch_profile=0x7f060064;
+        public static final int text_launch_search=0x7f060062;
+        public static final int text_launch_signup_benefits=0x7f060066;
+        public static final int text_login_forgotpwd=0x7f06006a;
+        public static final int text_login_forgotpwd_details=0x7f06006b;
         /**  Login Specific Strings 
          */
-        public static final int text_login_rememberme=0x7f060067;
-        public static final int text_offeritem_down=0x7f06005e;
-        public static final int text_offeritem_reviews=0x7f06005c;
-        public static final int text_offeritem_up=0x7f06005d;
+        public static final int text_login_rememberme=0x7f060069;
+        public static final int text_offeritem_down=0x7f060060;
+        public static final int text_offeritem_reviews=0x7f06005e;
+        public static final int text_offeritem_up=0x7f06005f;
         /**  Offers Item Specific Strings 
          */
-        public static final int text_offeritem_views=0x7f06005b;
-        public static final int text_profile_credits=0x7f06004a;
-        public static final int text_profile_currentlocation=0x7f06004b;
-        public static final int text_profile_dob=0x7f06004c;
-        public static final int text_profile_edit_menu=0x7f060046;
-        public static final int text_profile_email=0x7f060049;
-        public static final int text_profile_name=0x7f060048;
+        public static final int text_offeritem_views=0x7f06005d;
+        public static final int text_profile_credits=0x7f06004b;
+        public static final int text_profile_currentlocation=0x7f06004c;
+        public static final int text_profile_dob=0x7f06004d;
+        public static final int text_profile_edit_menu=0x7f060047;
+        public static final int text_profile_email=0x7f06004a;
+        public static final int text_profile_name=0x7f060049;
         /**  Profile Specific Strings 
          */
-        public static final int text_profile_page_heading=0x7f060045;
-        public static final int text_profile_phonenumber=0x7f06004d;
-        public static final int text_profile_savepreferences_menu=0x7f060047;
-        public static final int text_profile_taptoaddpic=0x7f06004e;
+        public static final int text_profile_page_heading=0x7f060046;
+        public static final int text_profile_phonenumber=0x7f06004e;
+        public static final int text_profile_savepreferences_menu=0x7f060048;
+        public static final int text_profile_taptoaddpic=0x7f06004f;
         /**  Search Specific Strings 
          */
-        public static final int text_search_results=0x7f060072;
+        public static final int text_search_results=0x7f060074;
         /**  Splash Specific Strings 
          */
-        public static final int text_splash_version=0x7f060040;
-        public static final int text_title_details=0x7f060044;
+        public static final int text_splash_version=0x7f060041;
+        public static final int text_title_details=0x7f060045;
         /**  Activity Action Bar Title Strings 
          */
-        public static final int text_title_register=0x7f060041;
-        public static final int text_title_search=0x7f060043;
-        public static final int text_title_signin=0x7f060042;
-        public static final int text_watermark_birthdate=0x7f060055;
-        public static final int text_watermark_email=0x7f060052;
+        public static final int text_title_register=0x7f060042;
+        public static final int text_title_search=0x7f060044;
+        public static final int text_title_signin=0x7f060043;
+        public static final int text_watermark_birthdate=0x7f060057;
+        public static final int text_watermark_email=0x7f060054;
         /**  Watermark Specific Strings 
          */
-        public static final int text_watermark_name=0x7f060051;
-        public static final int text_watermark_password=0x7f060053;
-        public static final int text_watermark_phonenumber=0x7f060054;
-        public static final int text_watermark_search=0x7f060056;
-        public static final int unknown=0x7f060093;
-        public static final int unknown_activity_request_code=0x7f060094;
+        public static final int text_watermark_name=0x7f060053;
+        public static final int text_watermark_password=0x7f060055;
+        public static final int text_watermark_phonenumber=0x7f060056;
+        public static final int text_watermark_search=0x7f060058;
+        public static final int unknown=0x7f060095;
+        public static final int unknown_activity_request_code=0x7f060096;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
