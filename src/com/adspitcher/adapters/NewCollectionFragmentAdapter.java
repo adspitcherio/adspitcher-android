@@ -49,9 +49,9 @@ public class NewCollectionFragmentAdapter  extends ArrayAdapter<NewCollectionIte
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 			holder.dataCell_views.setText("");
-			holder.dataCell_views.setText(R.string.text_views);
+			holder.dataCell_views.setText(R.string.text_offeritem_views);
 			holder.dataCell_reviews.setText("");
-			holder.dataCell_reviews.setText(R.string.text_reviews);
+			holder.dataCell_reviews.setText(R.string.text_offeritem_reviews);
 			
 		}
 

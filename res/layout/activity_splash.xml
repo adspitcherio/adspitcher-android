@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:contentDescription="@string/cd_img_splash"
+            android:contentDescription="@string/cd_img"
             android:src="@drawable/ic_adspitcher_logo" />       
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/text_version"
+            android:text="@string/text_splash_version"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/heading_text_color"
             android:typeface="sans" />

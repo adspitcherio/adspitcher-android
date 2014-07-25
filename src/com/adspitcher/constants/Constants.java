@@ -3,8 +3,8 @@ package com.adspitcher.constants;
 public class Constants {
 
 	// Required URLs
-	//public static final String BASE_URL = "http://api.adspitcher.com/v1/";
-	public static final String BASE_URL = "http://54.243.74.12/v1/";
+	public static final String BASE_URL = "http://api.adspitcher.com/v1/";
+	//public static final String BASE_URL = "http://54.243.74.12/v1/";
 	public static final String URL_REGISTERUSER_REQUEST = "consumers.json";
 	public static final String URL_GET_CITIES_REQUEST = "locations.json";
 	public static final String URL_GET_ACCESSTOKEN_REQUEST = "/oauth/token";

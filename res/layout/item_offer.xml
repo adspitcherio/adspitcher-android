@@ -17,7 +17,7 @@
             android:layout_gravity="top"
             android:layout_weight="5"
             android:maxLines="3"
-            android:text="@string/text_offertext"/>
+            android:text="@string/text_dummytext"/>
         
         <TextView
             android:id="@+id/textview_votesup"
@@ -54,13 +54,13 @@
         android:id="@+id/textview_brandstore"
         style="@style/commonH3TextViewStyle"
         android:drawableLeft="@drawable/ic_cart_small"
-        android:text="@string/text_offertext" />
+        android:text="@string/text_dummytext" />
 
     <TextView
         android:id="@+id/textview_locations"
         style="@style/commonH3TextViewStyle"
         android:drawableLeft="@drawable/ic_location_small"
-        android:text="@string/text_offertext" />
+        android:text="@string/text_dummytext" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             android:gravity="center_vertical"
             android:paddingBottom="@dimen/text_border_vertical_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
-            android:text="@string/text_views"
+            android:text="@string/text_offeritem_views"
             android:textColor="@color/background_color"
             android:textSize="@dimen/details_text_font_size"
             android:typeface="sans" />
@@ -88,7 +88,7 @@
             android:gravity="center_vertical"
             android:paddingBottom="@dimen/text_border_vertical_padding"
             android:paddingTop="@dimen/text_border_vertical_padding"
-            android:text="@string/text_reviews"
+            android:text="@string/text_offeritem_reviews"
             android:textColor="@color/background_color"
             android:textSize="@dimen/details_text_font_size"
             android:typeface="sans" />

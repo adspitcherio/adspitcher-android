@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/textview_locations"
         style="@style/commonH1TextViewStyle"
-        android:text="@string/text_locations"/>
+        android:text="@string/text_filter_locations"/>
 
     <ListView
         android:id="@+id/listView_filters_locations"
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/textview_brands"
         style="@style/commonH1TextViewStyle"
-        android:text="@string/text_brands"/>
+        android:text="@string/text_filter_brands"/>
     
     <ListView
         android:id="@+id/listView_filters_brands"
@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/textview_categories"
         style="@style/commonH1TextViewStyle"
-        android:text="@string/text_categories"/>
+        android:text="@string/text_filter_categories"/>
     
     <ListView
         android:id="@+id/listView_filters_categories"

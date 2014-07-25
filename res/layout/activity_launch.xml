@@ -14,7 +14,7 @@
             android:id="@+id/textview_location"
             style="@style/commonH1TextViewStyle"
             android:drawableRight="@drawable/ic_location_place"
-            android:text="@string/text_location" />
+            android:text="@string/text_launch_location" />
 
         <Spinner
             android:id="@+id/spinner_cities"
@@ -28,12 +28,13 @@
             android:id="@+id/textview_search_label"
             style="@style/commonH1TextViewStyle"
             android:drawableRight="@drawable/ic_action_search"
-            android:text="@string/action_search" />
+            android:text="@string/text_launch_search" />
 
         <EditText
             android:id="@+id/edittext_search"
             style="@style/commonEditTextStyle"
             android:ems="10"
+            android:hint="@string/text_watermark_search"
             android:inputType="text" >
 
         </EditText>
@@ -49,19 +50,19 @@
                 android:id="@+id/textview_search"
                 style="@style/commonButttonStyle"
                 android:layout_weight="1"
-                android:text="@string/action_search"/>
+                android:text="@string/text_launch_search"/>
 
             <TextView
                 android:id="@+id/textview_login"
                 style="@style/commonButttonStyle"
                 android:layout_weight="1"
-                android:text="@string/text_signin"/>
+                android:text="@string/text_button_signin"/>
 
             <TextView
                 android:id="@+id/textview_createaccount"
                 style="@style/commonButttonStyle"
                 android:layout_weight="1"
-                android:text="@string/text_register"/>
+                android:text="@string/text_button_register"/>
 
         </LinearLayout>
 
@@ -73,7 +74,7 @@
             android:paddingLeft="@dimen/text_border_horizontal_padding"
             android:paddingRight="@dimen/text_border_horizontal_padding"
             android:paddingTop="@dimen/items_vertical_padding"
-            android:text="@string/text_signup_benefits"
+            android:text="@string/text_launch_signup_benefits"
             android:textColor="@color/blue_background_color"
             android:typeface="sans" />
 
@@ -86,7 +87,7 @@
             android:layout_marginTop="@dimen/items_vertical_margin"
             android:drawableLeft="@drawable/ic_notification"
             android:gravity="center_vertical"
-            android:text="@string/text_benefits_notification"
+            android:text="@string/text_launch_benefits_notification"
             android:textColor="@color/heading_text_color"
             android:typeface="sans" />
         
@@ -99,7 +100,7 @@
             android:layout_marginTop="@dimen/items_vertical_margin"
             android:drawableLeft="@drawable/ic_rewards_icon"
             android:gravity="center_vertical"
-            android:text="@string/text_benefits_rewards"
+            android:text="@string/text_launch_benefits_rewards"
             android:textColor="@color/heading_text_color"
             android:typeface="sans" />
 

@@ -86,7 +86,7 @@ public class HomeActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		Resources itemTexts = getResources();
-		String[] tabs = itemTexts.getStringArray(R.array.tabs_array);
+		String[] tabs = itemTexts.getStringArray(R.array.home_tabs_array);
 
 		// Adding Tabs
 		for (String tab_name : tabs) {

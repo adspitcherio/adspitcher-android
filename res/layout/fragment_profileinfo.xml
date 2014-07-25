@@ -10,6 +10,94 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_content_new_picture"
-        android:text="@string/text_taptoaddpic" />
+        android:text="@string/text_profile_taptoaddpic" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/label_name"
+                style="@style/commonH1TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_name" />
+
+            <TextView
+                android:id="@+id/textview_name_value"
+                style="@style/commonH1TextViewValueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_name"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView
+                android:id="@+id/label_email"
+                style="@style/commonH1TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_email" />
+
+            <TextView
+                android:id="@+id/textview_email_value"
+                style="@style/commonH1TextViewValueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_email"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView
+                android:id="@+id/label_credits"
+                style="@style/commonH1TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_credits" />
+
+            <TextView
+                android:id="@+id/textview_credits_value"
+                style="@style/commonH1TextViewValueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_credits"/>
+            
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            
+            <TextView
+                android:id="@+id/label_currentlocation"
+                style="@style/commonH1TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_currentlocation" />
+
+            <TextView
+                android:id="@+id/textview_currentlocation_value"
+                style="@style/commonH1TextViewValueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_profile_currentlocation"/>
+            
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

@@ -30,14 +30,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.LoginActivity"
-            android:label="@string/text_signin"
+            android:label="@string/text_title_signin"
             android:parentActivityName=".views.LaunchActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.LaunchActivity" />
         </activity>
         <activity android:name=".views.SignupActivity"
-            android:label="@string/text_register"
+            android:label="@string/text_title_register"
             android:parentActivityName=".views.LaunchActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -47,6 +47,7 @@
             android:label="">
         </activity>
         <activity android:name=".views.ProfileActivity"
+            android:label="@string/text_profile_page_heading"
             android:parentActivityName=".views.HomeActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -55,30 +56,36 @@
         <activity android:name=".views.LaunchActivity"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".views.ForgotPwdActivity"
-            android:label="@string/text_forgotpwd"
+            android:label="@string/text_login_forgotpwd"
             android:parentActivityName=".views.LoginActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.LoginActivity" />
         </activity>
         <activity android:name=".views.FiltersActivity"
-            android:label="@string/action_filter"
+            android:label="@string/text_filter"
             android:parentActivityName=".views.HomeActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.HomeActivity" /></activity>
         <activity android:name=".views.SearchActivity"
-            android:label="@string/action_search"
+            android:label="@string/text_title_search"
             android:parentActivityName=".views.HomeActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.HomeActivity" /></activity>
         <activity android:name=".views.OffersDetailsActivity"
-            android:label="@string/txt_details"
+            android:label="@string/text_title_details"
             android:parentActivityName=".views.HomeActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.HomeActivity" /></activity>
+        <activity android:name=".views.EditProfileActivity"
+            android:parentActivityName=".views.ProfileActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".views.ProfileActivity" /></activity>
     </application>
 
 </manifest>

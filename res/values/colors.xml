@@ -30,5 +30,6 @@
     <color name="h1_textview">#0095CD</color>
     <color name="h2_textview">#000000</color>
     <color name="h3_textview">#6E6E6E</color>
+    <color name="h1_textview_value">#6E6E6E</color>
     
 </resources>

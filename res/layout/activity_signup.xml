@@ -11,7 +11,7 @@
         style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_social_person"
         android:ems="10"
-        android:hint="@string/text_name"
+        android:hint="@string/text_watermark_name"
         android:inputType="textPersonName">
 
     <requestFocus />
@@ -22,7 +22,7 @@
         style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_content_email"
         android:ems="10"
-        android:hint="@string/text_email"
+        android:hint="@string/text_watermark_email"
         android:inputType="textEmailAddress" >
 
     </EditText>
@@ -32,7 +32,7 @@
         style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_device_access_accounts"
         android:ems="10"
-        android:hint="@string/text_password"
+        android:hint="@string/text_watermark_password"
         android:inputType="textPassword" >
 
     </EditText>
@@ -40,6 +40,6 @@
     <TextView
         android:id="@+id/btn_submit"
         style="@style/commonButttonStyle"
-        android:text="@string/text_submit"/>
+        android:text="@string/text_button_submit"/>
 
 </LinearLayout>

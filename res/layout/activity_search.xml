@@ -18,7 +18,7 @@
     <TextView
             android:id="@+id/textview_search_results"
             style="@style/commonH1TextViewStyle"
-            android:text="@string/txt_searchresults" />
+            android:text="@string/text_search_results" />
 
     <ListView
         android:id="@+id/listview_searchoffers"

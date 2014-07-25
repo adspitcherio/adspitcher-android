@@ -107,10 +107,10 @@ public class ConnectivityHandler {
 		try {
 			url = new URL(finalUrl);
 
-			//System.setProperty("http.proxyHost", "proxy.tcs.com");
-			//System.setProperty("http.proxyPort", "8080");
+			System.setProperty("http.proxyHost", "proxy.tcs.com");
+			System.setProperty("http.proxyPort", "8080");
 			conn = (HttpURLConnection) url.openConnection();
-			conn.setReadTimeout(10000 /* milliseconds */);
+			conn.setReadTimeout(15000 /* milliseconds */);
 			conn.setConnectTimeout(15000 /* milliseconds */);
 			conn.setRequestMethod(requestMethod);
 			conn.setRequestProperty("Content-Type", "application/json");

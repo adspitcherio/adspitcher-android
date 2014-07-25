@@ -10,7 +10,7 @@
         style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_content_email"
         android:ems="10"
-        android:hint="@string/text_email"
+        android:hint="@string/text_watermark_email"
         android:inputType="textEmailAddress" >
 
     <requestFocus />
@@ -21,14 +21,14 @@
         style="@style/commonEditTextStyle"
         android:drawableRight="@drawable/ic_device_access_accounts"
         android:ems="10"
-        android:hint="@string/text_password"
+        android:hint="@string/text_watermark_password"
         android:inputType="textPassword" >
 
     </EditText>
 
     <CheckBox
         android:id="@+id/checkbox_rememberme"
-        android:text="@string/text_rememberme"
+        android:text="@string/text_login_rememberme"
         style="@style/commonH3TextViewStyle"/>
     <LinearLayout
             android:layout_width="match_parent"
@@ -40,13 +40,13 @@
     <TextView
         android:id="@+id/btn_login"
         style="@style/commonButttonStyle"
-        android:text="@string/text_signin"
+        android:text="@string/text_button_signin"
         android:layout_weight="1"/>
     
     <TextView
         android:id="@+id/btn_forgotpassword"
         style="@style/commonButttonStyle"
-        android:text="@string/text_forgotpwd"
+        android:text="@string/text_login_forgotpwd"
         android:layout_weight="1"/>
     </LinearLayout>
 
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:contentDescription="@string/cd_img_logo"
+            android:contentDescription="@string/cd_img"
             android:paddingLeft="@dimen/items_horizontal_padding"
             android:paddingRight="@dimen/items_horizontal_padding"
             android:src="@drawable/social_fblogin_drawable" />
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:contentDescription="@string/cd_img_logo"
+            android:contentDescription="@string/cd_img"
             android:paddingLeft="@dimen/items_horizontal_padding"
             android:paddingRight="@dimen/items_horizontal_padding"
             android:src="@drawable/socialgpluslogin_drawable" />

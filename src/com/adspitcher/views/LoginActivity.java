@@ -248,7 +248,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		case ConnectionModel.ERROR: {
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					LoginActivity.this);
-			builder.setTitle(getResources().getString(R.string.text_error));
+			builder.setTitle(getResources().getString(R.string.error));
 			builder.setMessage(connModel.getConnectionErrorMessage());
 			builder.setCancelable(false);
 			builder.setPositiveButton(getResources().getString(R.string.OK),

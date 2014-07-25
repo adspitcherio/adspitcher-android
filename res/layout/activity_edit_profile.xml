@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/items_vertical_margin"
+        android:layout_marginTop="@dimen/items_vertical_margin" >
+
+        <TextView
+            android:id="@+id/button_cancel"
+            style="@style/commonButttonStyle"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_content_remove"
+            android:text="@string/text_editprofile_cancel" />
+
+        <TextView
+            android:id="@+id/button_save"
+            style="@style/commonButttonStyle"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_content_save"
+            android:text="@string/text_editprofile_save" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textview_user_image"
+            style="@style/commonH1TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_content_new_picture"
+            android:text="@string/text_profile_taptoaddpic" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/label_name"
+                    style="@style/commonH1TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_profile_name" />
+
+                <EditText
+                    android:id="@+id/edit_profile_name"
+                    style="@style/commonEditTextStyle"
+                    android:ems="10"
+                    android:hint="@string/text_watermark_name"
+                    android:inputType="textPersonName" >
+                </EditText>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/label_email"
+                    style="@style/commonH1TextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_profile_email" />
+
+                <EditText
+                    android:id="@+id/edit_profile_email"
+                    style="@style/commonEditTextStyle"
+                    android:ems="10"
+                    android:hint="@string/text_watermark_email"
+                    android:inputType="textEmailAddress" >
+                </EditText>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

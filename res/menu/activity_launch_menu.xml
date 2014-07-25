@@ -4,17 +4,17 @@
     
     <item android:id="@+id/action_profile"
           android:icon="@drawable/ic_action_profile"
-          android:title="@string/action_profile"
+          android:title="@string/text_launch_profile"
           app:showAsAction="always"
           android:visible="false"/>
     <item android:id="@+id/action_fav"
           android:icon="@drawable/ic_action_fav"
-          android:title="@string/action_search"
+          android:title="@string/text_launch_search"
           app:showAsAction="always"
           android:visible="false"/>
     <item android:id="@+id/action_logout"
           android:icon="@drawable/ic_action_logout"
-          android:title="@string/action_logout"
+          android:title="@string/text_launch_logout"
           app:showAsAction="always"
           android:visible="false" />
 

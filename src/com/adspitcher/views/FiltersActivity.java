@@ -192,7 +192,7 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 		case ConnectionModel.ERROR: {
 			AlertDialog.Builder builder = new AlertDialog.Builder(
 					FiltersActivity.this);
-			builder.setTitle(getResources().getString(R.string.text_error));
+			builder.setTitle(getResources().getString(R.string.error));
 			builder.setMessage(connModel.getConnectionErrorMessage());
 			builder.setCancelable(false);
 			builder.setPositiveButton(getResources().getString(R.string.OK),

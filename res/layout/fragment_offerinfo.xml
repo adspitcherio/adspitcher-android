@@ -7,19 +7,19 @@
     <TextView
             android:id="@+id/textview_storename"
             android:layout_width="wrap_content"
-            android:text="@string/text_offertext"
+            android:text="@string/text_dummytext"
             style="@style/commonH2TextViewStyle"/>
         
         <TextView
             android:id="@+id/textview_storeaddress"
             android:layout_width="wrap_content"
-            android:text="@string/text_offertext"
+            android:text="@string/text_dummytext"
             style="@style/commonH2TextViewStyle"/>
         
         <TextView
             android:id="@+id/textview_offerdescription"
             android:layout_width="wrap_content"
-            android:text="@string/text_offertext"
+            android:text="@string/text_dummytext"
             style="@style/commonH2TextViewStyle"/>
 
 </LinearLayout>

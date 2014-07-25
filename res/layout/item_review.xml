@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/textview_postedby"
         android:drawableLeft="@drawable/ic_social_person"
-        android:text="@string/text_offertext"
+        android:text="@string/text_dummytext"
         style="@style/commonH3TextViewStyle"
         android:textStyle="italic"/>
 
@@ -15,12 +15,12 @@
         android:id="@+id/textview_review"
         style="@style/commonH2TextViewStyle"
         android:layout_width="wrap_content"
-        android:text="@string/text_offertext"/>
+        android:text="@string/text_dummytext"/>
     
     <TextView
         android:id="@+id/textview_postedtimeago"
         android:drawableLeft="@drawable/ic_clock"
-        android:text="@string/text_offertext"
+        android:text="@string/text_dummytext"
         style="@style/commonH3TextViewStyle"
         android:textStyle="italic"/>
 

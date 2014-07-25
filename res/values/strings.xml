@@ -1,49 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Common App Strings -->
     <string name="app_name">AdsPitcher</string>
-    <string name="cd_img_splash">splash</string>
-    <string name="cd_img_addpic">addpic</string>
-    <string name="cd_img_logo">logo</string>
-    <string name="cd_img_thumbsup">thumbsup</string>
-    <string name="cd_img_thumbsdown">thumbsdown</string>
-    <string name="text_version">Version 1.0.0</string>
-    <string name="text_username"><i>username</i></string>
-    <string name="text_name"><i>name</i></string>
-    <string name="text_password"><i>password</i></string>
-    <string name="text_register">Register</string>
-    <string name="text_signin">Sign In</string>
-    <string name="text_submit">Submit</string>
-    <string name="text_taptoaddpic">Tap to add a profile picture</string>
-    <string name="text_fullname">firstname lastname</string>
-    <string name="text_repeatpassword">repeat password</string>
-    <string name="text_email">email</string>
-    <string name="text_phonenumber">phone number</string>
-    <string name="text_dob">date of birth</string>
-    <string name="text_offertext">Offer text</string>
-    <string name="text_views">Views: </string>
-    <string name="text_reviews">Reviews: </string>
-    <string name="text_up">Up: </string>
-    <string name="text_down">Down: </string>
-    <string name="text_fname"><i>first name</i></string>
-    <string name="text_lname"><i>last name</i></string>
-    <string name="text_location">Location</string>
-    <string name="text_profile_dob"><i>dob</i></string>
-    <string name="text_profile_heading_photo"><i>Add Photo</i></string>
-    <string name="text_profile_heading_pref"><i>Preferences</i></string>
-    <string name="text_profile_heading_pd"><i>Personal Details</i></string>
-    <string name="text_profile_photo_desc">Tap here to add photo</string>
-    <string name="action_search">Search</string>
-    <string name="action_profile">Profile</string>
-    <string name="action_fav">Fav</string>
-    <string name="action_notifications">Notifications</string>
-    <string name="error_network_problem">Por favor, revise las conexiones de red disponibles.</string>
-    <string name="error_reading_data_from_server">Problema al leer los datos del servidor. Por favor inténtelo de nuevo más tarde.</string>
-    <string name="text_error">Error</string>
-    <string name="text_valid_credentials">Please enter valid credentials.</string>
+    <string name="cd_img">image</string>
+    <string name="text_dummytext">Dummy text</string>
+    <string name="error">Error</string>
     <string name="OK">OK</string>
-
-    <string-array name="tabs_array">
+    
+    <!-- Splash Specific Strings -->
+    <string name="text_splash_version">Version 1.0.0</string>
+    
+    <!-- Activity Action Bar Title Strings -->
+    <string name="text_title_register">Register</string>
+    <string name="text_title_signin">Sign In</string>
+    <string name="text_title_search">Search</string>
+    <string name="text_title_details">Details</string>
+    
+    <!-- Profile Specific Strings -->
+    <string name="text_profile_page_heading">Profile</string>
+    <string name="text_profile_edit_menu">Profile</string>
+    <string name="text_profile_savepreferences_menu">Save</string>
+    <string name="text_profile_name">Name</string>
+    <string name="text_profile_email">Email</string>
+    <string name="text_profile_credits">Credits</string>
+    <string name="text_profile_currentlocation">CurrentLocation</string>
+    <string name="text_profile_taptoaddpic">Tap to add a profile picture</string>
+    <string-array name="profile_tabs_array">
+        <item>Info</item>
+        <item>Reviews</item>
+        <item>Preferences</item>
+    </string-array>
+    
+    <!-- EditProfile Specific Strings -->
+    <string name="text_editprofile_save">Save</string>
+    <string name="text_editprofile_cancel">Cancel</string>
+    
+    <!-- Watermark Specific Strings -->
+    <string name="text_watermark_name"><i>name</i></string>
+    <string name="text_watermark_email"><i>email</i></string>
+    <string name="text_watermark_password"><i>password</i></string>
+    <string name="text_watermark_search"><i>search text (eg:40% bags)</i></string>
+    
+    <!-- Action Button Specific Strings -->
+    <string name="text_button_signin">Sign In</string>
+    <string name="text_button_register">Register</string>
+    <string name="text_button_submit">Submit</string>
+    <string name="text_button_search">Search</string>
+    
+    <!-- Offers Item Specific Strings -->
+    <string name="text_offeritem_views">Views: </string>
+    <string name="text_offeritem_reviews">Reviews: </string>
+    <string name="text_offeritem_up">Up: </string>
+    <string name="text_offeritem_down">Down: </string>
+    
+    <!-- Launch Activity Specific Strings -->
+    <string name="text_launch_location">Location</string>
+    <string name="text_launch_search">Search</string>
+    <string name="text_launch_fav">Fav</string>
+    <string name="text_launch_profile">Profile</string>
+    <string name="text_launch_logout">Logout</string>
+    <string name="text_launch_signup_benefits"><u>Sign up and see what more you can get out of the pitcher.</u></string>
+    <string name="text_launch_benefits_notification">Get notified by your favorite brands for their latest offers and collections.</string>
+    <string name="text_launch_benefits_rewards">Earn rewards when you dive-in the pitcher, sharing your reviews and rating various brands.</string>
+    
+    <!-- Login Specific Strings -->
+    <string name="text_login_rememberme">Remember me</string>
+    <string name="text_login_forgotpwd">Forgot Password</string>
+    <string name="text_login_forgotpwd_details">An email with instructions to reset password has been sent to your registered email address. Please follow the instructions in email to reset your password.</string>
+    
+    <!-- Home Activity Specific Strings -->
+    <string name="text_home_search">Search</string>
+    <string-array name="home_tabs_array">
         <item>Latest</item>
         <item>Nearby</item>
         <item>Fav</item>
@@ -51,53 +79,42 @@
         <item>Feeds</item>
     </string-array>
     
+    <!-- Error Specific Strings -->
+    <string name="error_network_problem">Please check the network connections available.</string>
+    <string name="error_reading_data_from_server">Problem reading data from the server. Please try again later.</string>
+   
+    <!-- Offers Details Screen Specific Strings -->
     <string-array name="offers_tabs_array">
         <item>Info</item>
         <item>Reviews</item>
     </string-array>
-    <string-array name="profile_tabs_array">
-        <item>Info</item>
-        <item>Reviews</item>
-        <item>Preferences</item>
-    </string-array>
-
-    <string name="text_signup_benefits"><u>Sign up and see what more you can get out of the pitcher.</u></string>
-    <string name="text_benefits_notification">Get notified by your favorite brands for their latest offers and collections.</string>
-    <string name="text_benefits_rewards">Earn rewards when you dive-in the pitcher, sharing your reviews and rating various brands.</string>
     
-    <string name="text_rememberme">Remember me</string>
-    <string name="text_forgotpwd">Forgot Password</string>
-    <string name="text_forgotpwd_details">An email with instructions to reset password has been sent to your registered email address. Please follow the instructions in email to reset your password.</string>
-	<string name="action_filter">Filter</string>
-	<string name="action_apply">Apply</string>
-	<string name="action_logout">Logout</string>
-	<string name="text_brands">Brands</string>
-	<string name="text_categories">Categories</string>
-	<string name="text_locations">Locations</string>
+	<!-- Filter Specific Strings -->
+	<string name="text_filter">Filter</string>
+	<string name="text_filter_apply">Apply</string>
+	<string name="text_filter_brands">Brands</string>
+	<string name="text_filter_categories">Categories</string>
+	<string name="text_filter_locations">Locations</string>
 	
+	<!-- Search Specific Strings -->
+	<string name="text_search_results">Search Results</string>
+
+	
+	<!-- Navigation Drawer Specific Strings -->
 	<string-array name="navigation_drawer_array">
 	    <item>Profile</item>
 	    <item>Notifications</item>
         <item>Logout</item>
     </string-array>
-
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    
-    <!-- User interface labels and strings -->
 
+
+    <!-- Location Specific Strings -->
     <!-- Address format -->
     <string name="address_output_string">%1$s %2$s %3$s</string>
-
     <!-- Latitude, longitude format -->
     <string name="latitude_longitude">%1$.8f, %2$.8f</string>
-
-    <!-- Menu title -->
-    <string name="action_settings">Settings</string>
-
-    <!-- Labels -->
-    <string name="latlng">Lat/Long:</string>
-    <string name="address">Address:</string>
 
     <!-- Messages -->
     <string name="connected">Client connected</string>
@@ -140,6 +157,5 @@
     <string name="unknown_activity_request_code">
         Received an unknown activity request code %1$d in onActivityResult.
     </string>
-    <string name="txt_searchresults">Search Results</string>
-    <string name="txt_details">Details</string>
+    
 </resources>

@@ -1,8 +1,5 @@
 package com.adspitcher.models;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,7 +23,7 @@ public class RemoteModel {
 		ConnectivityHandler connHandler = new ConnectivityHandler(view.getContext());
 		if(connHandler.isOnline())
 		{
-			HttpParams httpParams = new HttpParams();
+			/*HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL + Constants.URL_REGISTERUSER_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
 			
@@ -35,7 +32,9 @@ public class RemoteModel {
 			Log.v(TAG, "Request Data=====>" + requestData);
 			
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(view.getContext(), "Connecting", listener);
-			asyncTask.execute(httpParams);
+			asyncTask.execute(httpParams);*/
+			listener.sendMessage(listener.obtainMessage(
+					Constants.SUCCESSFUL_RESPONSE, ""));
 		}
 		else
 		{
