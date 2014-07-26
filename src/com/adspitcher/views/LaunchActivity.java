@@ -61,6 +61,7 @@ public class LaunchActivity extends ActionBarActivity implements
 
 			@Override
 			public void onClick(View view) {
+				connModel.unregisterView(LaunchActivity.this);
 				Intent screenChangeIntent = null;
 				screenChangeIntent = new Intent(LaunchActivity.this,
 						SignupActivity.class);
@@ -74,6 +75,7 @@ public class LaunchActivity extends ActionBarActivity implements
 
 			@Override
 			public void onClick(View view) {
+				connModel.unregisterView(LaunchActivity.this);
 				Intent screenChangeIntent = null;
 				screenChangeIntent = new Intent(LaunchActivity.this,
 						LoginActivity.class);

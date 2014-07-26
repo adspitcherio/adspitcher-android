@@ -23,7 +23,7 @@ public class RemoteModel {
 		ConnectivityHandler connHandler = new ConnectivityHandler(view.getContext());
 		if(connHandler.isOnline())
 		{
-			/*HttpParams httpParams = new HttpParams();
+			HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL + Constants.URL_REGISTERUSER_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
 			
@@ -32,9 +32,7 @@ public class RemoteModel {
 			Log.v(TAG, "Request Data=====>" + requestData);
 			
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(view.getContext(), "Connecting", listener);
-			asyncTask.execute(httpParams);*/
-			listener.sendMessage(listener.obtainMessage(
-					Constants.SUCCESSFUL_RESPONSE, ""));
+			asyncTask.execute(httpParams);
 		}
 		else
 		{
@@ -95,7 +93,7 @@ public class RemoteModel {
 		ConnectivityHandler connHandler = new ConnectivityHandler(
 				view.getContext());
 		if (connHandler.isOnline()) {
-			JSONObject obj = new JSONObject();
+			/*JSONObject obj = new JSONObject();
 			JSONArray resArr = new JSONArray();
 			
 			obj.put("id", 1);
@@ -117,15 +115,15 @@ public class RemoteModel {
 			resArr.put(obj);
 			
 			listener.sendMessage(listener.obtainMessage(
-					Constants.SUCCESSFUL_RESPONSE, resArr));
-			/*HttpParams httpParams = new HttpParams();
+					Constants.SUCCESSFUL_RESPONSE, resArr));*/
+			HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL
 					+ Constants.URL_GET_CITIES_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_GET);
 
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
 					view.getContext(), "Connecting...", listener);
-			asyncTask.execute(httpParams);*/
+			asyncTask.execute(httpParams);
 		} else {
 			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
 					Constants.ERROR_NETWORK_PROBLEM));

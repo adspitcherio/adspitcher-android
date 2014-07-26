@@ -16,7 +16,8 @@ public class CommonUtils {
 			requestData += keyVal;
 			requestData += "=";
 			requestData += params.getString(keyVal);
-			requestData += "&";
+			if( keyIterator.hasNext() )
+				requestData += "&";
 		}
 		return requestData;
 	}

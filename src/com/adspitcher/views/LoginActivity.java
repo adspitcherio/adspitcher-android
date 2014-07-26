@@ -188,8 +188,6 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	
 	@Override
 	protected void onPause() {
-		Log.d("LoginActivity", "Inside onPause");
-		connModel.unregisterView(this);
 		super.onPause();
 	}
 	

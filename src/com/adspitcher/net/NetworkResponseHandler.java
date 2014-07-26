@@ -32,7 +32,7 @@ public class NetworkResponseHandler {
 						.getModelFacade().getConnModel();
 				switch (msg.what) {
 				case Constants.SUCCESSFUL_RESPONSE: {
-					/*Log.d("response==", ((JSONObject) msg.obj).toString());
+					Log.d("response==", ((JSONObject) msg.obj).toString());
 						UserModel userModel = AppEventsController
 								.getInstance().getModelFacade()
 								.getUserModel();
@@ -42,7 +42,8 @@ public class NetworkResponseHandler {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						model.setConnectionStatus(ConnectionModel.SUCCESS);*/
+						model.setConnectionStatus(ConnectionModel.SUCCESS);
+						userModel.setUserLoggedIn(true);
 					model.notifyView();
 				}
 					break;
