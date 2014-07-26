@@ -93,7 +93,10 @@ public class LaunchActivity extends ActionBarActivity implements
 			}
 		});
 		
-		if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isReceivedCitiesName() ){
+		AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
+				 null, textview_search);
+		
+		/*if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isReceivedCitiesName() ){
 			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
 				 null, textview_search);
 		}else{
@@ -108,7 +111,7 @@ public class LaunchActivity extends ActionBarActivity implements
 				}
 				spinnerAdapter.notifyDataSetChanged();
 			}
-		}
+		}*/
 	}
 
 	@Override
@@ -138,6 +141,7 @@ public class LaunchActivity extends ActionBarActivity implements
 	protected void onResume() {
 		Log.d("Launch Activity==", "I am inside onResume");
 		connModel.registerView(this);
+		supportInvalidateOptionsMenu();
 		super.onResume();
 	}
 	
