@@ -226,10 +226,7 @@ public class SignupActivity extends ActionBarActivity implements
 					.getInstance().getModelFacade().getUserModel()
 					.getAccessToken());
 			editor.commit();
-			Intent screenChangeIntent = null;
-			screenChangeIntent = new Intent(SignupActivity.this,
-					LaunchActivity.class);
-			SignupActivity.this.startActivity(screenChangeIntent);
+			connModel.unregisterView(this);
 			SignupActivity.this.finish();
 		}
 			break;
