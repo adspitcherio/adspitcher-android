@@ -54,7 +54,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 
 		editText_username = (EditText) findViewById(R.id.edittext_username);
 		editText_password = (EditText) findViewById(R.id.edittext_password);
-		editText_password.setTypeface(Typeface.SERIF);
+		editText_password.setTypeface(Typeface.SANS_SERIF);
 		editText_password
 				.setTransformationMethod(new PasswordTransformationMethod());
 		
@@ -236,6 +236,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 						.getAccessToken());
 				editor.commit();
 			}
+			connModel.unregisterView(this);
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(LoginActivity.this,
 					LaunchActivity.class);

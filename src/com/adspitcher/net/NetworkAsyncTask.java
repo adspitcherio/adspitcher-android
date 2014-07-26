@@ -1,5 +1,6 @@
 package com.adspitcher.net;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -91,18 +92,16 @@ public class NetworkAsyncTask extends AsyncTask<HttpParams, String, byte[]> {
 			jsonObject = new JSONObject(buffer);
 			parsedResult = jsonObject;
 		} catch (JSONException exception) {
-			parsedResult = exception;
-			/*
-			 * try { if (jsonObject != null) { if
-			 * (!jsonObject.get("error").toString().equals("null")) { try {
-			 * JSONObject temp = jsonObject.getJSONObject("error"); parsedResult
-			 * = temp.getString("errorMessage"); } catch (Exception ex) {
-			 * parsedResult = ex; } } } } catch (JSONException jsonException) {
-			 * parsedResult = jsonObject; }
-			 */
+			try {
+				JSONArray jsonArray = new JSONArray(buffer);
+				parsedResult = jsonArray;
+			} catch (JSONException e) {
+				parsedResult = e.getMessage();
+			}
 		}
 
-		if (parsedResult instanceof JSONObject) {
+		if (parsedResult instanceof JSONObject
+				|| parsedResult instanceof JSONArray) {
 			// successful response
 			responseListener.sendMessage(responseListener.obtainMessage(
 					Constants.SUCCESSFUL_RESPONSE, parsedResult));

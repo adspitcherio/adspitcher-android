@@ -71,14 +71,15 @@ public class NetworkResponseHandler {
 				case Constants.SUCCESSFUL_RESPONSE: {
 					JSONArray response = (JSONArray)msg.obj; 
 					Log.d("response==", response.toString());
+					LocalModel localModel = AppEventsController
+							.getInstance().getModelFacade()
+							.getLocalModel();
 					try {
 						if( response.length() > 0 ){
-							LocalModel localModel = AppEventsController
-									.getInstance().getModelFacade()
-									.getLocalModel();
 							localModel.setCitiesName(response);
 							localModel.setReceivedCitiesName(true);
 						}else{
+							localModel.setReceivedCitiesName(true);
 							connmodel.setConnectionStatus(ConnectionModel.ERROR);
 							connmodel.setConnectionErrorMessage("No Data Found.");
 						}
@@ -94,6 +95,10 @@ public class NetworkResponseHandler {
 					Log.d(TAG, "exception:" + exceptionObj.getMessage());
 					connmodel.setConnectionStatus(ConnectionModel.ERROR);
 					connmodel.setConnectionErrorMessage(exceptionObj.getMessage());
+					LocalModel localModel = AppEventsController
+							.getInstance().getModelFacade()
+							.getLocalModel();
+					localModel.setReceivedCitiesName(true);
 					connmodel.notifyView();
 				}
 					break;

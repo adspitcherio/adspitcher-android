@@ -88,6 +88,7 @@
     <!-- Error Specific Strings -->
     <string name="error_network_problem">Please check the network connections available.</string>
     <string name="error_reading_data_from_server">Problem reading data from the server. Please try again later.</string>
+    <string name="error_no_data_found">No data found.</string>
    
     <!-- Offers Details Screen Specific Strings -->
     <string-array name="offers_tabs_array">

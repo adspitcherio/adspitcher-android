@@ -21,7 +21,6 @@ import com.adspitcher.R;
 import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
-import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.models.UserModel;
 
@@ -45,8 +44,6 @@ public class LaunchActivity extends ActionBarActivity implements
 		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		//connModel.setListener(this);
-		//connModel.registerView(AppEventsController.getInstance().getActivityUpdateListener());
 		connModel.registerView(this);
 
 		/*
@@ -105,10 +102,12 @@ public class LaunchActivity extends ActionBarActivity implements
 			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			citiesSpinner.setAdapter(spinnerAdapter);
 			String[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getCitiesName();
-			for(int i = 0; i < cities.length; i++){
-				spinnerAdapter.add(cities[i]);
+			if( cities != null){
+				for(int i = 0; i < cities.length; i++){
+					spinnerAdapter.add(cities[i]);
+				}
+				spinnerAdapter.notifyDataSetChanged();
 			}
-			spinnerAdapter.notifyDataSetChanged();
 		}
 	}
 
