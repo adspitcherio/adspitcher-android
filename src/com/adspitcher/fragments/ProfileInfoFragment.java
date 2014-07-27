@@ -14,7 +14,6 @@ public class ProfileInfoFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_profileinfo, container, false);
-		// TODO Auto-generated method stub
 		return view;
 	}
 }

@@ -49,8 +49,10 @@ public class ProfileActivity extends ActionBarActivity implements
 
 		// Adding Tabs
 		for (String tab_name : tabs) {
-			actionBar.addTab(actionBar.newTab().setText(tab_name)
-					.setTabListener(this));
+			Tab newTab = actionBar.newTab();
+			newTab.setText(tab_name);
+			newTab.setTabListener(this);
+			actionBar.addTab(newTab);
 		}
 
 		/**
@@ -107,7 +109,7 @@ public class ProfileActivity extends ActionBarActivity implements
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction arg1) {
 		// on tab selected
-		// show respected fragment view
+		/*// show respected fragment view
 		MenuItem item = profileMenu.findItem(R.id.action_profile);
 		switch (tab.getPosition()) {
 		case 0: {
@@ -128,7 +130,7 @@ public class ProfileActivity extends ActionBarActivity implements
 			break;
 		default:
 			break;
-		}
+		}*/
 		viewPager.setCurrentItem(tab.getPosition());
 
 	}

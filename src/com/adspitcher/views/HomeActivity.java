@@ -148,13 +148,13 @@ public class HomeActivity extends ActionBarActivity implements
 			HomeActivity.this.startActivity(screenChangeIntent);
 			return true;
 		}
-		/*case R.id.action_profile: {
+		case R.id.action_profile: {
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(HomeActivity.this,
 					ProfileActivity.class);
 			HomeActivity.this.startActivity(screenChangeIntent);
 			return true;
-		}*/
+		}
 		case R.id.action_filter: {
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(HomeActivity.this,
@@ -209,11 +209,23 @@ public class HomeActivity extends ActionBarActivity implements
         mDrawerList.setItemChecked(position, true);
         setTitle(mPlanetTitles[position]);*/
         mDrawerLayout.closeDrawer(mDrawerList);
-        Intent screenChangeIntent = null;
-		screenChangeIntent = new Intent(HomeActivity.this,
-				LoginActivity.class);
-		HomeActivity.this.startActivity(screenChangeIntent);
-		HomeActivity.this.finish();
+        switch(position){
+        case 0:{
+        	Intent screenChangeIntent = null;
+    		screenChangeIntent = new Intent(HomeActivity.this,
+    				ProfileActivity.class);
+    		HomeActivity.this.startActivity(screenChangeIntent);
+        }
+        break;
+        case 1:{
+        	
+        }
+        break;
+        case 2:{
+        	
+        }
+        break;
+        }
     }
     
     /**
