@@ -8,12 +8,18 @@ import com.adspitcher.exceptions.ApplicationException;
 
 public class UserModel {
 
+	private static int USER_NO_PRIVILAGES = 0;
+	private static int USER_ONLY_SOCIAL_PRIVILAGES = 1;
+	private static int USER_FULL_PRIVILAGES = 2;
+	
 	private String accessToken, token_type, expires_in;
 	private boolean userLoggedIn;
+	private int userPrivilages = USER_NO_PRIVILAGES;
 	private int user_id;
 	private String user_name, user_username, user_email, password_digest;
 	private int user_credits;
 	private String user_currentlocation_longitude, user_currentlocation_latitude;
+	private String user_currentCity;
 	private String user_passworddigest;
 
 	public UserModel() {
@@ -105,6 +111,22 @@ public class UserModel {
 			throw new ApplicationException(
 					Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM);
 		}
+		userPrivilages = USER_FULL_PRIVILAGES;
+	}
+	
+	public void setSocialProfileDetails(JSONObject userData)
+			throws ApplicationException {
+		try {
+			user_id = Integer.parseInt(userData.getString(Constants.TEXT_ID)
+					.trim());
+			user_name = userData.getString(Constants.TEXT_NAME)
+					.trim();
+			user_email = userData.getString(Constants.TEXT_EMAIL).trim();
+		} catch (JSONException e) {
+			throw new ApplicationException(
+					Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM);
+		}
+		userPrivilages = USER_ONLY_SOCIAL_PRIVILAGES;
 	}
 
 	public boolean isUserLoggedIn() {
@@ -114,4 +136,13 @@ public class UserModel {
 	public void setUserLoggedIn(boolean userLoggedIn) {
 		this.userLoggedIn = userLoggedIn;
 	}
+
+	public String getUser_currentCity() {
+		return user_currentCity;
+	}
+
+	public int getUserPrivilages() {
+		return userPrivilages;
+	}
+	
 }
