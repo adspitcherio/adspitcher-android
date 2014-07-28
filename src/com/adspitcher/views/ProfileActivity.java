@@ -141,7 +141,7 @@ public class ProfileActivity extends ActionBarActivity implements
 
 	}
 
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.activity_profile_menu, menu);
@@ -149,7 +149,7 @@ public class ProfileActivity extends ActionBarActivity implements
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	/* Called whenever we call invalidateOptionsMenu() */
+	 Called whenever we call invalidateOptionsMenu() 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		this.profileMenu = menu;
@@ -170,6 +170,6 @@ public class ProfileActivity extends ActionBarActivity implements
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-	}
+	}*/
 
 }

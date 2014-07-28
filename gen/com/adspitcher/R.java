@@ -1524,6 +1524,7 @@ containing a value of this type.
         public static final int action_menu_presenter=0x7f080029;
         public static final int action_mode_close_button=0x7f080036;
         public static final int action_profile=0x7f0800aa;
+        public static final int action_savepreferences=0x7f0800ad;
         public static final int action_search=0x7f0800a8;
         public static final int activity_chooser_view_content=0x7f080037;
         public static final int always=0x7f08001e;
@@ -1765,6 +1766,8 @@ containing a value of this type.
         public static final int activity_home_menu=0x7f0d0001;
         public static final int activity_launch_menu=0x7f0d0002;
         public static final int activity_profile_menu=0x7f0d0003;
+        public static final int fragment_profile_info=0x7f0d0004;
+        public static final int fragment_profile_save=0x7f0d0005;
     }
     public static final class string {
         public static final int IO_Exception_getFromLocation=0x7f060084;
