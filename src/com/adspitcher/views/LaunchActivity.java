@@ -93,10 +93,7 @@ public class LaunchActivity extends ActionBarActivity implements
 			}
 		});
 		
-		AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
-				 null, textview_search);
-		
-		/*if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isReceivedCitiesName() ){
+		if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isReceivedCitiesName() ){
 			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
 				 null, textview_search);
 		}else{
@@ -111,7 +108,7 @@ public class LaunchActivity extends ActionBarActivity implements
 				}
 				spinnerAdapter.notifyDataSetChanged();
 			}
-		}*/
+		}
 	}
 
 	@Override
