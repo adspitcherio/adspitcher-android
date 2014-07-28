@@ -67,7 +67,7 @@ public class Constants {
 	public static final String TEXT_REVIEWS = "reviews";
 	public static final String TEXT_PREFERENCES = "preferences";
 	public static final String TEXT_LOCATIONS = "locations";
-	public static final String TEXT_BUSINESSES = "businesses";
+	public static final String TEXT_BRANDS = "brands";
 	public static final String TEXT_CATEGORIES = "categories";
 	public static final String TEXT_GRANT_TYPE = "grant_type";
 	public static final String TEXT_CLIENT_ID = "client_id";

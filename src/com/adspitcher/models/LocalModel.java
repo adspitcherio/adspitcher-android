@@ -16,6 +16,7 @@ public class LocalModel {
 	private LocationDataObject[] locationsData;
 	private BrandDataObject[] brandsData;
 	private CategoryDataObject[] categoriesData;
+	private String[] locations, brands, categories;
 	
 	public LocalModel(){
 		
@@ -27,9 +28,11 @@ public class LocalModel {
 		
 		LocationDataObject tempObj;
 		JSONObject cityObj;
+		locations = new String[cityArrayLength];
 		for (int i = 0; i < cityArrayLength; i++) {
 			try {
 				cityObj = citiesData.getJSONObject(i);
+				locations[i] = cityObj.getString(Constants.TEXT_NAME);
 				tempObj = new LocationDataObject(cityObj.getInt(Constants.TEXT_ID), cityObj.getString(Constants.TEXT_NAME), cityObj.getString(Constants.TEXT_TYPE));
 				locationsData[i] = tempObj;
 			} catch (JSONException e) {
@@ -44,9 +47,11 @@ public class LocalModel {
 		
 		BrandDataObject tempObj;
 		JSONObject tempJsonObj;
+		brands = new String[arrayLength];
 		for (int i = 0; i < arrayLength; i++) {
 			try {
 				tempJsonObj = brandData.getJSONObject(i);
+				brands[i] = tempJsonObj.getString(Constants.TEXT_NAME);
 				tempObj = new BrandDataObject(tempJsonObj.getInt(Constants.TEXT_ID), tempJsonObj.getString(Constants.TEXT_NAME), tempJsonObj.getString(Constants.TEXT_USERNAME), tempJsonObj.getString(Constants.TEXT_PASSWORD_DIGEST), 
 						tempJsonObj.getString(Constants.TEXT_EMAIL), tempJsonObj.getInt(Constants.TEXT_RATING), tempJsonObj.getInt(Constants.TEXT_LOCATION_ID), tempJsonObj.getInt(Constants.TEXT_STORE_ID));
 				brandsData[i] = tempObj;
@@ -62,9 +67,11 @@ public class LocalModel {
 		
 		CategoryDataObject tempObj;
 		JSONObject tempJsonObj;
+		categories = new String[arrayLength];
 		for (int i = 0; i < arrayLength; i++) {
 			try {
 				tempJsonObj = categoryData.getJSONObject(i);
+				categories[i] = tempJsonObj.getString(Constants.TEXT_NAME);
 				tempObj = new CategoryDataObject(tempJsonObj.getInt(Constants.TEXT_ID), tempJsonObj.getString(Constants.TEXT_NAME));
 				categoriesData[i] = tempObj;
 			} catch (JSONException e) {
@@ -90,4 +97,18 @@ public class LocalModel {
 	public boolean isRetrievedMastedFilterData() {
 		return retrievedMastedFilterData;
 	}
+
+	public String[] getLocations() {
+		return locations;
+	}
+
+	public String[] getBrands() {
+		return brands;
+	}
+
+	public String[] getCategories() {
+		return categories;
+	}
+	
+	
 }

@@ -12,18 +12,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.adspitcher.R;
 import com.adspitcher.adapters.FiltersAdapter;
 import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
+import com.adspitcher.dataobjects.LocationDataObject;
+import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.models.LocalModel;
 
-public class FiltersActivity extends ActionBarActivity implements ConnListener {
+public class FiltersActivity extends ActionBarActivity implements ActivityUpdateListener {
 
 	private ListView listView_location_filters, listView_brands_filters,
 			listView_categories_filters;
@@ -34,156 +44,96 @@ public class FiltersActivity extends ActionBarActivity implements ConnListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_filter);
 		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
-		connModel.setListener(this);
-		connModel.registerView(AppEventsController.getInstance()
-				.getActivityUpdateListener());
-
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-			// get the parent view of home (app icon) imageview
-			ViewGroup home = (ViewGroup) findViewById(android.R.id.home)
-					.getParent();
-			// get the first child (up imageview)
-			((ImageView) home.getChildAt(0))
-			// change the icon according to your needs
-					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_action_content_remove));
-		} else {
-			// get the up imageview directly with R.id.up
-			((ImageView) findViewById(R.id.up)).setImageDrawable(getResources()
-					.getDrawable(R.drawable.ic_action_content_remove));
-		}
+		connModel.registerView(this);
+		
+		LocalModel localModel = AppEventsController.getInstance().getModelFacade().getLocalModel();
 
 		listView_location_filters = (ListView) findViewById(R.id.listView_filters_locations);
-
-		String[] location_filters = new String[5];
-		for (int i = 0; i < 5; i++) {
-			location_filters[i] = new String("Lorem Ipsum");
-		}
+		String[] location_filters = localModel.getLocations();
 
 		adapter = new FiltersAdapter(this, R.layout.activity_filter,
 				location_filters);
 		listView_location_filters.setAdapter(adapter);
-
-		/*listView_location_filters
-				.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						FiltersAdapter ad = (FiltersAdapter) parent
-								.getAdapter();
-						ad.setCheckedItem(view,position);
-					}
-				});*/
-
+		
 		listView_brands_filters = (ListView) findViewById(R.id.listView_filters_brands);
 
-		String[] brands_filters = new String[5];
-		for (int i = 0; i < 5; i++) {
-			brands_filters[i] = new String("Lorem Ipsum");
-		}
-
+		String[] brands_filters = localModel.getBrands();
 		brands_adapter = new FiltersAdapter(this, R.layout.activity_filter,
 				brands_filters);
 		listView_brands_filters.setAdapter(brands_adapter);
 
-		/*listView_brands_filters
-				.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						FiltersAdapter ad = (FiltersAdapter) parent
-								.getAdapter();
-						ad.setCheckedItem(view,position);
-					}
-				});*/
-
 		listView_categories_filters = (ListView) findViewById(R.id.listView_filters_categories);
 
-		String[] categories_filters = new String[5];
-		for (int i = 0; i < 5; i++) {
-			categories_filters[i] = new String("Lorem Ipsum");
-		}
+		String[] categories_filters = localModel.getCategories();
 
 		categories_adapter = new FiltersAdapter(this, R.layout.activity_filter,
 				categories_filters);
 		listView_categories_filters.setAdapter(categories_adapter);
+		
+		// Action on click of Cancel Button
+		TextView button_cancel = (TextView) findViewById(R.id.button_cancel);
+		button_cancel.setOnClickListener(new OnClickListener() {
 
-		/*listView_categories_filters
-				.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onClick(View view) {
+				finish();
+			}
+		});
+		
+		// Action on click of Apply Button
+		TextView button_apply = (TextView) findViewById(R.id.button_apply);
+		button_apply.setOnClickListener(new OnClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						FiltersAdapter ad = (FiltersAdapter) parent
-								.getAdapter();
-						ad.setCheckedItem(view,position);
-					}
-				});*/
+			@Override
+			public void onClick(View view) {
+				HashMap<String, String> locations = adapter.getCheckedItems();
+				HashMap<String, String> businesses = brands_adapter.getCheckedItems();
+				HashMap<String, String> categories = categories_adapter.getCheckedItems();
+				Bundle eventData = new Bundle();
+				String[] tempData = new String[locations.size()];
+				int i = 0;
+				Set<String> keys = locations.keySet();
+				for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
+					tempData[i] = (String) iterator.next();
+					i++;
+				}
+				eventData.putStringArray(Constants.TEXT_LOCATIONS, tempData);
+				
+				tempData = new String[businesses.size()];
+				i = 0;
+				keys = businesses.keySet();
+				for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
+					tempData[i] = (String) iterator.next();
+					i++;
+				}
+				eventData.putStringArray(Constants.TEXT_BRANDS, tempData);
+				
+				tempData = new String[categories.size()];
+				i = 0;
+				keys = businesses.keySet();
+				for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
+					tempData[i] = (String) iterator.next();
+					i++;
+				}
+				eventData.putStringArray(Constants.TEXT_CATEGORIES, tempData);
+				finish();
+				/*AppEventsController.getInstance().handleEvent(
+						NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS, eventData, listView_location_filters);*/
+			}
+		});
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu items for use in the action bar
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.activity_filter_menu, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle presses on the action bar items
-		switch (item.getItemId()) {
-		case R.id.action_apply: {
-			HashMap<String, String> locations = adapter.getCheckedItems();
-			HashMap<String, String> businesses = brands_adapter.getCheckedItems();
-			HashMap<String, String> categories = categories_adapter.getCheckedItems();
-			Bundle eventData = new Bundle();
-			String[] tempData = new String[locations.size()];
-			int i = 0;
-			Set<String> keys = locations.keySet();
-			for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
-				tempData[i] = (String) iterator.next();
-				i++;
-			}
-			eventData.putStringArray(Constants.TEXT_LOCATIONS, tempData);
-			
-			tempData = new String[businesses.size()];
-			i = 0;
-			keys = businesses.keySet();
-			for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
-				tempData[i] = (String) iterator.next();
-				i++;
-			}
-			eventData.putStringArray(Constants.TEXT_BUSINESSES, tempData);
-			
-			tempData = new String[categories.size()];
-			i = 0;
-			keys = businesses.keySet();
-			for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
-				tempData[i] = (String) iterator.next();
-				i++;
-			}
-			eventData.putStringArray(Constants.TEXT_CATEGORIES, tempData);
-			
-			/*AppEventsController.getInstance().handleEvent(
-					NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS, eventData, listView_location_filters);*/
-
-			return true;
-		}
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
-
-	@Override
-	public void onConnection() {
+	public void updateActivity() {
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.SUCCESS: {
 			FiltersActivity.this.finish();

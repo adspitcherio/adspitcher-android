@@ -99,6 +99,7 @@
 	<!-- Filter Specific Strings -->
 	<string name="text_filter">Filter</string>
 	<string name="text_filter_apply">Apply</string>
+	<string name="text_filter_cancel">Cancel</string>
 	<string name="text_filter_brands">Brands</string>
 	<string name="text_filter_categories">Categories</string>
 	<string name="text_filter_locations">Locations</string>
