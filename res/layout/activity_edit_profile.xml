@@ -3,27 +3,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/items_vertical_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin" >
+        android:background="@color/blue_background_color"
+        android:paddingBottom="@dimen/items_vertical_padding"
+        android:paddingTop="@dimen/items_vertical_padding" >
 
-        <TextView
-            android:id="@+id/button_cancel"
-            style="@style/commonButttonStyle"
+        <RelativeLayout
+            android:id="@+id/relativelayout_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_action_content_remove"
-            android:text="@string/text_editprofile_cancel" />
+            android:clickable="true" >
 
-        <TextView
-            android:id="@+id/button_save"
-            style="@style/commonButttonStyle"
+            <TextView
+                android:id="@+id/button_cancel"
+                style="@style/commonActionButtonStyle"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="@string/text_editprofile_cancel" />
+
+            <ImageView
+                android:id="@+id/img_button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/button_cancel"
+                android:contentDescription="@string/cd_img"
+                android:src="@drawable/ic_action_content_remove" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_action_content_save"
-            android:text="@string/text_editprofile_save" />
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/button_save"
+                style="@style/commonActionButtonStyle"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="@string/text_editprofile_save" />
+
+            <ImageView
+                android:id="@+id/img_button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/button_save"
+                android:contentDescription="@string/cd_img"
+                android:src="@drawable/ic_action_content_save" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout

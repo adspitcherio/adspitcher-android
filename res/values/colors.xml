@@ -32,4 +32,7 @@
     <color name="h3_textview">#6E6E6E</color>
     <color name="h1_textview_value">#6E6E6E</color>
     
+    <!-- Color user for Action button -->
+    <color name="action_button_text">#FFFFFF</color>
+    
 </resources>

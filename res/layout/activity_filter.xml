@@ -4,27 +4,68 @@
     android:layout_height="match_parent"
     android:background="@color/white_background_color"
     android:orientation="vertical" >
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/items_vertical_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin" >
+        android:background="@color/blue_background_color"
+        android:paddingBottom="@dimen/items_vertical_padding"
+        android:paddingTop="@dimen/items_vertical_padding" >
 
-        <TextView
-            android:id="@+id/button_cancel"
-            style="@style/commonButttonStyle"
+        <RelativeLayout
+            android:id="@+id/relativelayout_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_action_content_remove"
-            android:text="@string/text_filter_cancel" />
+            android:clickable="true" >
 
-        <TextView
-            android:id="@+id/button_apply"
-            style="@style/commonButttonStyle"
+            <TextView
+                android:id="@+id/button_cancel"
+                style="@style/commonActionButtonStyle"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="@string/text_filter_cancel" />
+
+            <ImageView
+                android:id="@+id/img_button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/button_cancel"
+                android:contentDescription="@string/cd_img"
+                android:src="@drawable/ic_action_content_remove" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:id="@+id/relativelayout_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_action_navigation_accept"
-            android:text="@string/text_filter_apply" />
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/button_apply"
+                style="@style/commonActionButtonStyle"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="@string/text_filter_apply" />
+
+            <ImageView
+                android:id="@+id/img_button_apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/button_apply"
+                android:contentDescription="@string/cd_img"
+                android:src="@drawable/ic_action_navigation_accept" />
+        </RelativeLayout>
     </LinearLayout>
 
     <TextView
@@ -38,35 +79,32 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:drawSelectorOnTop="true" >
-
     </ListView>
-    
+
     <TextView
         android:id="@+id/textview_brands"
         style="@style/commonH1TextViewStyle"
-        android:text="@string/text_filter_brands"/>
-    
+        android:text="@string/text_filter_brands" />
+
     <ListView
         android:id="@+id/listView_filters_brands"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:drawSelectorOnTop="true" >
-
     </ListView>
-    
+
     <TextView
         android:id="@+id/textview_categories"
         style="@style/commonH1TextViewStyle"
-        android:text="@string/text_filter_categories"/>
-    
+        android:text="@string/text_filter_categories" />
+
     <ListView
         android:id="@+id/listView_filters_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:drawSelectorOnTop="true" >
-
     </ListView>
 
 </LinearLayout>

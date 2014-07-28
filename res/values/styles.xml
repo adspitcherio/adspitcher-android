@@ -93,5 +93,14 @@
 		<item name="android:textSize">@dimen/button_font_size</item>
 		<item name="android:background">@drawable/button_custom</item>
 	</style>
+	
+    <style name="commonActionButtonStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:textColor">@color/action_button_text</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:textSize">@dimen/button_font_size</item>
+	</style>
 
 </resources>
