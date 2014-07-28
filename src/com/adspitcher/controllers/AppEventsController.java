@@ -132,6 +132,26 @@ public class AppEventsController {
 		}
 
 			break;
+		case NetworkEvents.EVENT_ID_GET_BRANDS: {
+			try {
+				modelFacade.getRemoteModel().getBrands(eventData,
+						NetworkResponseHandler.BRANDS_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+
+			break;
+		case NetworkEvents.EVENT_ID_GET_CATEGORIES: {
+			try {
+				modelFacade.getRemoteModel().getCategories(eventData,
+						NetworkResponseHandler.CATEGORIES_HANDLER, view);
+			} catch (Exception ex) {
+				Log.d("Application Exception:", ex.getMessage());
+			}
+		}
+
+			break;
 		}
 	}
 

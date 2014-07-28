@@ -93,7 +93,7 @@ public class RemoteModel {
 		ConnectivityHandler connHandler = new ConnectivityHandler(
 				view.getContext());
 		if (connHandler.isOnline()) {
-			/*JSONObject obj = new JSONObject();
+			JSONObject obj = new JSONObject();
 			JSONArray resArr = new JSONArray();
 			
 			obj.put("id", 1);
@@ -115,15 +115,97 @@ public class RemoteModel {
 			resArr.put(obj);
 			
 			listener.sendMessage(listener.obtainMessage(
-					Constants.SUCCESSFUL_RESPONSE, resArr));*/
-			HttpParams httpParams = new HttpParams();
+					Constants.SUCCESSFUL_RESPONSE, resArr));
+			/*HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL
 					+ Constants.URL_GET_CITIES_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_GET);
 
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
 					view.getContext(), "Connecting...", listener);
-			asyncTask.execute(httpParams);
+			asyncTask.execute(httpParams);*/
+		} else {
+			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
+					Constants.ERROR_NETWORK_PROBLEM));
+		}
+	}
+	// --------------------------------------------------------------------------------------------------------
+	
+	public void getBrands(Bundle params, Handler listener, View view)
+			throws Exception {
+		ConnectivityHandler connHandler = new ConnectivityHandler(
+				view.getContext());
+		if (connHandler.isOnline()) {
+			JSONObject obj = new JSONObject();
+			JSONArray resArr = new JSONArray();
+			
+			obj.put("id", 1);
+			obj.put("name", "Puma");
+			obj.put("username", "testpuma@puma.com");
+			obj.put("password_digest", "$2a$10$pacM7QwDLR/4juKchgZBGusZnpvxYi.eayoUMwzYCnExfQGIrYJVm");
+			obj.put("email", "testpuma@puma.com");
+			obj.put("created_at", "2014-07-15T06:05:29.456Z");
+			obj.put("updated_at", "2014-07-15T06:05:29.456Z");
+			obj.put("rating", 0);
+			obj.put("location_id", 1);
+			obj.put("store_id", 1);
+			resArr.put(obj);
+			
+			obj = null;
+			obj = new JSONObject();
+			obj.put("id", 1);
+			obj.put("name", "Adidas");
+			obj.put("username", "testadidas@adidas.com");
+			obj.put("password_digest", "$2a$10$pacM7QwDLR/4juKchgZBGusZnpvxYi.eayoUMwzYCnExfQGIrYJVm");
+			obj.put("email", "testadidas@adidas.com");
+			obj.put("created_at", "2014-07-15T06:05:29.456Z");
+			obj.put("updated_at", "2014-07-15T06:05:29.456Z");
+			obj.put("rating", 0);
+			obj.put("location_id", 2);
+			obj.put("store_id", 2);
+			resArr.put(obj);
+			
+			listener.sendMessage(listener.obtainMessage(
+					Constants.SUCCESSFUL_RESPONSE, resArr));
+			/*HttpParams httpParams = new HttpParams();
+			httpParams.setRequestURL(Constants.BASE_URL
+					+ Constants.URL_GET_BRANDS_REQUEST);
+			httpParams.setRequestMethod(HttpParams.HTTP_GET);
+
+			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
+					view.getContext(), "Connecting...", listener);
+			asyncTask.execute(httpParams);*/
+		} else {
+			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
+					Constants.ERROR_NETWORK_PROBLEM));
+		}
+	}
+	// --------------------------------------------------------------------------------------------------------
+	
+	public void getCategories(Bundle params, Handler listener, View view)
+			throws Exception {
+		ConnectivityHandler connHandler = new ConnectivityHandler(
+				view.getContext());
+		if (connHandler.isOnline()) {
+			JSONObject obj = new JSONObject();
+			JSONArray resArr = new JSONArray();
+			
+			obj.put("id", 1);
+			obj.put("name", "Clothes");
+			obj.put("created_at", "2014-07-15T06:05:29.456Z");
+			obj.put("updated_at", "2014-07-15T06:05:29.456Z");
+			resArr.put(obj);
+			
+			listener.sendMessage(listener.obtainMessage(
+					Constants.SUCCESSFUL_RESPONSE, resArr));
+			/*HttpParams httpParams = new HttpParams();
+			httpParams.setRequestURL(Constants.BASE_URL
+					+ Constants.URL_GET_CATEGORIES_REQUEST);
+			httpParams.setRequestMethod(HttpParams.HTTP_GET);
+
+			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
+					view.getContext(), "Connecting...", listener);
+			asyncTask.execute(httpParams);*/
 		} else {
 			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
 					Constants.ERROR_NETWORK_PROBLEM));

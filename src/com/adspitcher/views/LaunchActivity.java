@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.adspitcher.R;
 import com.adspitcher.controllers.AppEventsController;
+import com.adspitcher.dataobjects.LocationDataObject;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
@@ -93,7 +94,7 @@ public class LaunchActivity extends ActionBarActivity implements
 			}
 		});
 		
-		if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isReceivedCitiesName() ){
+		if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isRetrievedMastedFilterData() ){
 			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
 				 null, textview_search);
 		}else{
@@ -101,10 +102,10 @@ public class LaunchActivity extends ActionBarActivity implements
 			ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
 			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			citiesSpinner.setAdapter(spinnerAdapter);
-			String[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getCitiesName();
+			LocationDataObject[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getLocationsData();
 			if( cities != null){
 				for(int i = 0; i < cities.length; i++){
-					spinnerAdapter.add(cities[i]);
+					spinnerAdapter.add(cities[i].getName());
 				}
 				spinnerAdapter.notifyDataSetChanged();
 			}
@@ -216,9 +217,9 @@ public class LaunchActivity extends ActionBarActivity implements
 			ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
 			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			citiesSpinner.setAdapter(spinnerAdapter);
-			String[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getCitiesName();
+			LocationDataObject[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getLocationsData();
 			for(int i = 0; i < cities.length; i++){
-				spinnerAdapter.add(cities[i]);
+				spinnerAdapter.add(cities[i].getName());
 			}
 			spinnerAdapter.notifyDataSetChanged();
 		}

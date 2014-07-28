@@ -6,8 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.Authenticator;
+import java.net.Authenticator.RequestorType;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
+import java.net.PasswordAuthentication;
+import java.net.Proxy;
 import java.net.URL;
 
 import android.content.Context;
@@ -65,6 +70,21 @@ public class ConnectivityHandler {
 		URL url;
 		try {
 			url = new URL(finalUrl);
+			
+			/*Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
+					"proxy.tcs.com", 8080));
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection(proxy);
+
+			Authenticator.setDefault(new Authenticator() {
+				@Override
+				protected PasswordAuthentication getPasswordAuthentication() {
+					if (getRequestorType().equals(RequestorType.PROXY)) {
+						return new PasswordAuthentication("477126", "Towers@0914"
+								.toCharArray());
+					}
+					return super.getPasswordAuthentication();
+				}
+			});*/
 
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setReadTimeout(10000 /* milliseconds */);

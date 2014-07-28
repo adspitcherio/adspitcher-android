@@ -9,4 +9,6 @@ public class NetworkEvents {
 	public static final int EVENT_ID_GET_CITIES = 2;
 	public static final int EVENT_ID_GET_USER_PROFILE = 3;
 	public static final int EVENT_ID_SAVE_USER_PROFILE = 4;
+	public static final int EVENT_ID_GET_BRANDS = 5;
+	public static final int EVENT_ID_GET_CATEGORIES = 6;
 }

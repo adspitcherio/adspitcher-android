@@ -4,10 +4,12 @@ public class Constants {
 
 	// Required URLs
 	public static final String BASE_URL = "http://api.adspitcher.com/";
-	//public static final String BASE_URL = "http://54.243.74.12/v1/";
+	//public static final String BASE_URL = "http://54.243.74.12/";
 	public static final String URL_REGISTERUSER_REQUEST = "v1/consumers.json";
 	public static final String URL_GET_CITIES_REQUEST = "v1/locations.json";
 	public static final String URL_GET_ACCESSTOKEN_REQUEST = "oauth/token";
+	public static final String URL_GET_BRANDS_REQUEST = "v1/brands.json";
+	public static final String URL_GET_CATEGORIES_REQUEST = "v1/categories.json";
 	// ----------------------------------------------------------------------------------
 	
 	//Oauth Details
@@ -55,7 +57,10 @@ public class Constants {
 	public static final String TEXT_BADGELEVEL = "badgelevel";
 	public static final String TEXT_NAME = "name";
 	public static final String TEXT_ID = "id";
+	public static final String TEXT_TYPE = "type";
 	public static final String TEXT_PASSWORD_DIGEST = "password_digest";
+	public static final String TEXT_LOCATION_ID = "location_id";
+	public static final String TEXT_STORE_ID = "store_id";
 	public static final String TEXT_CURRENTLOCATION = "currentlocation";
 	public static final String TEXT_CURRENTLOCATION_LATITUDE = "current_location_latitude";
 	public static final String TEXT_CURRENTLOCATION_LONGITUDE = "current_location_longitude";
@@ -69,6 +74,8 @@ public class Constants {
 	public static final String TEXT_CLIENT_SECRET = "client_secret";
 	public static final String TEXT_TOKEN_TYPE = "token_type";
 	public static final String TEXT_EXPIRES_IN = "expires_in";
+	public static final String TEXT_RATING = "rating";
+	
 	// ----------------------------------------------------------------------------------
 	
 	//POST Data Constants

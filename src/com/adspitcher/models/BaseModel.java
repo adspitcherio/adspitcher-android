@@ -61,4 +61,8 @@ public class BaseModel {
 		}
 	}
 	// --------------------------------------------------------------------------------------------
+
+	public Vector<ActivityUpdateListener> getRegisteredView() {
+		return registeredView;
+	}
 }
