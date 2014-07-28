@@ -16,7 +16,8 @@ public class UserModel {
 	private boolean userLoggedIn;
 	private int userPrivilages = USER_NO_PRIVILAGES;
 	private int user_id;
-	private String user_name, user_username, user_email, password_digest;
+	private int user_phonenumber;
+	private String user_name, user_username, user_email, user_dob, password_digest;
 	private int user_credits;
 	private Double user_currentlocation_longitude, user_currentlocation_latitude;
 	private String user_currentCity;
@@ -144,5 +145,14 @@ public class UserModel {
 	public int getUserPrivilages() {
 		return userPrivilages;
 	}
+
+	public int getUser_phonenumber() {
+		return user_phonenumber;
+	}
+
+	public String getUser_dob() {
+		return user_dob;
+	}
+	
 	
 }
