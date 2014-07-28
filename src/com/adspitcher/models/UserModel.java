@@ -18,7 +18,7 @@ public class UserModel {
 	private int user_id;
 	private String user_name, user_username, user_email, password_digest;
 	private int user_credits;
-	private String user_currentlocation_longitude, user_currentlocation_latitude;
+	private Double user_currentlocation_longitude, user_currentlocation_latitude;
 	private String user_currentCity;
 	private String user_passworddigest;
 
@@ -66,11 +66,11 @@ public class UserModel {
 		return user_credits;
 	}
 
-	public String getUser_currentlocation_longitude() {
+	public Double getUser_currentlocation_longitude() {
 		return user_currentlocation_longitude;
 	}
 
-	public String getUser_currentlocation_latitude() {
+	public Double getUser_currentlocation_latitude() {
 		return user_currentlocation_latitude;
 	}
 
@@ -105,8 +105,8 @@ public class UserModel {
 					Constants.TEXT_CREDITS).trim());
 			user_email = userData.getString(Constants.TEXT_EMAIL).trim();
 			user_passworddigest = userData.getString(Constants.TEXT_PASSWORD_DIGEST).trim();
-			user_currentlocation_latitude = userData.getString(Constants.TEXT_CURRENTLOCATION_LATITUDE).trim();
-			user_currentlocation_longitude = userData.getString(Constants.TEXT_CURRENTLOCATION_LONGITUDE).trim();
+			user_currentlocation_latitude = userData.getDouble(Constants.TEXT_CURRENTLOCATION_LATITUDE);
+			user_currentlocation_longitude = userData.getDouble(Constants.TEXT_CURRENTLOCATION_LONGITUDE);
 		} catch (JSONException e) {
 			throw new ApplicationException(
 					Constants.ERROR_READING_DATA_FROM_SERVER_PROBLEM);

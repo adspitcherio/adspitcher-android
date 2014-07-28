@@ -6,20 +6,12 @@ import java.util.Set;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,9 +19,7 @@ import com.adspitcher.R;
 import com.adspitcher.adapters.FiltersAdapter;
 import com.adspitcher.constants.Constants;
 import com.adspitcher.controllers.AppEventsController;
-import com.adspitcher.dataobjects.LocationDataObject;
 import com.adspitcher.listeners.ActivityUpdateListener;
-import com.adspitcher.listeners.ConnListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.models.LocalModel;
 
@@ -99,32 +89,43 @@ public class FiltersActivity extends ActionBarActivity implements ActivityUpdate
 				HashMap<String, String> businesses = brands_adapter.getCheckedItems();
 				HashMap<String, String> categories = categories_adapter.getCheckedItems();
 				Bundle eventData = new Bundle();
-				String[] tempData = new String[locations.size()];
+				
+				String[] tempData = null;
 				int i = 0;
-				Set<String> keys = locations.keySet();
-				for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
-					tempData[i] = (String) iterator.next();
-					i++;
-				}
-				eventData.putStringArray(Constants.TEXT_LOCATIONS, tempData);
+				Set<String> keys = null;
 				
-				tempData = new String[businesses.size()];
-				i = 0;
-				keys = businesses.keySet();
-				for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
-					tempData[i] = (String) iterator.next();
-					i++;
+				if( locations.size() > 0 ){
+					tempData = new String[locations.size()];
+					i = 0;
+					keys = locations.keySet();
+					for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
+						tempData[i] = (String) iterator.next();
+						i++;
+					}
+					eventData.putStringArray(Constants.TEXT_LOCATIONS, tempData);
 				}
-				eventData.putStringArray(Constants.TEXT_BRANDS, tempData);
 				
-				tempData = new String[categories.size()];
-				i = 0;
-				keys = businesses.keySet();
-				for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
-					tempData[i] = (String) iterator.next();
-					i++;
+				if( businesses.size() > 0 ){
+					tempData = new String[businesses.size()];
+					i = 0;
+					keys = businesses.keySet();
+					for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
+						tempData[i] = (String) iterator.next();
+						i++;
+					}
+					eventData.putStringArray(Constants.TEXT_BRANDS, tempData);
 				}
-				eventData.putStringArray(Constants.TEXT_CATEGORIES, tempData);
+				
+				if( categories.size() > 0 ){
+					tempData = new String[categories.size()];
+					i = 0;
+					keys = businesses.keySet();
+					for (Iterator<String> iterator = keys.iterator(); iterator.hasNext();) {
+						tempData[i] = (String) iterator.next();
+						i++;
+					}
+					eventData.putStringArray(Constants.TEXT_CATEGORIES, tempData);
+				}
 				finish();
 				/*AppEventsController.getInstance().handleEvent(
 						NetworkEvents.EVENT_ID_GET_FILTERED_OFFERS, eventData, listView_location_filters);*/
