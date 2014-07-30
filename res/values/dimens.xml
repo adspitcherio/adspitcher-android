@@ -20,5 +20,6 @@
     <dimen name="h1_heading_font_size">14sp</dimen>
     <dimen name="h2_heading_font_size">12sp</dimen>
     <dimen name="h3_heading_font_size">10sp</dimen>
+    <dimen name="listview_footer_items_font_size">12sp</dimen>
 
 </resources>

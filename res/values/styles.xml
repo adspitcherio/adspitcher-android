@@ -102,5 +102,16 @@
 		<item name="android:typeface">sans</item>
 		<item name="android:textSize">@dimen/button_font_size</item>
 	</style>
+	
+    <style name="commonlistitemtextStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:layout_marginLeft">@dimen/items_horizontal_margin</item>
+		<item name="android:layout_marginRight">@dimen/items_horizontal_margin</item>
+		<item name="android:textColor">@color/listview_footer_textview</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:textSize">@dimen/listview_footer_items_font_size</item>
+	</style>
 
 </resources>

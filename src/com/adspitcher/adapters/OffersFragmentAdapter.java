@@ -46,49 +46,20 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 					.findViewById(R.id.textview_votesup);
 			holder.dataCell_downs = (TextView) convertView
 					.findViewById(R.id.textview_votesdown);
-			holder.dataCell_iv_downs = (TextView) convertView.findViewById(R.id.textview_votesdown); 
-	        holder.dataCell_iv_ups = (TextView) convertView.findViewById(R.id.textview_votesup);
 
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
-			holder.dataCell_views.setText("");
-			holder.dataCell_views.setText(R.string.text_offeritem_views);
-			holder.dataCell_reviews.setText("");
-			holder.dataCell_reviews.setText(R.string.text_offeritem_reviews);
-			
 		}
 
 		OffersItem item = offersItem[position];
 		holder.dataCell_text.setText(item.getOffer_text());
 		holder.dataCell_brandorstore.setText(item.getOffer_brandorstore());
 		holder.dataCell_location.setText(item.getLocation());
-		holder.dataCell_views.setText(holder.dataCell_views.getText() + " " + item.getOffer_views());
-		holder.dataCell_reviews.setText(holder.dataCell_reviews.getText() + " " + item.getOffer_reviews());
-		holder.dataCell_ups.setText("" + item.getVotesup());
-		holder.dataCell_downs.setText("" + item.getVotesdown());
-		
-		holder.dataCell_iv_downs.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				offersItem[position].setVotesdown(offersItem[position].getVotesdown() - 1);
-				holder.dataCell_downs.setText(String.valueOf(offersItem[position].getVotesdown()));
-				OffersFragmentAdapter.this.notifyDataSetChanged();
-			}
-		});
-		
-			holder.dataCell_iv_ups.setOnClickListener(new View.OnClickListener() {
-				
-			@Override
-			public void onClick(View v) {
-				offersItem[position].setVotesup(offersItem[position].getVotesup() + 1);
-				holder.dataCell_ups.setText(String.valueOf(offersItem[position].getVotesup()));
-				OffersFragmentAdapter.this.notifyDataSetChanged();
-			}
-		});
-			
-
+		holder.dataCell_views.setText(": " + item.getOffer_views());
+		holder.dataCell_reviews.setText(": " + item.getOffer_reviews());
+		holder.dataCell_ups.setText(": " + item.getVotesup());
+		holder.dataCell_downs.setText(": " + item.getVotesdown());
 		return convertView;
 	}
 
@@ -103,8 +74,6 @@ public class OffersFragmentAdapter extends ArrayAdapter<OffersItem> {
 		private TextView dataCell_reviews;
 		private TextView dataCell_ups;
 		private TextView dataCell_downs;
-		private TextView dataCell_iv_downs;
-		private TextView dataCell_iv_ups;
 	}
 
 }
