@@ -1491,31 +1491,32 @@ containing a value of this type.
         public static final int list_focused_ab=0x7f0200b7;
         public static final int list_pressed_ab=0x7f0200b8;
         public static final int menu_dropdown_panel_ab=0x7f0200b9;
-        public static final int noimagefound=0x7f0200ba;
-        public static final int powered_by_google_dark=0x7f0200bb;
-        public static final int powered_by_google_light=0x7f0200bc;
-        public static final int progress_bg_ab=0x7f0200bd;
-        public static final int progress_horizontal_ab=0x7f0200be;
-        public static final int progress_primary_ab=0x7f0200bf;
-        public static final int progress_secondary_ab=0x7f0200c0;
-        public static final int rounded_corner=0x7f0200c1;
-        public static final int selectable_background_ab=0x7f0200c2;
-        public static final int social_fblogin_drawable=0x7f0200c3;
-        public static final int socialgpluslogin_drawable=0x7f0200c4;
-        public static final int spinner_ab_default_ab=0x7f0200c5;
-        public static final int spinner_ab_disabled_ab=0x7f0200c6;
-        public static final int spinner_ab_focused_ab=0x7f0200c7;
-        public static final int spinner_ab_pressed_ab=0x7f0200c8;
-        public static final int spinner_background_ab_ab=0x7f0200c9;
-        public static final int splash=0x7f0200ca;
-        public static final int tab_indicator_ab_ab=0x7f0200cb;
-        public static final int tab_selected_ab=0x7f0200cc;
-        public static final int tab_selected_focused_ab=0x7f0200cd;
-        public static final int tab_selected_pressed_ab=0x7f0200ce;
-        public static final int tab_unselected_ab=0x7f0200cf;
-        public static final int tab_unselected_focused_ab=0x7f0200d0;
-        public static final int tab_unselected_pressed_ab=0x7f0200d1;
-        public static final int top_corner_rounded=0x7f0200d2;
+        public static final int no_image_found=0x7f0200ba;
+        public static final int noimagefound=0x7f0200bb;
+        public static final int powered_by_google_dark=0x7f0200bc;
+        public static final int powered_by_google_light=0x7f0200bd;
+        public static final int progress_bg_ab=0x7f0200be;
+        public static final int progress_horizontal_ab=0x7f0200bf;
+        public static final int progress_primary_ab=0x7f0200c0;
+        public static final int progress_secondary_ab=0x7f0200c1;
+        public static final int rounded_corner=0x7f0200c2;
+        public static final int selectable_background_ab=0x7f0200c3;
+        public static final int social_fblogin_drawable=0x7f0200c4;
+        public static final int socialgpluslogin_drawable=0x7f0200c5;
+        public static final int spinner_ab_default_ab=0x7f0200c6;
+        public static final int spinner_ab_disabled_ab=0x7f0200c7;
+        public static final int spinner_ab_focused_ab=0x7f0200c8;
+        public static final int spinner_ab_pressed_ab=0x7f0200c9;
+        public static final int spinner_background_ab_ab=0x7f0200ca;
+        public static final int splash=0x7f0200cb;
+        public static final int tab_indicator_ab_ab=0x7f0200cc;
+        public static final int tab_selected_ab=0x7f0200cd;
+        public static final int tab_selected_focused_ab=0x7f0200ce;
+        public static final int tab_selected_pressed_ab=0x7f0200cf;
+        public static final int tab_unselected_ab=0x7f0200d0;
+        public static final int tab_unselected_focused_ab=0x7f0200d1;
+        public static final int tab_unselected_pressed_ab=0x7f0200d2;
+        public static final int top_corner_rounded=0x7f0200d3;
     }
     public static final class id {
         public static final int action_apply=0x7f0800af;
@@ -2102,7 +2103,12 @@ containing a value of this type.
         public static final int AppTheme=0x7f050089;
         public static final int DropDownListView_Ab=0x7f050096;
         public static final int DropDownNav_Ab=0x7f050098;
-        public static final int OverFlow=0x7f05009c;
+        /**  general styles for the action bar 
+ general styles for the action bar 
+         */
+        public static final int MyActionBar=0x7f05009d;
+        public static final int OfferDetailsActionBarTheme=0x7f05009c;
+        public static final int OverFlow=0x7f05009e;
         public static final int PopupMenu_Ab=0x7f050095;
         public static final int ProgressBar_Ab=0x7f050099;
         /**  Mimic text appearance in select_dialog_item.xml 

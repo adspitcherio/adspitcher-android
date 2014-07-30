@@ -75,8 +75,9 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.HomeActivity" /></activity>
         <activity android:name=".views.OffersDetailsActivity"
-            android:label="@string/text_title_details"
-            android:parentActivityName=".views.HomeActivity">
+            android:label=""
+            android:parentActivityName=".views.HomeActivity"
+            android:theme="@style/OfferDetailsActionBarTheme">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.HomeActivity" /></activity>

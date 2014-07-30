@@ -6,6 +6,7 @@ import com.adspitcher.adapters.TabsPagerAdapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -14,8 +15,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar.Tab;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 public class OffersDetailsActivity extends ActionBarActivity implements
 ActionBar.TabListener{
@@ -29,6 +32,21 @@ ActionBar.TabListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_offersdetails);
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			// get the parent view of home (app icon) imageview
+			ViewGroup home = (ViewGroup) findViewById(android.R.id.home)
+					.getParent();
+			// get the first child (up imageview)
+			((ImageView) home.getChildAt(0))
+			// change the icon according to your needs
+					.setImageDrawable(getResources().getDrawable(
+							R.drawable.ic_action_navigation_previous_item));
+		} else {
+			// get the up imageview directly with R.id.up
+			((ImageView) findViewById(R.id.up)).setImageDrawable(getResources()
+					.getDrawable(R.drawable.ic_action_navigation_previous_item));
+		}
 
 		// Initilization
 		viewPager = (ViewPager) findViewById(R.id.offersdetails_pager);
@@ -36,8 +54,6 @@ ActionBar.TabListener{
 		mAdapter = new OffersPagerAdapter(getSupportFragmentManager());
 
 		viewPager.setAdapter(mAdapter);
-		actionBar.setDisplayHomeAsUpEnabled(true);
-		actionBar.setHomeButtonEnabled(true);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		Resources itemTexts = getResources();

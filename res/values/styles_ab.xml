@@ -76,5 +76,18 @@
         <item name="popupMenuStyle">@style/PopupMenu.Ab</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Ab</item>
     </style>
+    
+    <style name="OfferDetailsActionBarTheme"
+           parent="@style/Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+    
+    <!-- general styles for the action bar -->
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.ActionBar">
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/no_image_found</item>
+        <item name="height">100dp</item>
+    </style>
 
 </resources>

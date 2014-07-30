@@ -54,5 +54,17 @@
     <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_action_core_overflow</item>
     </style>
+    
+    <style name="OfferDetailsActionBarTheme"
+           parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+    
+    <!-- general styles for the action bar -->
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@drawable/no_image_found</item>
+        <item name="android:height">100dp</item>
+    </style>
 
 </resources>
