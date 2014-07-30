@@ -1582,9 +1582,9 @@ containing a value of this type.
         public static final int icon=0x7f08003c;
         public static final int ifRoom=0x7f08001d;
         public static final int image=0x7f080039;
-        public static final int imageView1=0x7f0800a5;
         public static final int imageview_fb_login=0x7f08007e;
         public static final int imageview_gplus_login=0x7f08007f;
+        public static final int imageview_offer=0x7f0800a5;
         public static final int imageview_splash=0x7f08008a;
         public static final int img_button_apply=0x7f080066;
         public static final int img_button_cancel=0x7f080053;
