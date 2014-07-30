@@ -29,6 +29,10 @@ public class Constants {
 	public static final int EXCEPTION = 2;
 	// ----------------------------------------------------------------------------------
 	
+	//Social Oauth APP ID and Key
+	public static final String FB_OAUTH_APP_ID = "1530280607203165";
+	// ----------------------------------------------------------------------------------
+	
 	/**
      * Shared Preference Name
      */

@@ -22,6 +22,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adspitcher.R;
@@ -31,6 +32,10 @@ import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.utils.TextValidator;
+import com.facebook.LoggingBehavior;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.Settings;
 
 public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener {
 
@@ -42,6 +47,8 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	private boolean isEmailValid, isPasswordValid;
 	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
+	private Session.StatusCallback statusCallback = new SessionStatusCallback();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +173,34 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 				LoginActivity.this.startActivity(screenChangeIntent);
 			}
 		});
+		
+		//Facebook Login Session Requirements
+		
+		ImageView fb_image_button = (ImageView)findViewById(R.id.imageview_fb_login);
+		fb_image_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View view) {
+				onClickLogin();
+			}
+		});
+		Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+
+        Session session = Session.getActiveSession();
+        if (session == null) {
+            if (savedInstanceState != null) {
+                session = Session.restoreSession(this, null, statusCallback, savedInstanceState);
+            }
+            if (session == null) {
+                session = new Session(this);
+            }
+            Session.setActiveSession(session);
+            if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
+                session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+            }
+        }
+
+        updateView();
 	}
 
 	private void requestConnection(View view) {
@@ -185,6 +220,31 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 					NetworkEvents.EVENT_ID_AUTHENTICATE_USER, eventData, view);
 		}
 	}
+	
+	@Override
+    public void onStart() {
+        super.onStart();
+        Session.getActiveSession().addCallback(statusCallback);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Session.getActiveSession().removeCallback(statusCallback);
+    }
+    
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Session session = Session.getActiveSession();
+        Session.saveSession(session, outState);
+    }
 	
 	@Override
 	protected void onPause() {
@@ -220,6 +280,38 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		}
 		return ret;
 	}
+	
+	private void updateView() {
+        Session session = Session.getActiveSession();
+        if (session.isOpened()) {
+        	Log.d("Login Activity", "Login successull");
+        } else {
+            Log.d("Login Activity", "Logout successfull");
+        }
+    }
+
+    private void onClickLogin() {
+        Session session = Session.getActiveSession();
+        if (!session.isOpened() && !session.isClosed()) {
+            session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+        } else {
+            Session.openActiveSession(this, true, statusCallback);
+        }
+    }
+
+    private void onClickLogout() {
+        Session session = Session.getActiveSession();
+        if (!session.isClosed()) {
+            session.closeAndClearTokenInformation();
+        }
+    }
+
+    private class SessionStatusCallback implements Session.StatusCallback {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            updateView();
+        }
+    }
 
 	@Override
 	public void updateActivity() {
