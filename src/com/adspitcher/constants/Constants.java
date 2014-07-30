@@ -30,7 +30,7 @@ public class Constants {
 	// ----------------------------------------------------------------------------------
 	
 	//Social Oauth APP ID and Key
-	public static final String FB_OAUTH_APP_ID = "1530280607203165";
+	public static final String PERMISSIONS = "publish_actions";
 	// ----------------------------------------------------------------------------------
 	
 	/**
