@@ -3,17 +3,16 @@ package com.adspitcher.views;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -23,25 +22,31 @@ import com.adspitcher.dataobjects.LocationDataObject;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
-import com.adspitcher.models.UserModel;
 
-public class LaunchActivity extends ActionBarActivity implements
+public class LaunchActivity extends BaseActivity implements
 		ActivityUpdateListener{
 
 	//private String cityName;
 
 	// Stores the current instantiation of the location client in this object
 	//private LocationClient mLocationClient;
-	
+	private View activityView;
 	private ConnectionModel connModel;
 	private TextView textview_search,textview_createaccount,textview_login;
+	private ActionBar actionBar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.d("Launch Activity==", "I am inside onCreate");
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_launch);
+		// don’t set any content view here, since its already set in DrawerActivity
+	   FrameLayout frameLayout = (FrameLayout)findViewById(R.id.content_frame);
+	    // inflate the custom activity layout
+	    LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	    activityView = layoutInflater.inflate(R.layout.activity_launch, null,false);
+	    // add the custom layout of this activity to frame layout.
+	    frameLayout.addView(activityView);
 		
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
@@ -52,9 +57,13 @@ public class LaunchActivity extends ActionBarActivity implements
 		 * callbacks.
 		 */
 		//mLocationClient = new LocationClient(this, this, this);
+		
+		actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
 
 		// Action on click of Create An Account Button
-		textview_createaccount = (TextView) findViewById(R.id.textview_createaccount);
+		textview_createaccount = (TextView) activityView.findViewById(R.id.textview_createaccount);
 		textview_createaccount.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -68,7 +77,7 @@ public class LaunchActivity extends ActionBarActivity implements
 		});
 
 		// Action on click of Create An Account Button
-		textview_login = (TextView) findViewById(R.id.textview_login);
+		textview_login = (TextView) activityView.findViewById(R.id.textview_login);
 		textview_login.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -82,7 +91,7 @@ public class LaunchActivity extends ActionBarActivity implements
 		});
 
 		// Action on click of Search Button
-		textview_search = (TextView) findViewById(R.id.textview_search);
+		textview_search = (TextView) activityView.findViewById(R.id.textview_search);
 		textview_search.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -98,7 +107,7 @@ public class LaunchActivity extends ActionBarActivity implements
 			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
 				 null, textview_search);
 		}else{
-			Spinner citiesSpinner = (Spinner)findViewById(R.id.spinner_cities);
+			Spinner citiesSpinner = (Spinner)activityView.findViewById(R.id.spinner_cities);
 			ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
 			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			citiesSpinner.setAdapter(spinnerAdapter);
@@ -156,64 +165,12 @@ public class LaunchActivity extends ActionBarActivity implements
 		connModel.unregisterView(this);
 		super.onDestroy();
 	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_launch_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-	}
-	
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		Log.d("Launch Activity==", "Preparing menu");
-		UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
-		MenuItem item = menu.findItem(R.id.action_profile);
-		item.setVisible(userModel.isUserLoggedIn());
-		item = menu.findItem(R.id.action_fav);
-		item.setVisible(userModel.isUserLoggedIn());
-		item = menu.findItem(R.id.action_logout);
-		item.setVisible(userModel.isUserLoggedIn());
-		
-		if( userModel.isUserLoggedIn() ){
-			textview_login.setVisibility(View.GONE);
-			textview_createaccount.setVisibility(View.GONE);
-		}
-		return super.onPrepareOptionsMenu(menu);
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()){
-		case R.id.action_logout:{
-			textview_login.setVisibility(View.VISIBLE);
-			textview_createaccount.setVisibility(View.VISIBLE);
-			UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
-			userModel.setUserLoggedIn(false);
-			userModel.setAccessToken(null);
-			invalidateOptionsMenu();
-			return true;
-		}
-		case R.id.action_profile:{
-			Intent screenChangeIntent = null;
-			screenChangeIntent = new Intent(LaunchActivity.this,
-					ProfileActivity.class);
-			LaunchActivity.this.startActivity(screenChangeIntent);
-			return true;
-		}
-		case R.id.action_fav:{
-			return true;
-		}
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
 
 	@Override
 	public void updateActivity() {
 		switch(connModel.getConnectionStatus()){
 		case ConnectionModel.SUCCESS:{
-			Spinner citiesSpinner = (Spinner)findViewById(R.id.spinner_cities);
+			Spinner citiesSpinner = (Spinner)activityView.findViewById(R.id.spinner_cities);
 			ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, android.R.id.text1);
 			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			citiesSpinner.setAdapter(spinnerAdapter);
@@ -234,6 +191,8 @@ public class LaunchActivity extends ActionBarActivity implements
             (new LaunchActivity.GetAddressTask(this)).execute(currentLocation);
         }*/
 	}
+	
+	
 
 	/*
 	 * Handle results returned to this Activity by other Activities started with

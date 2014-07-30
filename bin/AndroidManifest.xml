@@ -80,8 +80,7 @@
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".views.HomeActivity" /></activity>
-        <activity android:name=".views.EditProfileActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:name=".views.EditProfileActivity">
             </activity>
     </application>
 

@@ -110,9 +110,13 @@
 	
 	<!-- Navigation Drawer Specific Strings -->
 	<string-array name="navigation_drawer_array">
+	    <item>Home</item>
 	    <item>Profile</item>
-	    <item>Notifications</item>
-        <item>Logout</item>
+        <item>Notifications</item>
+        <item>Rate me</item>
+        <item>About us</item>
+        <item>Send feedback</item>
+        <item>Sign Out</item>
     </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

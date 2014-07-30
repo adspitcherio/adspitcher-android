@@ -83,4 +83,14 @@ public class Constants {
 	public static final String TEXT_CONSUMER_EMAIL = "consumer[email]";
 	public static final String TEXT_CONSUMER_PASSWORD = "consumer[password]";
 	// ----------------------------------------------------------------------------------
+	
+	//Navigation Drawer Constants
+	public static final int DRAWER_HOME = 0;
+	public static final int DRAWER_PROFILE = 1;
+	public static final int DRAWER_NOTIFICATIONS = 2;
+	public static final int DRAWER_RATEME = 3;
+	public static final int DRAWER_ABOUTUS = 4;
+	public static final int DRAWER_SEND_FEEDBACK = 5;
+	public static final int DRAWER_SIGNOUT = 6;
+	// ----------------------------------------------------------------------------------
 }
