@@ -32,14 +32,14 @@ import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.utils.TextValidator;
-import com.facebook.LoggingBehavior;
+/*import com.facebook.LoggingBehavior;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook.model.GraphLocation;
-import com.facebook.model.GraphUser;
+import com.facebook.model.GraphUser;*/
 
 public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener {
 
@@ -52,7 +52,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
-	private Session.StatusCallback statusCallback = new SessionStatusCallback();
+	//private Session.StatusCallback statusCallback = new SessionStatusCallback();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -188,7 +188,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 				onClickLogin();
 			}
 		});
-		Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+		/*Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
 
         Session session = Session.getActiveSession();
         if (session == null) {
@@ -204,7 +204,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
             }
         }
 
-        updateView();
+        updateView();*/
 	}
 
 	private void requestConnection(View view) {
@@ -228,26 +228,26 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	@Override
     public void onStart() {
         super.onStart();
-        Session.getActiveSession().addCallback(statusCallback);
+        //Session.getActiveSession().addCallback(statusCallback);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Session.getActiveSession().removeCallback(statusCallback);
+        //Session.getActiveSession().removeCallback(statusCallback);
     }
     
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+        //Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Session session = Session.getActiveSession();
-        Session.saveSession(session, outState);
+       /* Session session = Session.getActiveSession();
+        Session.saveSession(session, outState);*/
     }
 	
 	@Override
@@ -285,7 +285,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		return ret;
 	}
 	
-	private void updateView() {
+	/*private void updateView() {
         Session session = Session.getActiveSession();
         if (session.isOpened()) {
         	Log.d("Login Activity", "Login successull");
@@ -307,11 +307,11 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
                             String email = (String) user.getProperty("email");
                             Log.e("Success Login", "Name: " + name + " Email: " + email + " City: " + city + " Birthday: " + birthdate);
                             
-                            /*SharedPreferences sharedPref = getSharedPreferences(
+                            SharedPreferences sharedPref = getSharedPreferences(
             						Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
             				SharedPreferences.Editor editor = sharedPref.edit();
             				editor.putString(Constants.TEXT_ACCESSTOKEN, accessToken);
-            				editor.commit();*/
+            				editor.commit();
             				connModel.unregisterView(LoginActivity.this);
             				LoginActivity.this.finish();
                         }
@@ -327,30 +327,30 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
         } else {
             Log.d("Login Activity", "Logout successfull");
         }
-    }
+    }*/
 
     private void onClickLogin() {
-        Session session = Session.getActiveSession();
+        /*Session session = Session.getActiveSession();
         if (!session.isOpened() && !session.isClosed()) {
             session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
         } else {
             Session.openActiveSession(this, true, statusCallback);
-        }
+        }*/
     }
 
     private void onClickLogout() {
-        Session session = Session.getActiveSession();
+        /*Session session = Session.getActiveSession();
         if (!session.isClosed()) {
             session.closeAndClearTokenInformation();
-        }
+        }*/
     }
 
-    private class SessionStatusCallback implements Session.StatusCallback {
+    /*private class SessionStatusCallback implements Session.StatusCallback {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
             updateView();
         }
-    }
+    }*/
 
 	@Override
 	public void updateActivity() {

@@ -87,7 +87,8 @@
            parent="@style/Widget.AppCompat.ActionBar">
         <!-- Support library compatibility -->
         <item name="background">@drawable/no_image_found</item>
-        <item name="height">100dp</item>
+        <item name="height">200dp</item>
+        <item name="logo">@android:color/transparent</item>
     </style>
 
 </resources>

@@ -61,6 +61,9 @@
     <string name="text_offeritem_up">Up: </string>
     <string name="text_offeritem_down">Down: </string>
     
+    <!-- Offer Details Specific Strings -->
+    <string name="text_offerdetail_action_share">Share</string>
+    
     <!-- Launch Activity Specific Strings -->
     <string name="text_launch_location">Location</string>
     <string name="text_launch_search">Search</string>
