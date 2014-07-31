@@ -2094,10 +2094,10 @@ containing a value of this type.
         public static final int wallet_buy_button_place_holder=0x7f06001f;
     }
     public static final class style {
-        public static final int ActionBar_Solid_Ab=0x7f050094;
-        public static final int ActionBar_Transparent_Ab=0x7f050095;
-        public static final int ActionBarTabStyle_Ab=0x7f050098;
-        public static final int ActionButton_CloseMode_Ab=0x7f05009b;
+        public static final int ActionBar_Solid_Ab=0x7f050095;
+        public static final int ActionBar_Transparent_Ab=0x7f050096;
+        public static final int ActionBarTabStyle_Ab=0x7f050099;
+        public static final int ActionButton_CloseMode_Ab=0x7f05009c;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -2124,16 +2124,16 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f050089;
-        public static final int DropDownListView_Ab=0x7f050097;
-        public static final int DropDownNav_Ab=0x7f050099;
+        public static final int DropDownListView_Ab=0x7f050098;
+        public static final int DropDownNav_Ab=0x7f05009a;
         /**  general styles for the action bar 
  general styles for the action bar 
          */
-        public static final int MyActionBar=0x7f05009e;
-        public static final int OfferDetailsActionBarTheme=0x7f05009d;
-        public static final int OverFlow=0x7f05009f;
-        public static final int PopupMenu_Ab=0x7f050096;
-        public static final int ProgressBar_Ab=0x7f05009a;
+        public static final int MyActionBar=0x7f05009f;
+        public static final int OfferDetailsActionBarTheme=0x7f05009e;
+        public static final int OverFlow=0x7f0500a0;
+        public static final int PopupMenu_Ab=0x7f050097;
+        public static final int ProgressBar_Ab=0x7f05009b;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f050068;
@@ -2184,12 +2184,12 @@ containing a value of this type.
         public static final int TextAppearance_AppCompat_Widget_PopupMenu_Small=0x7f050034;
         public static final int TextAppearance_Widget_AppCompat_Base_ExpandedMenu_Item=0x7f050067;
         public static final int TextAppearance_Widget_AppCompat_ExpandedMenu_Item=0x7f05002d;
-        public static final int Theme_Ab=0x7f050093;
+        public static final int Theme_Ab=0x7f050094;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Ab_Widget=0x7f05009c;
+        public static final int Theme_Ab_Widget=0x7f05009d;
         /**  Themes in the "Theme.AppCompat" family will contain an action bar by default.
          If Holo themes are available on the current platform version they will be used.
          A limited Holo-styled action bar will be provided on platform versions older
@@ -2346,6 +2346,7 @@ containing a value of this type.
         public static final int commonH2TextViewStyle=0x7f05008d;
         public static final int commonH3TextViewStyle=0x7f05008e;
         public static final int commonlistitemtextStyle=0x7f050091;
+        public static final int commonreviewsTextViewStyle=0x7f050093;
     }
     public static final class styleable {
         /**  ============================================ 

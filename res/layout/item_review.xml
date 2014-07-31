@@ -8,12 +8,12 @@
         android:id="@+id/textview_postedby"
         android:drawableLeft="@drawable/ic_social_person"
         android:text="@string/text_dummytext"
-        style="@style/commonH3TextViewStyle"
+        style="@style/commonreviewsTextViewStyle"
         android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/textview_review"
-        style="@style/commonH2TextViewStyle"
+        style="@style/commonreviewsTextViewStyle"
         android:layout_width="wrap_content"
         android:text="@string/text_dummytext"/>
     
@@ -21,7 +21,7 @@
         android:id="@+id/textview_postedtimeago"
         android:drawableLeft="@drawable/ic_clock"
         android:text="@string/text_dummytext"
-        style="@style/commonH3TextViewStyle"
+        style="@style/commonreviewsTextViewStyle"
         android:textStyle="italic"/>
 
 </LinearLayout>
