@@ -11,6 +11,7 @@ public class OffersItem {
 	private String offer_brandorstore;
 	private String location;
 	private int votesup, votesdown;
+	private String startDate, endDate;
 	
 	public OffersItem(String text, String brandorstore, String location, int views, int reviews, int ups, int downs){
 		this.offer_text = text;
@@ -73,6 +74,14 @@ public class OffersItem {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
 	}
 	
 	

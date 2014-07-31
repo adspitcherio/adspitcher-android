@@ -26,6 +26,12 @@
             android:text="@string/text_dummytext"/>
 
     </LinearLayout>
+    
+    <TextView
+        android:id="@+id/textview_calendar"
+        style="@style/commonH3TextViewStyle"
+        android:drawableLeft="@drawable/ic_calendar_small"
+        android:text="@string/text_dummytext" />
 
     <TextView
         android:id="@+id/textview_brandstore"

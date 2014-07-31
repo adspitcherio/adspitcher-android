@@ -9,6 +9,7 @@
     <string name="error">Error</string>
     <string name="success">Success</string>
     <string name="OK">OK</string>
+    <string name="text_zero">0</string>
     
     <!-- Splash Specific Strings -->
     <string name="text_splash_version">Version 1.0.0</string>

@@ -74,6 +74,7 @@
 		<item name="android:textColor">@color/h3_textview</item>
 		<item name="android:typeface">sans</item>
 		<item name="android:textSize">@dimen/h3_heading_font_size</item>
+		<item name="android:drawablePadding">@dimen/h3_drawable_text_padding</item>
 	</style>
 	
     <style name="commonButttonStyle">
@@ -113,4 +114,19 @@
 		<item name="android:textSize">@dimen/listview_footer_items_font_size</item>
 	</style>
 
+    <style name="commonDetailsTextViewStyle">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginLeft">@dimen/items_horizontal_margin</item>
+		<item name="android:layout_marginRight">@dimen/items_horizontal_margin</item>
+		<item name="android:layout_marginTop">@dimen/items_vertical_margin</item>
+		<item name="android:layout_marginBottom">@dimen/items_vertical_margin</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:paddingLeft">@dimen/items_horizontal_padding</item>
+		<item name="android:paddingRight">@dimen/items_horizontal_padding</item>
+		<item name="android:textColor">@color/offerdetails_textview</item>
+		<item name="android:typeface">sans</item>
+		<item name="android:textSize">@dimen/offerdetail_heading_font_size</item>
+		<item name="android:drawablePadding">@dimen/h3_drawable_text_padding</item>
+	</style>
 </resources>
