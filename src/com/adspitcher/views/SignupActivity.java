@@ -25,6 +25,7 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.models.LocalModel;
 import com.adspitcher.utils.TextValidator;
 
 public class SignupActivity extends ActionBarActivity implements
@@ -37,6 +38,7 @@ public class SignupActivity extends ActionBarActivity implements
 	private boolean isUsernameValid, isEmailValid, isPasswordValid;
 	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	private boolean oauthRequested;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -189,13 +191,20 @@ public class SignupActivity extends ActionBarActivity implements
 		 email = ((EditText) findViewById(R.id.edittext_email)).getText()
 		 .toString();
 		 
+		 LocalModel localModel = AppEventsController.getInstance().getModelFacade().getLocalModel();
+		 
 		if( isUsernameValid && isPasswordValid && isEmailValid ){
 			Bundle eventData = new Bundle();
 			eventData.putString(Constants.TEXT_CONSUMER_NAME, username);
 			eventData.putString(Constants.TEXT_CONSUMER_PASSWORD, password);
 			eventData.putString(Constants.TEXT_CONSUMER_EMAIL, email);
-			eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LATITUDE, email);
-			eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LONGITUDE, email);
+			if( localModel.getCurrentlocation_latitude() != null){
+				eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LATITUDE, ""+localModel.getCurrentlocation_latitude());
+				eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LONGITUDE, ""+localModel.getCurrentlocation_longitude());
+			}else{
+				eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LATITUDE, "null");
+				eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LONGITUDE, "null");
+			}
 	
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHORIZE_USER, eventData, view);
@@ -220,16 +229,29 @@ public class SignupActivity extends ActionBarActivity implements
 	public void updateActivity() {
 		switch (connModel.getConnectionStatus()) {
 		case ConnectionModel.SUCCESS: {
-			Log.d("SignupActivity", "Inside onConnection");
-			SharedPreferences sharedPref = getSharedPreferences(
-					Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
-			SharedPreferences.Editor editor = sharedPref.edit();
-			editor.putString(Constants.TEXT_ACCESSTOKEN, AppEventsController
-					.getInstance().getModelFacade().getUserModel()
-					.getAccessToken());
-			editor.commit();
-			connModel.unregisterView(this);
-			SignupActivity.this.finish();
+			if( !oauthRequested ){
+				oauthRequested = true;
+				//Network Request To Get AccessToken
+				Bundle eventData = new Bundle();
+				eventData.putString(Constants.TEXT_GRANT_TYPE, Constants.TEXT_PASSWORD);
+				eventData.putString(Constants.TEXT_USERNAME, username);
+				eventData.putString(Constants.TEXT_PASSWORD, password);
+				eventData.putString(Constants.TEXT_CLIENT_ID, Constants.OAUTH_CLIENT_ID);
+				eventData.putString(Constants.TEXT_CLIENT_SECRET, Constants.OAUTH_CLIENT_SECRET);
+				AppEventsController.getInstance().handleEvent(
+						NetworkEvents.EVENT_ID_AUTHENTICATE_USER, eventData, edittext_username);
+			}else{
+				SharedPreferences sharedPref = getSharedPreferences(
+						Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
+				SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString(Constants.TEXT_ACCESSTOKEN, AppEventsController
+						.getInstance().getModelFacade().getUserModel()
+						.getAccessToken());
+				editor.commit();
+				AppEventsController.getInstance().getModelFacade().getUserModel().setUserLoggedIn(true);
+				connModel.unregisterView(this);
+				SignupActivity.this.finish();
+			}
 		}
 			break;
 		case ConnectionModel.ERROR: {

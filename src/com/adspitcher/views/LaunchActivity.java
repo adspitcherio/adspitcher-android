@@ -183,6 +183,10 @@ public class LaunchActivity extends BaseActivity implements
 	protected void onResume() {
 		Log.d("Launch Activity==", "I am inside onResume");
 		connModel.registerView(this);
+		if( userModel.isUserLoggedIn() ){
+			textview_login.setVisibility(View.INVISIBLE);
+			textview_createaccount.setVisibility(View.INVISIBLE);
+		}
 		super.onResume();
 		locationManager.requestLocationUpdates(provider, 400, 1, this);
 	}

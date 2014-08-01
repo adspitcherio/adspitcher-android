@@ -60,7 +60,14 @@ public class RemoteModel {
 		ConnectivityHandler connHandler = new ConnectivityHandler(
 				view.getContext());
 		if (connHandler.isOnline()) {
-			HttpParams httpParams = new HttpParams();
+			JSONObject obj = new JSONObject();
+			obj.put("access_token", "f764835fd2c4cf90a8ddd7a10a78a71babe4c2263446641cd809f1c3a4d6dd32");
+			obj.put("token_type", "bearer");
+			obj.put("expires_in", 604800);
+			
+			listener.sendMessage(listener.obtainMessage(
+					Constants.SUCCESSFUL_RESPONSE, obj));
+			/*HttpParams httpParams = new HttpParams();
 			httpParams.setRequestURL(Constants.BASE_URL
 					+ Constants.URL_GET_ACCESSTOKEN_REQUEST);
 			httpParams.setRequestMethod(HttpParams.HTTP_POST);
@@ -71,7 +78,7 @@ public class RemoteModel {
 
 			NetworkAsyncTask asyncTask = new NetworkAsyncTask(
 					view.getContext(), "Connecting...", listener);
-			asyncTask.execute(httpParams);
+			asyncTask.execute(httpParams);*/
 		} else {
 			listener.sendMessage(listener.obtainMessage(Constants.EXCEPTION,
 					Constants.ERROR_NETWORK_PROBLEM));
