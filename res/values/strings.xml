@@ -64,6 +64,7 @@
     
     <!-- Offer Details Specific Strings -->
     <string name="text_offerdetail_action_share">Share</string>
+    <string name="text_offerdetail_writereview">Write</string>
     
     <!-- Launch Activity Specific Strings -->
     <string name="text_launch_location">Location</string>

@@ -2,69 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/items_vertical_margin"
-        android:layout_marginTop="@dimen/items_vertical_margin"
-        android:background="@color/blue_background_color"
-        android:paddingBottom="@dimen/items_vertical_padding"
-        android:paddingTop="@dimen/items_vertical_padding" >
-
-        <RelativeLayout
-            android:id="@+id/relativelayout_thumbsup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true" >
-            
-            <ImageView
-                android:id="@+id/img_thumbsup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/cd_img"
-                android:src="@drawable/ic_thumbs_up_big"
-                android:layout_toLeftOf="@+id/textview_thumbsup" />
-
-            <TextView
-                android:id="@+id/textview_thumbsup"
-                style="@style/commonActionButtonStyle"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:text="@string/text_zero" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#ffffff" />
-
-        <RelativeLayout
-            android:id="@+id/relativelayout_thumbsdown"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true" >
-            
-            <ImageView
-                android:id="@+id/img_thumbsdown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/cd_img"
-                android:src="@drawable/ic_thumbs_down_big"
-                android:layout_toLeftOf="@+id/textview_thumbsdown" />
-
-            <TextView
-                android:id="@+id/textview_thumbsdown"
-                style="@style/commonActionButtonStyle"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:text="@string/text_zero" />
-        </RelativeLayout>
-    </LinearLayout>
+    android:orientation="vertical" >    
     
     <TextView
         android:id="@+id/textview_offerdescription"
@@ -93,5 +31,72 @@
         android:drawableLeft="@drawable/ic_location_place"
         android:gravity="center_vertical"
         android:text="@string/text_dummytext" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/footer_action_background_color"
+            android:paddingBottom="@dimen/items_vertical_padding"
+            android:paddingTop="@dimen/items_vertical_padding" >
+
+            <RelativeLayout
+                android:id="@+id/relativelayout_thumbsup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/img_thumbsup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/textview_thumbsup"
+                    android:contentDescription="@string/cd_img"
+                    android:src="@drawable/ic_thumbs_up_big" />
+
+                <TextView
+                    android:id="@+id/textview_thumbsup"
+                    style="@style/commonActionButtonStyle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:text="@string/text_zero" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#ffffff" />
+
+            <RelativeLayout
+                android:id="@+id/relativelayout_thumbsdown"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/img_thumbsdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/textview_thumbsdown"
+                    android:contentDescription="@string/cd_img"
+                    android:src="@drawable/ic_thumbs_down_big" />
+
+                <TextView
+                    android:id="@+id/textview_thumbsdown"
+                    style="@style/commonActionButtonStyle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:text="@string/text_zero" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -43,4 +43,6 @@
     <color name="reviewsh1_textview">#000000</color>
     <color name="reviewsh2_textview">#6E6E6E</color>
     
+    <color name="footer_action_background_color">#990095CD</color>
+    
 </resources>
