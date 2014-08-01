@@ -17,7 +17,7 @@
     <!-- Activity Action Bar Title Strings -->
     <string name="text_title_register">Register</string>
     <string name="text_title_signin">Sign In</string>
-    <string name="text_title_search">Search</string>
+    <string name="text_title_search_results">Search Results</string>
     <string name="text_title_details">Details</string>
     
     <!-- Profile Specific Strings -->

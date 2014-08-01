@@ -50,5 +50,18 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Ab</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Ab</item>
     </style>
+    
+    <style name="OfferDetailsActionBarTheme"
+           parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+    
+    <!-- general styles for the action bar -->
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@drawable/no_image_found</item>
+        <item name="android:height">200dp</item>
+        <item name="android:logo">@android:color/transparent</item>
+    </style>
 
 </resources>

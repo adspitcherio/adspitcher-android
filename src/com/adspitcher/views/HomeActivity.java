@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 
 import com.adspitcher.R;
 import com.adspitcher.adapters.TabsPagerAdapter;
+import com.adspitcher.constants.Constants;
 
 public class HomeActivity extends BaseActivity implements
 		ActionBar.TabListener {
@@ -104,6 +105,11 @@ public class HomeActivity extends BaseActivity implements
 
             public boolean onQueryTextSubmit(String query) {
                 Log.d("Search View","Search Query=="+query);
+                Intent screenChangeIntent = null;
+    			screenChangeIntent = new Intent(HomeActivity.this,
+    					SearchActivity.class);
+    			screenChangeIntent.putExtra(Constants.TEXT_SEARCH_STRING, query);
+    			HomeActivity.this.startActivity(screenChangeIntent);
                 return true;
             }
         };
@@ -111,18 +117,10 @@ public class HomeActivity extends BaseActivity implements
         
         return super.onCreateOptionsMenu(menu);
 	}
-	
-	/* Called whenever we call invalidateOptionsMenu() 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // If the nav drawer is open, hide action items related to the content view
-        boolean drawerOpen = super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.action_search).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
-    }*/
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Log.d("Search View","Inside Options Selected");
 		// The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
        if (super.onOptionsItemSelected(item)) {
@@ -130,13 +128,6 @@ public class HomeActivity extends BaseActivity implements
        }
 		// Handle presses on the action bar items
 		switch (item.getItemId()) {
-		/*case R.id.action_search: {
-			Intent screenChangeIntent = null;
-			screenChangeIntent = new Intent(HomeActivity.this,
-					SearchActivity.class);
-			HomeActivity.this.startActivity(screenChangeIntent);
-			return true;
-		}*/
 		case R.id.action_filter: {
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(HomeActivity.this,

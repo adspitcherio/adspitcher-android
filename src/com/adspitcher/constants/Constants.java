@@ -79,7 +79,7 @@ public class Constants {
 	public static final String TEXT_TOKEN_TYPE = "token_type";
 	public static final String TEXT_EXPIRES_IN = "expires_in";
 	public static final String TEXT_RATING = "rating";
-	
+	public static final String TEXT_SEARCH_STRING = "searchstring";
 	// ----------------------------------------------------------------------------------
 	
 	//POST Data Constants

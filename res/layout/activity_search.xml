@@ -4,21 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical" >
-    
-    <EditText
-        android:id="@+id/edittext_searchoffers"
-        style="@style/commonEditTextStyle"
-        android:drawableRight="@drawable/ic_action_search"
-        android:ems="10"
-        android:inputType="text" >
-
-            <requestFocus />
-        </EditText>
-        
-    <TextView
-            android:id="@+id/textview_search_results"
-            style="@style/commonH1TextViewStyle"
-            android:text="@string/text_search_results" />
 
     <ListView
         android:id="@+id/listview_searchoffers"
