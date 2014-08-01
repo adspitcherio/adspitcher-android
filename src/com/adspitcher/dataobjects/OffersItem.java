@@ -12,6 +12,7 @@ public class OffersItem {
 	private String location;
 	private int votesup, votesdown;
 	private String startDate, endDate;
+	private boolean votedUp, votedDown;
 	
 	public OffersItem(String text, String brandorstore, String location, int views, int reviews, int ups, int downs){
 		this.offer_text = text;
@@ -21,6 +22,8 @@ public class OffersItem {
 		this.offer_reviews = reviews;
 		this.votesup = ups;
 		this.votesdown = downs;
+		setVotedUp(false);
+		setVotedDown(false);
 	}
 	
 	public Bitmap getOffer_icon() {
@@ -82,6 +85,22 @@ public class OffersItem {
 
 	public String getEndDate() {
 		return endDate;
+	}
+
+	public boolean isVotedUp() {
+		return votedUp;
+	}
+
+	public void setVotedUp(boolean votedUp) {
+		this.votedUp = votedUp;
+	}
+
+	public boolean isVotedDown() {
+		return votedDown;
+	}
+
+	public void setVotedDown(boolean votedDown) {
+		this.votedDown = votedDown;
 	}
 	
 	
