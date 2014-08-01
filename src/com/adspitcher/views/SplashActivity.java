@@ -18,6 +18,7 @@ public class SplashActivity extends FragmentActivity{
 	// Time in Milliseconds
 	private int SPLASH_TIMER = 2000;
 	private String accessToken;
+	private UserModel userModel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,31 +36,24 @@ public class SplashActivity extends FragmentActivity{
 		accessToken = sharedPref.getString(Constants.TEXT_ACCESSTOKEN,
 				Constants.TEXT_DATABASE_ACCESS_VALUE_DEFAULT);
 		
+		userModel = AppEventsController
+				.getInstance().getModelFacade()
+				.getUserModel();
+		
 		new Handler().postDelayed(new Runnable() {
 
 			@Override
 			public void run() {
 				if (!accessToken.equals(Constants.TEXT_DATABASE_ACCESS_VALUE_DEFAULT)) {
-					UserModel userModel = AppEventsController
-							.getInstance().getModelFacade()
-							.getUserModel();
 					userModel.setUserLoggedIn(true);
-					Intent screenChangeIntent = null;
-					screenChangeIntent = new Intent(SplashActivity.this,
-							HomeActivity.class);
-					SplashActivity.this.startActivity(screenChangeIntent);
-					SplashActivity.this.finish();
 				} else {
-					UserModel userModel = AppEventsController
-							.getInstance().getModelFacade()
-							.getUserModel();
 					userModel.setUserLoggedIn(false);
-					Intent screenChangeIntent = null;
-					screenChangeIntent = new Intent(SplashActivity.this,
-							LaunchActivity.class);
-					SplashActivity.this.startActivity(screenChangeIntent);
-					SplashActivity.this.finish();
 				}
+				Intent screenChangeIntent = null;
+				screenChangeIntent = new Intent(SplashActivity.this,
+						LaunchActivity.class);
+				SplashActivity.this.startActivity(screenChangeIntent);
+				SplashActivity.this.finish();
 			}
 		}, SPLASH_TIMER);
 
