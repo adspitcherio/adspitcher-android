@@ -8,8 +8,6 @@
         android:id="@+id/listview_reviews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/items_horizontal_margin"
-        android:layout_marginRight="@dimen/items_horizontal_margin"
         android:background="@color/background_color"
         android:drawSelectorOnTop="true" >
 

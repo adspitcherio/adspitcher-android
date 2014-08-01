@@ -1120,7 +1120,7 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f0a0002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070037;
+        public static final int abc_search_url_text_holo=0x7f070039;
         public static final int abc_search_url_text_normal=0x7f070017;
         public static final int abc_search_url_text_pressed=0x7f070019;
         public static final int abc_search_url_text_selected=0x7f070018;
@@ -1154,8 +1154,8 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f070006;
         public static final int common_signin_btn_light_text_focused=0x7f070007;
         public static final int common_signin_btn_light_text_pressed=0x7f070005;
-        public static final int common_signin_btn_text_dark=0x7f070038;
-        public static final int common_signin_btn_text_light=0x7f070039;
+        public static final int common_signin_btn_text_dark=0x7f07003a;
+        public static final int common_signin_btn_text_light=0x7f07003b;
         /**  Color used for H1 TextView 
          */
         public static final int h1_textview=0x7f070030;
@@ -1172,6 +1172,8 @@ containing a value of this type.
         public static final int offer_item_background_color=0x7f070026;
         public static final int offer_text_color=0x7f070024;
         public static final int offerdetails_textview=0x7f070036;
+        public static final int reviewsh1_textview=0x7f070037;
+        public static final int reviewsh2_textview=0x7f070038;
         public static final int signup_hint_color=0x7f070022;
         public static final int signup_text_color=0x7f07001f;
         public static final int wallet_bright_foreground_disabled_holo_light=0x7f07000f;
@@ -1192,8 +1194,8 @@ containing a value of this type.
         public static final int wallet_hint_foreground_holo_light=0x7f070011;
         public static final int wallet_holo_blue_light=0x7f070015;
         public static final int wallet_link_text_light=0x7f070016;
-        public static final int wallet_primary_text_holo_light=0x7f07003a;
-        public static final int wallet_secondary_text_holo_dark=0x7f07003b;
+        public static final int wallet_primary_text_holo_light=0x7f07003c;
+        public static final int wallet_secondary_text_holo_dark=0x7f07003d;
         public static final int white_background_color=0x7f07001e;
     }
     public static final class dimen {
@@ -1304,6 +1306,8 @@ containing a value of this type.
         public static final int listview_footer_items_font_size=0x7f0b0022;
         public static final int offerdetail_heading_font_size=0x7f0b0023;
         public static final int offers_text_font_size=0x7f0b001b;
+        public static final int reviews_h1_font_size=0x7f0b0025;
+        public static final int reviews_h2_font_size=0x7f0b0026;
         public static final int text_border_horizontal_padding=0x7f0b0019;
         public static final int text_border_vertical_padding=0x7f0b0018;
     }
@@ -1491,40 +1495,41 @@ containing a value of this type.
         public static final int ic_rewards_icon=0x7f0200b4;
         public static final int ic_social_group=0x7f0200b5;
         public static final int ic_social_person=0x7f0200b6;
-        public static final int ic_social_person_error=0x7f0200b7;
-        public static final int ic_social_person_valid=0x7f0200b8;
-        public static final int ic_thumbs_down_big=0x7f0200b9;
-        public static final int ic_thumbs_up_big=0x7f0200ba;
-        public static final int ic_views=0x7f0200bb;
-        public static final int list_focused_ab=0x7f0200bc;
-        public static final int list_pressed_ab=0x7f0200bd;
-        public static final int menu_dropdown_panel_ab=0x7f0200be;
-        public static final int no_image_found=0x7f0200bf;
-        public static final int noimagefound=0x7f0200c0;
-        public static final int powered_by_google_dark=0x7f0200c1;
-        public static final int powered_by_google_light=0x7f0200c2;
-        public static final int progress_bg_ab=0x7f0200c3;
-        public static final int progress_horizontal_ab=0x7f0200c4;
-        public static final int progress_primary_ab=0x7f0200c5;
-        public static final int progress_secondary_ab=0x7f0200c6;
-        public static final int rounded_corner=0x7f0200c7;
-        public static final int selectable_background_ab=0x7f0200c8;
-        public static final int social_fblogin_drawable=0x7f0200c9;
-        public static final int socialgpluslogin_drawable=0x7f0200ca;
-        public static final int spinner_ab_default_ab=0x7f0200cb;
-        public static final int spinner_ab_disabled_ab=0x7f0200cc;
-        public static final int spinner_ab_focused_ab=0x7f0200cd;
-        public static final int spinner_ab_pressed_ab=0x7f0200ce;
-        public static final int spinner_background_ab_ab=0x7f0200cf;
-        public static final int splash=0x7f0200d0;
-        public static final int tab_indicator_ab_ab=0x7f0200d1;
-        public static final int tab_selected_ab=0x7f0200d2;
-        public static final int tab_selected_focused_ab=0x7f0200d3;
-        public static final int tab_selected_pressed_ab=0x7f0200d4;
-        public static final int tab_unselected_ab=0x7f0200d5;
-        public static final int tab_unselected_focused_ab=0x7f0200d6;
-        public static final int tab_unselected_pressed_ab=0x7f0200d7;
-        public static final int top_corner_rounded=0x7f0200d8;
+        public static final int ic_social_person_big=0x7f0200b7;
+        public static final int ic_social_person_error=0x7f0200b8;
+        public static final int ic_social_person_valid=0x7f0200b9;
+        public static final int ic_thumbs_down_big=0x7f0200ba;
+        public static final int ic_thumbs_up_big=0x7f0200bb;
+        public static final int ic_views=0x7f0200bc;
+        public static final int list_focused_ab=0x7f0200bd;
+        public static final int list_pressed_ab=0x7f0200be;
+        public static final int menu_dropdown_panel_ab=0x7f0200bf;
+        public static final int no_image_found=0x7f0200c0;
+        public static final int noimagefound=0x7f0200c1;
+        public static final int powered_by_google_dark=0x7f0200c2;
+        public static final int powered_by_google_light=0x7f0200c3;
+        public static final int progress_bg_ab=0x7f0200c4;
+        public static final int progress_horizontal_ab=0x7f0200c5;
+        public static final int progress_primary_ab=0x7f0200c6;
+        public static final int progress_secondary_ab=0x7f0200c7;
+        public static final int rounded_corner=0x7f0200c8;
+        public static final int selectable_background_ab=0x7f0200c9;
+        public static final int social_fblogin_drawable=0x7f0200ca;
+        public static final int socialgpluslogin_drawable=0x7f0200cb;
+        public static final int spinner_ab_default_ab=0x7f0200cc;
+        public static final int spinner_ab_disabled_ab=0x7f0200cd;
+        public static final int spinner_ab_focused_ab=0x7f0200ce;
+        public static final int spinner_ab_pressed_ab=0x7f0200cf;
+        public static final int spinner_background_ab_ab=0x7f0200d0;
+        public static final int splash=0x7f0200d1;
+        public static final int tab_indicator_ab_ab=0x7f0200d2;
+        public static final int tab_selected_ab=0x7f0200d3;
+        public static final int tab_selected_focused_ab=0x7f0200d4;
+        public static final int tab_selected_pressed_ab=0x7f0200d5;
+        public static final int tab_unselected_ab=0x7f0200d6;
+        public static final int tab_unselected_focused_ab=0x7f0200d7;
+        public static final int tab_unselected_pressed_ab=0x7f0200d8;
+        public static final int top_corner_rounded=0x7f0200d9;
     }
     public static final class id {
         public static final int action_apply=0x7f0800b7;
@@ -2094,10 +2099,10 @@ containing a value of this type.
         public static final int wallet_buy_button_place_holder=0x7f06001f;
     }
     public static final class style {
-        public static final int ActionBar_Solid_Ab=0x7f050095;
-        public static final int ActionBar_Transparent_Ab=0x7f050096;
-        public static final int ActionBarTabStyle_Ab=0x7f050099;
-        public static final int ActionButton_CloseMode_Ab=0x7f05009c;
+        public static final int ActionBar_Solid_Ab=0x7f050096;
+        public static final int ActionBar_Transparent_Ab=0x7f050097;
+        public static final int ActionBarTabStyle_Ab=0x7f05009a;
+        public static final int ActionButton_CloseMode_Ab=0x7f05009d;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -2124,16 +2129,16 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f050089;
-        public static final int DropDownListView_Ab=0x7f050098;
-        public static final int DropDownNav_Ab=0x7f05009a;
+        public static final int DropDownListView_Ab=0x7f050099;
+        public static final int DropDownNav_Ab=0x7f05009b;
         /**  general styles for the action bar 
  general styles for the action bar 
          */
-        public static final int MyActionBar=0x7f05009f;
-        public static final int OfferDetailsActionBarTheme=0x7f05009e;
-        public static final int OverFlow=0x7f0500a0;
-        public static final int PopupMenu_Ab=0x7f050097;
-        public static final int ProgressBar_Ab=0x7f05009b;
+        public static final int MyActionBar=0x7f0500a0;
+        public static final int OfferDetailsActionBarTheme=0x7f05009f;
+        public static final int OverFlow=0x7f0500a1;
+        public static final int PopupMenu_Ab=0x7f050098;
+        public static final int ProgressBar_Ab=0x7f05009c;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f050068;
@@ -2184,12 +2189,12 @@ containing a value of this type.
         public static final int TextAppearance_AppCompat_Widget_PopupMenu_Small=0x7f050034;
         public static final int TextAppearance_Widget_AppCompat_Base_ExpandedMenu_Item=0x7f050067;
         public static final int TextAppearance_Widget_AppCompat_ExpandedMenu_Item=0x7f05002d;
-        public static final int Theme_Ab=0x7f050094;
+        public static final int Theme_Ab=0x7f050095;
         /**  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
  this style is only referenced in a Light.DarkActionBar based theme 
          */
-        public static final int Theme_Ab_Widget=0x7f05009d;
+        public static final int Theme_Ab_Widget=0x7f05009e;
         /**  Themes in the "Theme.AppCompat" family will contain an action bar by default.
          If Holo themes are available on the current platform version they will be used.
          A limited Holo-styled action bar will be provided on platform versions older
@@ -2345,8 +2350,9 @@ containing a value of this type.
         public static final int commonH1TextViewValueStyle=0x7f05008c;
         public static final int commonH2TextViewStyle=0x7f05008d;
         public static final int commonH3TextViewStyle=0x7f05008e;
+        public static final int commonh1reviewsTextViewStyle=0x7f050093;
+        public static final int commonh2reviewsTextViewStyle=0x7f050094;
         public static final int commonlistitemtextStyle=0x7f050091;
-        public static final int commonreviewsTextViewStyle=0x7f050093;
     }
     public static final class styleable {
         /**  ============================================ 
