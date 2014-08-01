@@ -1,5 +1,6 @@
 package com.adspitcher.views;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -8,6 +9,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -83,6 +86,29 @@ public class HomeActivity extends BaseActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_home_menu, menu);
+        
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search)
+                .getActionView();
+        if (null != searchView) {
+            searchView.setSearchableInfo(searchManager
+                    .getSearchableInfo(getComponentName()));
+            searchView.setIconifiedByDefault(false);
+        }
+
+        SearchView.OnQueryTextListener queryTextListener = new SearchView.OnQueryTextListener() {
+            public boolean onQueryTextChange(String newText) {
+                // this is your adapter that will be filtered
+                return true;
+            }
+
+            public boolean onQueryTextSubmit(String query) {
+                Log.d("Search View","Search Query=="+query);
+                return true;
+            }
+        };
+        searchView.setOnQueryTextListener(queryTextListener);
+        
         return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -104,13 +130,13 @@ public class HomeActivity extends BaseActivity implements
        }
 		// Handle presses on the action bar items
 		switch (item.getItemId()) {
-		case R.id.action_search: {
+		/*case R.id.action_search: {
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(HomeActivity.this,
 					SearchActivity.class);
 			HomeActivity.this.startActivity(screenChangeIntent);
 			return true;
-		}
+		}*/
 		case R.id.action_filter: {
 			Intent screenChangeIntent = null;
 			screenChangeIntent = new Intent(HomeActivity.this,
