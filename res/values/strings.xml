@@ -19,6 +19,7 @@
     <string name="text_title_signin">Sign In</string>
     <string name="text_title_search_results">Search Results</string>
     <string name="text_title_details">Details</string>
+    <string name="text_title_write_review">Write review</string>
     
     <!-- Profile Specific Strings -->
     <string name="text_profile_page_heading">Profile</string>
@@ -112,7 +113,9 @@
 	
 	<!-- Search Specific Strings -->
 	<string name="text_search_results">Search Results</string>
-
+	
+	<!-- Write Review Specific Strings -->
+	<string name="text_publish">Publish</string>
 	
 	<!-- Navigation Drawer Specific Strings -->
 	<string-array name="navigation_drawer_array">
