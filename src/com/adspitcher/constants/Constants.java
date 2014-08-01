@@ -86,6 +86,8 @@ public class Constants {
 	public static final String TEXT_CONSUMER_NAME = "consumer[name]";
 	public static final String TEXT_CONSUMER_EMAIL = "consumer[email]";
 	public static final String TEXT_CONSUMER_PASSWORD = "consumer[password]";
+	public static final String TEXT_CONSUMER_CURRENT_LOCATION_LATITUDE = "consumer[current_location_latitude]";
+	public static final String TEXT_CONSUMER_CURRENT_LOCATION_LONGITUDE = "consumer[current_location_longitude]";
 	// ----------------------------------------------------------------------------------
 	
 	//Navigation Drawer Constants

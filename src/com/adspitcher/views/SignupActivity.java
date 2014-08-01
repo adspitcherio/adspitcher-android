@@ -194,6 +194,8 @@ public class SignupActivity extends ActionBarActivity implements
 			eventData.putString(Constants.TEXT_CONSUMER_NAME, username);
 			eventData.putString(Constants.TEXT_CONSUMER_PASSWORD, password);
 			eventData.putString(Constants.TEXT_CONSUMER_EMAIL, email);
+			eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LATITUDE, email);
+			eventData.putString(Constants.TEXT_CONSUMER_CURRENT_LOCATION_LONGITUDE, email);
 	
 			AppEventsController.getInstance().handleEvent(
 					NetworkEvents.EVENT_ID_AUTHORIZE_USER, eventData, view);

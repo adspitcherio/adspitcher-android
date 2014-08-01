@@ -1,7 +1,17 @@
 package com.adspitcher.views;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
@@ -15,6 +25,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adspitcher.R;
 import com.adspitcher.controllers.AppEventsController;
@@ -22,18 +33,24 @@ import com.adspitcher.dataobjects.LocationDataObject;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.models.LocalModel;
+import com.adspitcher.models.UserModel;
+import com.google.android.gms.location.LocationClient;
 
 public class LaunchActivity extends BaseActivity implements
-		ActivityUpdateListener{
+		ActivityUpdateListener, LocationListener{
 
-	//private String cityName;
-
+	private String cityName;
+	private LocationManager locationManager;
+	private String provider;
 	// Stores the current instantiation of the location client in this object
-	//private LocationClient mLocationClient;
+	private LocationClient mLocationClient;
 	private View activityView;
 	private ConnectionModel connModel;
 	private TextView textview_search,textview_createaccount,textview_login;
 	private ActionBar actionBar;
+	private UserModel userModel;
+	private LocalModel localModel;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +58,7 @@ public class LaunchActivity extends BaseActivity implements
 		super.onCreate(savedInstanceState);
 
 		// don’t set any content view here, since its already set in DrawerActivity
-	   FrameLayout frameLayout = (FrameLayout)findViewById(R.id.content_frame);
+		FrameLayout frameLayout = (FrameLayout)findViewById(R.id.content_frame);
 	    // inflate the custom activity layout
 	    LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	    activityView = layoutInflater.inflate(R.layout.activity_launch, null,false);
@@ -51,12 +68,25 @@ public class LaunchActivity extends BaseActivity implements
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
 		connModel.registerView(this);
+		
+		userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
+		localModel = AppEventsController.getInstance().getModelFacade().getLocalModel();
 
-		/*
-		 * Create a new location client, using the enclosing class to handle
-		 * callbacks.
-		 */
-		//mLocationClient = new LocationClient(this, this, this);
+		// Get the location manager
+	    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+	    // Define the criteria how to select the locatioin provider -> use
+	    // default
+	    Criteria criteria = new Criteria();
+	    provider = locationManager.getBestProvider(criteria, false);
+	    Location location = locationManager.getLastKnownLocation(provider);
+
+	    // Initialize the location fields
+	    if (location != null) {
+	      System.out.println("Provider " + provider + " has been selected.");
+	      onLocationChanged(location);
+	    } else {
+	      Log.d("Launch Activity", "Location not available");
+	    }
 		
 		actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
@@ -103,6 +133,11 @@ public class LaunchActivity extends BaseActivity implements
 			}
 		});
 		
+		if( userModel.isUserLoggedIn() ){
+			textview_login.setVisibility(View.INVISIBLE);
+			textview_createaccount.setVisibility(View.INVISIBLE);
+		}
+		
 		if( !AppEventsController.getInstance().getModelFacade().getLocalModel().isRetrievedMastedFilterData() ){
 			AppEventsController.getInstance().handleEvent(NetworkEvents.EVENT_ID_GET_CITIES,
 				 null, textview_search);
@@ -148,8 +183,8 @@ public class LaunchActivity extends BaseActivity implements
 	protected void onResume() {
 		Log.d("Launch Activity==", "I am inside onResume");
 		connModel.registerView(this);
-		supportInvalidateOptionsMenu();
 		super.onResume();
+		locationManager.requestLocationUpdates(provider, 400, 1, this);
 	}
 	
 	@Override
@@ -157,6 +192,7 @@ public class LaunchActivity extends BaseActivity implements
 		Log.d("Launch Activity==", "I am inside onPause");
 		connModel.unregisterView(this);
 		super.onPause();
+		locationManager.removeUpdates(this);
 	}
 	
 	@Override
@@ -165,6 +201,27 @@ public class LaunchActivity extends BaseActivity implements
 		connModel.unregisterView(this);
 		super.onDestroy();
 	}
+	
+	@Override
+	  public void onLocationChanged(Location location) {
+    	localModel.setCurrentlocation_latitude(location.getLatitude());
+    	localModel.setCurrentlocation_longitude(location.getLongitude());
+    	
+    	try {
+    			Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+    	      List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1); //<10>
+    	   // If the reverse geocode returned an address
+              if (addresses != null && addresses.size() > 0) {
+
+                  // Get the first address
+                  Address address = addresses.get(0);
+                  localModel.setCurrentCity(address.getLocality());
+              }
+    	      
+    	    } catch (IOException e) {
+    	      Log.e("LocateMe", "Could not get Geocoder data", e);
+    	    }
+	  }
 
 	@Override
 	public void updateActivity() {
@@ -175,24 +232,48 @@ public class LaunchActivity extends BaseActivity implements
 			spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			citiesSpinner.setAdapter(spinnerAdapter);
 			LocationDataObject[] cities = AppEventsController.getInstance().getModelFacade().getLocalModel().getLocationsData();
-			for(int i = 0; i < cities.length; i++){
+			int start = 0;
+			//adding current city on top
+			if( localModel.getCurrentCity() != null ){
+				spinnerAdapter.add(localModel.getCurrentCity());
+				start++;
+			}
+			
+			for( int i = start; i < cities.length; i++){
 				spinnerAdapter.add(cities[i].getName());
 			}
 			spinnerAdapter.notifyDataSetChanged();
-		}
-		break;
-		}
-		/*if (servicesConnected()) {
+			/*if (servicesConnected()) {
 
             // Get the current location
             Location currentLocation = mLocationClient.getLastLocation();
 
             // Start the background task
             (new LaunchActivity.GetAddressTask(this)).execute(currentLocation);
-        }*/
+        	}*/
+		}
+		break;
+		}
 	}
 	
+	@Override
+	  public void onStatusChanged(String provider, int status, Bundle extras) {
+	    // TODO Auto-generated method stub
+
+	  }
 	
+	@Override
+	  public void onProviderEnabled(String provider) {
+	    Toast.makeText(this, "Enabled new provider " + provider,
+	        Toast.LENGTH_SHORT).show();
+
+	  }
+
+	  @Override
+	  public void onProviderDisabled(String provider) {
+	    Toast.makeText(this, "Disabled provider " + provider,
+	        Toast.LENGTH_SHORT).show();
+	  }
 
 	/*
 	 * Handle results returned to this Activity by other Activities started with
@@ -202,7 +283,7 @@ public class LaunchActivity extends BaseActivity implements
 	 * services problems. The result of this call returns here, to
 	 * onActivityResult.
 	 */
-/*	@Override
+	/*@Override
 	protected void onActivityResult(int requestCode, int resultCode,
 			Intent intent) {
 
@@ -281,7 +362,6 @@ public class LaunchActivity extends BaseActivity implements
 
 		// After disconnect() is called, the client is considered "dead".
 		mLocationClient.disconnect();
-
 		super.onStop();
 	}*/
 
@@ -290,15 +370,8 @@ public class LaunchActivity extends BaseActivity implements
 	 */
 	/*@Override
 	public void onStart() {
-
 		super.onStart();
-
-		
-		 * Connect the client. Don't re-start any requests here; instead, wait
-		 * for onResume()
-		 
 		mLocationClient.connect();
-
 	}*/
 
 	/*
@@ -306,23 +379,15 @@ public class LaunchActivity extends BaseActivity implements
 	 */
 	/*@Override
 	public void onConnectionFailed(ConnectionResult connectionResult) {
-
-		
-		 * Google Play services can resolve some errors it detects. If the error
-		 * has a resolution, try sending an Intent to start a Google Play
-		 * services activity that can resolve error.
+		  Google Play services can resolve some errors it detects. If the error
+		  has a resolution, try sending an Intent to start a Google Play
+		 services activity that can resolve error.
 		 
 		if (connectionResult.hasResolution()) {
 			try {
-
 				// Start an Activity that tries to resolve the error
 				connectionResult.startResolutionForResult(this,
 						LocationUtils.CONNECTION_FAILURE_RESOLUTION_REQUEST);
-
-				
-				 * Thrown if Google Play services canceled the original
-				 * PendingIntent
-				 
 
 			} catch (IntentSender.SendIntentException e) {
 
@@ -330,7 +395,6 @@ public class LaunchActivity extends BaseActivity implements
 				e.printStackTrace();
 			}
 		} else {
-
 			// If no resolution is available, display a dialog to the user with
 			// the error.
 			showErrorDialog(connectionResult.getErrorCode());
@@ -363,13 +427,13 @@ public class LaunchActivity extends BaseActivity implements
 			errorFragment.show(getSupportFragmentManager(),
 					LocationUtils.APPTAG);
 		}
-	}*/
-
+	}
+*/
 	/**
 	 * Define a DialogFragment to display the error dialog generated in
 	 * showErrorDialog.
 	 */
-/*	public static class ErrorDialogFragment extends DialogFragment {
+	/*public static class ErrorDialogFragment extends DialogFragment {
 
 		// Global field to contain the error dialog
 		private Dialog mDialog;
@@ -393,7 +457,7 @@ public class LaunchActivity extends BaseActivity implements
 		}
 
 		
-		 * This method must return a Dialog to the DialogFragment.
+		 //This method must return a Dialog to the DialogFragment.
 		 
 		@Override
 		public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -417,7 +481,7 @@ public class LaunchActivity extends BaseActivity implements
      * Void     - indicates that progress units are not used by this subclass
      * String   - An address passed to onPostExecute()
      */
-  /*  protected class GetAddressTask extends AsyncTask<Location, Void, String> {
+  /*protected class GetAddressTask extends AsyncTask<Location, Void, String> {
 
         // Store the context passed to the AsyncTask when the system instantiates it.
         Context localContext;
@@ -432,16 +496,16 @@ public class LaunchActivity extends BaseActivity implements
             localContext = context;
         }
 
-        *//**
+        
          * Get a geocoding service instance, pass latitude and longitude to it, format the returned
          * address, and return the address to the UI thread.
-         *//*
+         
         @Override
         protected String doInBackground(Location... params) {
             
-             * Get a new geocoding service instance, set for localized addresses. This example uses
-             * android.location.Geocoder, but other geocoders that conform to address standards
-             * can also be used.
+             Get a new geocoding service instance, set for localized addresses. This example uses
+             android.location.Geocoder, but other geocoders that conform to address standards
+             can also be used.
              
             Geocoder geocoder = new Geocoder(localContext, Locale.getDefault());
 
@@ -453,10 +517,12 @@ public class LaunchActivity extends BaseActivity implements
 
             // Try to get an address for the current location. Catch IO or network problems.
             try {
-
-                
-                 * Call the synchronous getFromLocation() method with the latitude and
-                 * longitude of the current location. Return at most 1 address.
+                 Call the synchronous getFromLocation() method with the latitude and
+                 longitude of the current location. Return at most 1 address.
+            	
+            	LocalModel localModel = AppEventsController.getInstance().getModelFacade().getLocalModel();
+            	localModel.setCurrentlocation_latitude(location.getLatitude());
+            	localModel.setCurrentlocation_longitude(location.getLongitude());
                  
                 addresses = geocoder.getFromLocation(location.getLatitude(),
                     location.getLongitude(), 1
@@ -518,10 +584,10 @@ public class LaunchActivity extends BaseActivity implements
                   return getString(R.string.no_address_found);
                 }
         	}
-        *//**
+        
          * A method that's called once doInBackground() completes. Set the text of the
          * UI element that displays the address. This method runs on the UI thread.
-         *//*
+         
         @Override
         protected void onPostExecute(String address) {
 
