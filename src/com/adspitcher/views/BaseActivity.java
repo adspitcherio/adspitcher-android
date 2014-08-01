@@ -143,17 +143,6 @@ public class BaseActivity extends ActionBarActivity {
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		return super.onCreateOptionsMenu(menu);
-	}
-	
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		super.onPrepareOptionsMenu(menu);
-		return mDrawerLayout.isDrawerOpen(mDrawerList);
-	}
-	
-	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 		return mDrawerToggle.onOptionsItemSelected(item);

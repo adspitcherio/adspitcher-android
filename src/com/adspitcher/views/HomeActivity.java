@@ -86,14 +86,14 @@ public class HomeActivity extends BaseActivity implements
         return super.onCreateOptionsMenu(menu);
 	}
 	
-	/* Called whenever we call invalidateOptionsMenu() */
+	/* Called whenever we call invalidateOptionsMenu() 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = super.onPrepareOptionsMenu(menu);
         menu.findItem(R.id.action_search).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
-    }
+    }*/
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
