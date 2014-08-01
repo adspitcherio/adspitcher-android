@@ -68,27 +68,27 @@
     
     <TextView
         android:id="@+id/textview_offerdescription"
-        style="@style/commonDetailsTextViewStyle"
+        style="@style/commonDetailsh1TextViewStyle"
         android:layout_width="wrap_content"
         android:text="@string/text_dummytext" />
     
     <TextView
         android:id="@+id/textview_offerstartenddate"
-        style="@style/commonDetailsTextViewStyle"
+        style="@style/commonDetailsh2TextViewStyle"
         android:layout_width="wrap_content"
         android:drawableLeft="@drawable/ic_calendar_big"
         android:text="@string/text_dummytext" />
 
     <TextView
         android:id="@+id/textview_storename"
-        style="@style/commonDetailsTextViewStyle"
+        style="@style/commonDetailsh2TextViewStyle"
         android:layout_width="wrap_content"
         android:drawableLeft="@drawable/ic_cart"
         android:text="@string/text_dummytext" />
 
     <TextView
         android:id="@+id/textview_storeaddress"
-        style="@style/commonDetailsTextViewStyle"
+        style="@style/commonDetailsh2TextViewStyle"
         android:layout_width="wrap_content"
         android:drawableLeft="@drawable/ic_location_place"
         android:gravity="center_vertical"

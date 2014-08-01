@@ -38,7 +38,8 @@
     <!-- Color used for ListView Items Footer Text -->
     <color name="listview_footer_textview">#FFFFFF</color>
     
-    <color name="offerdetails_textview">#6E6E6E</color>
+    <color name="offerdetailsh1_textview">#000000</color>
+    <color name="offerdetailsh2_textview">#6E6E6E</color>
     <color name="reviewsh1_textview">#000000</color>
     <color name="reviewsh2_textview">#6E6E6E</color>
     
