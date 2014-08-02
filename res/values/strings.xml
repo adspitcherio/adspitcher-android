@@ -119,7 +119,6 @@
 	
 	<!-- Navigation Drawer Specific Strings -->
 	<string-array name="navigation_drawer_array">
-	    <item>Home</item>
 	    <item>Profile</item>
         <item>Notifications</item>
         <item>Rate me</item>
