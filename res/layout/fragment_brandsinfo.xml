@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >    
+    
+    <TextView
+        android:id="@+id/textview_offerdescription"
+        style="@style/commonDetailsh1TextViewStyle"
+        android:layout_width="wrap_content"
+        android:text="@string/text_dummytext" />
+    
+    <TextView
+        android:id="@+id/textview_offerstartenddate"
+        style="@style/commonDetailsh2TextViewStyle"
+        android:layout_width="wrap_content"
+        android:drawableLeft="@drawable/ic_calendar_big"
+        android:text="@string/text_dummytext" />
+
+    <TextView
+        android:id="@+id/textview_storename"
+        style="@style/commonDetailsh2TextViewStyle"
+        android:layout_width="wrap_content"
+        android:drawableLeft="@drawable/ic_cart"
+        android:text="@string/text_dummytext" />
+
+    <TextView
+        android:id="@+id/textview_storeaddress"
+        style="@style/commonDetailsh2TextViewStyle"
+        android:layout_width="wrap_content"
+        android:drawableLeft="@drawable/ic_location_place"
+        android:gravity="center_vertical"
+        android:text="@string/text_dummytext" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/footer_action_background_color"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/items_vertical_padding"
+            android:paddingTop="@dimen/items_vertical_padding" >
+
+            <RatingBar
+                android:id="@+id/brand_ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -21,6 +21,7 @@
         android:id="@+id/textview_storename"
         style="@style/commonDetailsh2TextViewStyle"
         android:layout_width="wrap_content"
+        android:clickable="true"
         android:drawableLeft="@drawable/ic_cart"
         android:text="@string/text_dummytext" />
 
