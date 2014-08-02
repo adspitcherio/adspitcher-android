@@ -88,6 +88,15 @@ public class BaseActivity extends ActionBarActivity {
 		mDrawerLayout.closeDrawer(mDrawerList);
 		switch (position) {
 		case Constants.DRAWER_HOME: {
+			Intent intent = new Intent(BaseActivity.this, LaunchActivity.class);
+		    //intent.putExtra("urString",defaultvalue);
+		    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		    startActivity(intent);
+		    // Checking the intent extra at "HOME"
+		    //if(getIntent().hasExtra("urString")){
+		      // manage your own way            
+		   //   finish();
+		    //}
 		}
 			break;
 		case Constants.DRAWER_PROFILE: {
