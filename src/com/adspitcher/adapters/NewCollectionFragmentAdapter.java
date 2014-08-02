@@ -48,10 +48,6 @@ public class NewCollectionFragmentAdapter  extends ArrayAdapter<NewCollectionIte
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
-			holder.dataCell_views.setText("");
-			holder.dataCell_views.setText(R.string.text_offeritem_views);
-			holder.dataCell_reviews.setText("");
-			holder.dataCell_reviews.setText(R.string.text_offeritem_reviews);
 			
 		}
 
@@ -59,8 +55,8 @@ public class NewCollectionFragmentAdapter  extends ArrayAdapter<NewCollectionIte
 		holder.dataCell_text.setText(item.getNewcollection_text());
 		holder.dataCell_brandorstore.setText(item.getNewcollection_brandorstore());
 		holder.dataCell_location.setText(item.getNewcollection_location());
-		holder.dataCell_views.setText(holder.dataCell_views.getText() + " " + item.getNewcollection_views());
-		holder.dataCell_reviews.setText(holder.dataCell_reviews.getText() + " " + item.getNewcollection_reviews());
+		holder.dataCell_views.setText(": " + item.getNewcollection_views());
+		holder.dataCell_reviews.setText(": " + item.getNewcollection_reviews());
 		holder.dataCell_rating.setRating(item.getNewcollection_rating());	
 
 		return convertView;
