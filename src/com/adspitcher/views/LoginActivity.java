@@ -1,5 +1,6 @@
 package com.adspitcher.views;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,6 +34,7 @@ import com.adspitcher.controllers.AppEventsController;
 import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
+import com.adspitcher.models.UserModel;
 import com.adspitcher.utils.TextValidator;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -46,12 +48,14 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook.model.GraphLocation;
+import com.facebook.model.GraphPlace;
 import com.facebook.model.GraphUser;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
-public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener, ConnectionCallbacks, OnConnectionFailedListener {
+public class LoginActivity extends ActionBarActivity implements ActivityUpdateListener{//, ConnectionCallbacks, OnConnectionFailedListener {
 
+	//Variables for Native Login
 	private TextView btn_signin;
 	private String username, password;
 	private boolean keepMeLoggedInBool;
@@ -60,24 +64,17 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	private boolean isEmailValid, isPasswordValid;
 	String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	private UserModel userModel;
 	
+	//Variables for FB Login
 	private Session.StatusCallback statusCallback = new SessionStatusCallback();
 	
-	// Google client to interact with Google API
-    private GoogleApiClient mGoogleApiClient;
-    
+	//Variables for Google Plus Login
+    /*private GoogleApiClient mGoogleApiClient;
     private boolean mSignInClicked;
-    
     private ConnectionResult mConnectionResult;
-    
-    /**
-     * A flag indicating that a PendingIntent is in progress and prevents us
-     * from starting further intents.
-     */
     private boolean mIntentInProgress;
-    private static final int RC_SIGN_IN = 0;
-    
-    private boolean isFacebookLogin, isGooglePlusLogin;
+    private static final int RC_SIGN_IN = 0;*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,9 +84,6 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		
-		isFacebookLogin = false;
-		isGooglePlusLogin = false;
 
 		editText_username = (EditText) findViewById(R.id.edittext_username);
 		editText_password = (EditText) findViewById(R.id.edittext_password);
@@ -164,6 +158,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		connModel = AppEventsController.getInstance().getModelFacade()
 				.getConnModel();
 		connModel.registerView(this);
+		userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
 
 		// Settings Messages
 		Constants.ERROR_NETWORK_PROBLEM = getResources().getString(
@@ -211,13 +206,11 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 			
 			@Override
 			public void onClick(View view) {
-				isFacebookLogin = true;
 				onClickLogin();
 			}
 		});
 		Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
-
-        Session session = Session.getActiveSession();
+		Session session = Session.getActiveSession();
         if (session == null) {
             if (savedInstanceState != null) {
                 session = Session.restoreSession(this, null, statusCallback, savedInstanceState);
@@ -227,18 +220,17 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
             }
             Session.setActiveSession(session);
             if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
-                session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+            	session.openForRead(new Session.OpenRequest(this)
+                .setPermissions(Arrays.asList("public_profile","email","user_location","user_birthday"))
+                .setCallback(statusCallback));
             }
         }
-
-        updateView();
 		
-		ImageView gplus_login_button = (ImageView)findViewById(R.id.imageview_gplus_login);
+		/*ImageView gplus_login_button = (ImageView)findViewById(R.id.imageview_gplus_login);
 		gplus_login_button.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View view) {
-				isGooglePlusLogin = true;
 				// Signin button clicked
 	            signInWithGplus();
 			}
@@ -248,7 +240,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this).addApi(Plus.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN).build();
+                .addScope(Plus.SCOPE_PLUS_LOGIN).build();*/
 	}
 
 	private void requestConnection(View view) {
@@ -273,25 +265,24 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
     public void onStart() {
         super.onStart();
         Session.getActiveSession().addCallback(statusCallback);
-        mGoogleApiClient.connect();
+        //mGoogleApiClient.connect();
     }
 
     @Override
     public void onStop() {
         super.onStop();
         Session.getActiveSession().removeCallback(statusCallback);
-        if (mGoogleApiClient.isConnected()) {
+        /*if (mGoogleApiClient.isConnected()) {
             mGoogleApiClient.disconnect();
-        }
+        }*/
     }
     
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if( isFacebookLogin ){
+        Log.d("Login Activity", "I am inside onActivityResult");
         Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-        }
-        else if( isGooglePlusLogin ){
+        /*else if( isGooglePlusLogin ){
         if (requestCode == RC_SIGN_IN) {
             if (resultCode != RESULT_OK) {
                 mSignInClicked = false;
@@ -303,17 +294,18 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
                 mGoogleApiClient.connect();
             }
         }
-        }
+        }*/
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        Log.d("Login Activity", "I am inside onSaveInstanceState");
         Session session = Session.getActiveSession();
         Session.saveSession(session, outState);
     }
     
-    @Override
+    /*@Override
     public void onConnectionFailed(ConnectionResult result) {
         if (!result.hasResolution()) {
         	isGooglePlusLogin = false;
@@ -334,12 +326,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
             }
         }
      
-    }
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-	}
+    }*/
 	
 	@Override
 	protected void onDestroy() {
@@ -348,7 +335,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		super.onDestroy();
 	}
 	
-	@Override
+	/*@Override
 	public void onConnected(Bundle arg0) {
 	    mSignInClicked = false;
 	    Toast.makeText(this, "User is connected!", Toast.LENGTH_LONG).show();
@@ -367,9 +354,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	    updateUI(false);
 	}
 	 
-	/**
+	*//**
 	 * Updating the UI, showing/hiding buttons and profile layout
-	 * */
+	 * *//*
 	private void updateUI(boolean isSignedIn) {
 	    if (isSignedIn) {
 	    } else {
@@ -377,9 +364,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	    }
 	}
 	
-	/**
+	*//**
 	 * Fetching user's information name, email, profile pic
-	 * */
+	 * *//*
 	private void getProfileInformation() {
 	    try {
 	        if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
@@ -397,12 +384,12 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	            // by default the profile url gives 50x50 px image only
 	            // we can replace the value with whatever dimension we want by
 	            // replacing sz=X
-	            /*personPhotoUrl = personPhotoUrl.substring(0,
+	            personPhotoUrl = personPhotoUrl.substring(0,
 	                    personPhotoUrl.length() - 2)
 	                    + PROFILE_PIC_SIZE;
 	 
 	            new LoadProfileImage(imgProfilePic).execute(personPhotoUrl);
-	 */
+	 
 	        } else {
 	            Toast.makeText(getApplicationContext(),
 	                    "Person information is null", Toast.LENGTH_LONG).show();
@@ -412,9 +399,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	    }
 	}
 	
-	/**
+	*//**
 	 * Sign-in into google
-	 * */
+	 * *//*
 	private void signInWithGplus() {
 	    if (!mGoogleApiClient.isConnecting()) {
 	        mSignInClicked = true;
@@ -422,9 +409,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	    }
 	}
 	 
-	/**
+	*//**
 	 * Method to resolve any signin errors
-	 * */
+	 * *//*
 	private void resolveSignInError() {
 	    if (mConnectionResult.hasResolution()) {
 	        try {
@@ -436,7 +423,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 	        }
 	    }
 	}
-
+*/
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		View view = getCurrentFocus();
@@ -460,8 +447,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
 		return ret;
 	}
 	
-	private void updateView() {
-        Session session = Session.getActiveSession();
+	private void updateView(Session session, SessionState state, Exception exception) {
         if (session.isOpened()) {
         	Log.d("Login Activity", "Login successull");
         	final String accessToken = session.getAccessToken();
@@ -476,16 +462,17 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
                         {
                             String name = user.getName();
                             String birthdate = user.getBirthday();
-                            GraphLocation location = user.getLocation();
-                            String city = location.getCity();
-                            // If you asked for email permission
+                            String city = (String) user.getLocation().getProperty("name");
                             String email = (String) user.getProperty("email");
-                            Log.e("Success Login", "Name: " + name + " Email: " + email + " City: " + city + " Birthday: " + birthdate);
-                            
+                            userModel.setUser_name(name);
+                            userModel.setUser_email(email);
+                            userModel.setUser_currentCity(city);
+                            userModel.setUser_dob(birthdate);
                             SharedPreferences sharedPref = getSharedPreferences(
             						Constants.DATABASE_PREF_NAME, MODE_PRIVATE);
             				SharedPreferences.Editor editor = sharedPref.edit();
             				editor.putString(Constants.TEXT_ACCESSTOKEN, accessToken);
+            				editor.putInt(Constants.TEXT_USER_LOGGEDIN_STATUS, UserModel.USER_FB_LOGGEDIN);
             				editor.commit();
             				connModel.unregisterView(LoginActivity.this);
             				LoginActivity.this.finish();
@@ -493,7 +480,7 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
                         catch (Exception e)
                         {
                             e.printStackTrace();
-                            Log.d("Exception", "Exception e");
+                            Log.d("Facebook Exception", e.toString());
                         }
 
                     }
@@ -507,7 +494,9 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
     private void onClickLogin() {
         Session session = Session.getActiveSession();
         if (!session.isOpened() && !session.isClosed()) {
-            session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+        	session.openForRead(new Session.OpenRequest(this)
+            .setPermissions(Arrays.asList("public_profile","email","user_location","user_birthday"))
+            .setCallback(statusCallback));
         } else {
             Session.openActiveSession(this, true, statusCallback);
         }
@@ -519,11 +508,10 @@ public class LoginActivity extends ActionBarActivity implements ActivityUpdateLi
             session.closeAndClearTokenInformation();
         }
     }
-
     private class SessionStatusCallback implements Session.StatusCallback {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
-            updateView();
+            updateView(session, state, exception);
         }
     }
 

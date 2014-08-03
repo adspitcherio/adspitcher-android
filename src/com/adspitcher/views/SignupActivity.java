@@ -26,6 +26,7 @@ import com.adspitcher.defines.NetworkEvents;
 import com.adspitcher.listeners.ActivityUpdateListener;
 import com.adspitcher.models.ConnectionModel;
 import com.adspitcher.models.LocalModel;
+import com.adspitcher.models.UserModel;
 import com.adspitcher.utils.TextValidator;
 
 public class SignupActivity extends ActionBarActivity implements
@@ -248,7 +249,7 @@ public class SignupActivity extends ActionBarActivity implements
 						.getInstance().getModelFacade().getUserModel()
 						.getAccessToken());
 				editor.commit();
-				AppEventsController.getInstance().getModelFacade().getUserModel().setUserLoggedIn(true);
+				AppEventsController.getInstance().getModelFacade().getUserModel().setUserLoggedInStatus(UserModel.USER_NATIVE_LOGGEDIN);
 				connModel.unregisterView(this);
 				SignupActivity.this.finish();
 			}

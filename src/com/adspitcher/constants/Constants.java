@@ -38,6 +38,7 @@ public class Constants {
      */
     public static final String DATABASE_PREF_NAME = "adspitcherLoginPrefName";
     public static final String TEXT_DATABASE_ACCESS_VALUE_DEFAULT = "DatabaseKeyDoesNotExist";
+    public static final String TEXT_USER_LOGGEDIN_STATUS = "user_loggedin_status";
     //--------------------------------------------------------------------
 
 	// Error Messages
@@ -91,12 +92,11 @@ public class Constants {
 	// ----------------------------------------------------------------------------------
 	
 	//Navigation Drawer Constants
-	public static final int DRAWER_HOME = 0;
-	public static final int DRAWER_PROFILE = 1;
-	public static final int DRAWER_NOTIFICATIONS = 2;
-	public static final int DRAWER_RATEME = 3;
-	public static final int DRAWER_ABOUTUS = 4;
-	public static final int DRAWER_SEND_FEEDBACK = 5;
-	public static final int DRAWER_SIGNOUT = 6;
+	public static final int DRAWER_PROFILE = 0;
+	public static final int DRAWER_NOTIFICATIONS = 1;
+	public static final int DRAWER_RATEME = 2;
+	public static final int DRAWER_ABOUTUS = 3;
+	public static final int DRAWER_SEND_FEEDBACK = 4;
+	public static final int DRAWER_SIGNOUT = 5;
 	// ----------------------------------------------------------------------------------
 }

@@ -110,7 +110,7 @@ public class LaunchActivity extends BaseActivity implements
 			}
 		});
 		
-		if( userModel.isUserLoggedIn() ){
+		if( userModel.getUserLoggedInStatus() != UserModel.USER_NOT_LOGGEDIN ){
 			textview_login.setVisibility(View.INVISIBLE);
 			textview_createaccount.setVisibility(View.INVISIBLE);
 		}
@@ -160,7 +160,7 @@ public class LaunchActivity extends BaseActivity implements
 	protected void onResume() {
 		Log.d("Launch Activity==", "I am inside onResume");
 		connModel.registerView(this);
-		if( userModel.isUserLoggedIn() ){
+		if( userModel.getUserLoggedInStatus() != UserModel.USER_NOT_LOGGEDIN ){
 			textview_login.setVisibility(View.INVISIBLE);
 			textview_createaccount.setVisibility(View.INVISIBLE);
 		}

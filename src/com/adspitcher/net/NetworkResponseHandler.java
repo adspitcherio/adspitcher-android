@@ -51,7 +51,7 @@ public class NetworkResponseHandler {
 							e.printStackTrace();
 						}
 						model.setConnectionStatus(ConnectionModel.SUCCESS);
-						userModel.setUserLoggedIn(true);
+						userModel.setUserLoggedInStatus(UserModel.USER_NATIVE_LOGGEDIN);
 					model.notifyView();
 				}
 					break;
@@ -225,7 +225,7 @@ public class NetworkResponseHandler {
 						model.setConnectionErrorMessage(exceptionObj.getMessage());
 						model.notifyView();
 					}
-					userModel.setUserLoggedIn(true);
+					userModel.setUserLoggedInStatus(UserModel.USER_NATIVE_LOGGEDIN);
 					model.notifyView();
 				}
 					break;

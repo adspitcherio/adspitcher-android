@@ -112,7 +112,7 @@ public class BaseActivity extends ActionBarActivity {
 			break;
 		case Constants.DRAWER_SIGNOUT: {
 			UserModel userModel = AppEventsController.getInstance().getModelFacade().getUserModel();
-			userModel.setUserLoggedIn(false);
+			userModel.setUserLoggedInStatus(UserModel.USER_NOT_LOGGEDIN);
 			userModel.setAccessToken(null);
 		}
 			break;
